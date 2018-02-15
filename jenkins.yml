@@ -1,0 +1,50 @@
+---
+- hosts: all
+  gather_facts: no
+  
+  tasks:
+
+  - name: install maven (and other packages if needed)
+    become: yes
+    apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+    with_items:
+      - maven
+
+  - name: ensure required packages are installed for Java 7
+    apt: name=python-software-properties
+    become: yes
+
+
+
+  - name: Add Java repository to sources
+    apt_repository: repo='ppa:webupd8team/java'
+    become: yes
+
+
+  - name: Autoaccept license for Java
+    action: shell echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+
+
+  - name: Install Java 8
+    apt: name=oracle-java8-installer force=yes
+    become: yes
+
+    
+  - name: Downloading jenkins
+    shell: wget -q -O - http://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+    become: yes
+
+  - name: Updating jenkins source list
+    shell: sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+    become: yes 
+
+  - name: Updating APT package cache
+    become: yes
+    action: apt update_cache=yes
+
+  - name: Installing Jenkins
+    apt:
+      name: jenkins
+      state: present
+      install_recommends: yes
+    become: true
