@@ -2,11 +2,13 @@
 - hosts: all
   gather_facts: no
   become: yes
+  become_method: sudo
+
   
   tasks:
 
   - name: install maven (and other packages if needed)
-    apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+    apt: pkg={{ item }} state=latest update_cache=yes 
     with_items:
       - maven
       - git
@@ -18,14 +20,17 @@
     apt_repository: repo='ppa:webupd8team/java'
 
   - name: Autoaccept license for Java
-    action: shell echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+    action: shell echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
 
 
   - name: Install Java 8
     apt: name=oracle-java8-installer force=yes
     
   - name: Downloading jenkins
-    shell: wget -q -O - http://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+    apt_key:
+      url: "http://pkg.jenkins.io/debian/jenkins-ci.org.key"
+      state: present
+      validate_certs: no
 
   - name: Updating jenkins source list
     shell: sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
@@ -38,3 +43,37 @@
       name: jenkins
       state: present
       install_recommends: yes
+
+  # Update config file of jenkins
+  - name: Modify the config file
+    copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      owner: jenkins
+      group: jenkins
+      mode: 0777
+    with_items:
+      - { src: '/Users/siddhantshah1/Desktop/CSC519DevOps/Project/SyncedFolder/jenkins.xml', dest: '/var/lib/jenkins/config.xml' }
+    # Change the source path according to where the config file is.
+
+    # Setting jenkins as the owner of every job
+  - name: Change jenkins permission
+    file: dest=/var/lib/jenkins/workspace state=directory
+           owner=jenkins group=jenkins
+           mode=0775
+           recurse=yes
+        # command: find {{ /var/lib/jenkins/workspace }} -type d -exec chmod 0777 {} \;
+    # shell: chown -R jenkins /var/lib/jenkins/workspace/
+    # become: yes
+
+    # Restart Jenkins server after changing owner
+  - name: Restart Jenkins
+    service:
+      name: jenkins
+      state: restarted
+
+    #Wait for Jenkins server to restart
+  - wait_for:
+      timeout: 15
+
+
