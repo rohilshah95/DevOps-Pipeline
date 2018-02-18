@@ -64,40 +64,47 @@
 - wait_for:
     timeout: 15
 
+- name: Jenkins skip setup wizard
+  lineinfile:
+    dest=/etc/default/jenkins
+    regexp='^JENKINS_JAVA_OPTIONS='
+    line='JENKINS_JAVA_OPTIONS="-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false"'
+  register: result_skip_startup_wizard
+
   ## Fix to bypass setup wizard https://github.com/geerlingguy/ansible-role-jenkins/issues/50
-- name: Create a directory for Groovy
-  file:
-    path: "/var/lib/jenkins/init.groovy.d"
-    state: directory
-    mode: 0777
+# - name: Create a directory for Groovy
+#   file:
+#     path: "/var/lib/jenkins/init.groovy.d"
+#     state: directory
+#     mode: 0777
  
-- name: Create a template xml file for Jenkins checkbox build job
-  template: 
-    src: jenkins_script.groovy.j2 
-    dest: /var/lib/jenkins/init.groovy.d/basic-security.groovy 
-    mode: 0777
+# - name: Create a template xml file for Jenkins checkbox build job
+#   template: 
+#     src: jenkins_script.groovy.j2 
+#     dest: /var/lib/jenkins/init.groovy.d/basic-security.groovy 
+#     mode: 0777
 
-- name: Restart Jenkins (creates user through startup script)
-  service:
-    name: jenkins
-    state: restarted
+# - name: Restart Jenkins (creates user through startup script)
+#   service:
+#     name: jenkins
+#     state: restarted
 
-- wait_for:
-    timeout: 15
+# - wait_for:
+#     timeout: 15
 
-- name: Remove User-Creation Script
-  file:
-    path: "/var/lib/jenkins/init.groovy.d/basic-security.groovy"
-    state: absent
+# - name: Remove User-Creation Script
+#   file:
+#     path: "/var/lib/jenkins/init.groovy.d/basic-security.groovy"
+#     state: absent
 
-- wait_for:
-    timeout: 15
+# - wait_for:
+#     timeout: 15
    
 - name: Install Jenkin Plugins
   jenkins_plugin:
     name: "{{ item }}"
-    params: "{{ jenkins }}"
-    url_password: "{{jenkins_password}}"
+    # params: "{{ jenkins }}"
+    # url_password: "{{jenkins_password}}"
     url: "http://{{jenkins_ip}}:{{jenkins_port}}"
   with_items:
     - github
