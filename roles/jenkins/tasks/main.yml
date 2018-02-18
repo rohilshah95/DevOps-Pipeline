@@ -64,14 +64,6 @@
 - wait_for:
     timeout: 15
 
-  # - name: Bypass - jenkins.install.InstallUtil.lastExecVersion
-  #   copy: src={{ jenkins_home }}/jenkins.install.UpgradeWizard.state
-  #         dest={{ jenkins_home }}/jenkins.install.InstallUtil.lastExecVersion
-  #         owner={{ jenkins_user }}
-  #         group={{ jenkins_user }}
-  #         remote_src=True
-
-
   ## Fix to bypass setup wizard https://github.com/geerlingguy/ansible-role-jenkins/issues/50
 - name: Create a directory for Groovy
   file:
@@ -123,7 +115,7 @@
 
 
 - name: Download jenkins-cli jar
-  shell: cd /var/lib/jenkins/; wget 192.168.17.111:8080/jnlpJars/jenkins-cli.jar; 
+  shell: cd /var/lib/jenkins/; wget {{jenkins_ip}}:{{jenkins_port}}/jnlpJars/jenkins-cli.jar; 
 
 - name: Configure access to Jenkins CLI 
   shell: chown jenkins /var/lib/jenkins/jenkins-cli.jar; chmod 777 /var/lib/jenkins/jenkins-cli.jar
