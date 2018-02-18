@@ -1,27 +1,21 @@
 ---
-
-# Java Role: /roles/mysql/tasks/main.yml
 - name: Set MySQL root password before installing
-  debconf: name='mysql-server' question='mysql-server/root_password' value='{{mysql_password}}' vtype='password'
+  debconf: name='mysql-server' question='mysql-server/root_password' value='{{mysql_password | quote}}' vtype='password'
 
 - name: Confirm MySQL root password before installing
-  debconf: name='mysql-server' question='mysql-server/root_password_again' value='{{mysql_password}}' vtype='password'
+  debconf: name='mysql-server' question='mysql-server/root_password_again' value='{{mysql_password | quote}}' vtype='password'
 
-- name: Installing mysql server and client
-  apt:
-    name: "{{ items }}"
-    update_cache: yes
-    install_recommends: yes      
+- name: Install MySQL
+  apt: package={{ item }} state=installed force=yes update_cache=yes cache_valid_time=3600
+  when: ansible_os_family == 'Debian'
+  with_items:
+    - mysql-server
+    - python-mysqldb
 
-- name: Configure file for root password for mysql
-  template: 
-    src: ./roles/mysql/templates/my.cnf
-    dest: /etc/mysql/conf.d/mysql.cnf
-
-- name: Configure mysql server file
-  template: 
-    src: ./roles/mysql/templates/mysql.cfg
-    dest: /etc/mysql/conf.d/mysqld.cnf
-
-
-    
+- name: Secures the MySQL root user
+  mysql_user: user="root" password="{{ mysql_password }}" host="{{ item }}" login_password="{{mysql_password}}" login_user=root
+  with_items:
+    - 127.0.0.1
+    - localhost
+    - ::1
+    - "{{ ansible_fqdn }}"

@@ -1,4 +1,2 @@
 ---
-items:
-  - mysql-server
-  - mysql-client
+# vars file for mysql
