@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  vars_prompt: 
+    - name: jenkins_username 
+      prompt: "Enter your username" 
+      private: no 
+    - name: jenkins_password 
+      prompt: "Enter your password" 
+      private: yes
+
+  roles: 
+    - jenkins

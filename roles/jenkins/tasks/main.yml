@@ -1,0 +1,119 @@
+---
+- name: install maven (and other packages if needed)
+  apt: pkg={{ item }} state=latest update_cache=yes 
+  with_items:
+    - maven
+    - git
+
+- name: ensure required packages are installed for Java 8
+  apt: name=python-software-properties
+
+- name: Install add-apt-repostory
+  apt: name=software-properties-common state=latest
+
+- name: Add Oracle Java Repository
+  apt_repository: repo='ppa:webupd8team/java'
+
+- name: Accept Java 8 License
+  debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+
+- name: Install Java 8
+  apt: name=oracle-java8-installer force=yes
+    
+- name: Downloading jenkins
+  apt_key:
+    url: "http://pkg.jenkins.io/debian/jenkins-ci.org.key"
+    state: present
+    validate_certs: no
+
+- name: Updating jenkins source list
+  shell: sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+- name: Updating APT package cache
+  action: apt update_cache=yes
+
+- name: Installing Jenkins
+  apt:
+    name: jenkins
+    state: present
+    install_recommends: yes
+
+  # Update config file of jenkins
+- name: Modify the config file
+  copy:
+    src: jenkins.xml
+    dest: /var/lib/jenkins/config.xml
+    owner: "{{ jenkins_user }}"
+    group: "{{ jenkins_user }}"
+    mode: 0777
+  # Change the source path according to where the config file is.
+
+    # Setting jenkins as the owner of every job
+- name: Change jenkins permission
+  file: dest=/var/lib/jenkins/workspace state=directory
+         owner={{ jenkins_user }}
+         group={{ jenkins_user }}
+         mode=0775
+         recurse=yes
+    # Restart Jenkins server after changing owner
+- name: Restart Jenkins
+  service:
+    name: jenkins
+    state: restarted
+   #Wait for Jenkins server to restart
+- wait_for:
+    timeout: 15
+
+  # - name: Bypass - jenkins.install.InstallUtil.lastExecVersion
+  #   copy: src={{ jenkins_home }}/jenkins.install.UpgradeWizard.state
+  #         dest={{ jenkins_home }}/jenkins.install.InstallUtil.lastExecVersion
+  #         owner={{ jenkins_user }}
+  #         group={{ jenkins_user }}
+  #         remote_src=True
+
+
+  ## Fix to bypass setup wizard https://github.com/geerlingguy/ansible-role-jenkins/issues/50
+- name: Create a directory for Groovy
+  file:
+    path: "/var/lib/jenkins/init.groovy.d"
+    state: directory
+    mode: 0777
+ 
+- name: Create a template xml file for Jenkins checkbox build job
+  template: 
+    src: jenkins_script.groovy.j2 
+    dest: /var/lib/jenkins/init.groovy.d/basic-security.groovy 
+    mode: 0777
+
+- name: Restart Jenkins (creates user through startup script)
+  service:
+    name: jenkins
+    state: restarted
+
+- wait_for:
+    timeout: 15
+
+- name: Remove User-Creation Script
+  file:
+    path: "/var/lib/jenkins/init.groovy.d/basic-security.groovy"
+    state: absent
+   
+- name: Install Jenkin Plugins
+  jenkins_plugin:
+    name: "{{ item }}"
+    params: "{{ jenkins }}"
+    url_password: "{{jenkins_password}}"
+    url: "http://{{jenkins_ip}}:{{jenkins_port}}"
+  with_items:
+    - github
+    - postbuildscript
+    - postbuild-task
+    - ws-cleanup
+   
+- name: Restart Jenkins (for plugins)
+  service:
+    name: jenkins
+    state: restarted
+
+- wait_for:
+    timeout: 15

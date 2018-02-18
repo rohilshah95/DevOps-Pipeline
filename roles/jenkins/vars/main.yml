@@ -1,0 +1,9 @@
+---
+jenkins_ip: localhost
+jenkins_port: 8080
+jenkins_user: "jenkins"
+jenkins_home: "/var/lib/jenkins"
+jenkins:
+  url_username: "{{jenkins_username}}"
+  validate_certs: no
+# vars file for jenkins
