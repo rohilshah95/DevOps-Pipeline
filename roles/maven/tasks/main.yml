@@ -1,0 +1,8 @@
+---
+
+# Java Role: /roles/maven/tasks/main.yml
+- name: Installing Maven package
+  apt:
+    name: maven
+    update_cache: yes
+    install_recommends: yes

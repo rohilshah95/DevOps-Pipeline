@@ -1,0 +1,27 @@
+---
+
+# Java Role: /roles/mysql/tasks/main.yml
+- name: Set MySQL root password before installing
+  debconf: name='mysql-server' question='mysql-server/root_password' value='{{mysql_password}}' vtype='password'
+
+- name: Confirm MySQL root password before installing
+  debconf: name='mysql-server' question='mysql-server/root_password_again' value='{{mysql_password}}' vtype='password'
+
+- name: Installing mysql server and client
+  apt:
+    name: "{{ items }}"
+    update_cache: yes
+    install_recommends: yes      
+
+- name: Configure file for root password for mysql
+  template: 
+    src: ./roles/mysql/templates/my.cnf
+    dest: /etc/mysql/conf.d/mysql.cnf
+
+- name: Configure mysql server file
+  template: 
+    src: ./roles/mysql/templates/mysql.cfg
+    dest: /etc/mysql/conf.d/mysqld.cnf
+
+
+    

@@ -1,0 +1,48 @@
+---
+- hosts: all
+
+  become: yes
+
+  roles:
+    - java
+    - maven
+    - git
+    - mysql
+
+  vars_prompt:
+    - name: mysql_password
+      prompt: "Type your password for mysql server"
+
+    - name: ghusername
+      prompt: "Type your GitHub NCSU username"
+
+    - name: ghpassword
+      prompt: "Type your GitHub NCSU password"
+
+  tasks:
+  - name: Cloning Coffeemaker repo
+    git: 
+      repo: https://{{ ghusername | urlencode }}:{{ ghpassword | urlencode }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2
+      dest: /home/vagrant/code
+
+  - name: Configuring Hibernate for DB
+    template:
+      src: ./templates/db.properties.template
+      dest: /home/vagrant/code/iTrust2/src/main/java/db.properties
+
+  - name: Configuring Hibernate for Hibernate
+    template:
+      src: ./templates/hibernate.properties.template
+      dest: /home/vagrant/code/iTrust2/src/main/resources/hibernate.properties
+
+  - name: Configuring Hibernate for Email
+    template:
+      src: ./templates/email.properties.template
+      dest: /home/vagrant/code/iTrust2/src/main/java/email.properties
+
+  - name: Running iTrust Tests
+    shell: cd /home/vagrant/code/iTrust2/ && mvn clean test verify checkstyle:checkstyle
+    register: output
+
+  - debug:
+      var: output.stdout_lines
