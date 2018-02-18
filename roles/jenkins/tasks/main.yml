@@ -97,6 +97,9 @@
   file:
     path: "/var/lib/jenkins/init.groovy.d/basic-security.groovy"
     state: absent
+
+- wait_for:
+    timeout: 15
    
 - name: Install Jenkin Plugins
   jenkins_plugin:
@@ -116,4 +119,11 @@
     state: restarted
 
 - wait_for:
-    timeout: 15
+    timeout: 30
+
+
+- name: Download jenkins-cli jar
+  shell: cd /var/lib/jenkins/; wget 192.168.17.111:8080/jnlpJars/jenkins-cli.jar; 
+
+- name: Configure access to Jenkins CLI 
+  shell: chown jenkins /var/lib/jenkins/jenkins-cli.jar; chmod 777 /var/lib/jenkins/jenkins-cli.jar
