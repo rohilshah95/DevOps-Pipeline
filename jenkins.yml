@@ -3,6 +3,16 @@
   gather_facts: no
   become: yes
   become_method: sudo
+  vars:
+    jenkins_ip: localhost
+    jenkins_port: 8080
+    jenkins_user: "jenkins"
+    jenkins_home: "/var/lib/jenkins"
+    jenkins_username: "rshah8"
+    jenkins_password: "rshah8"
+    jenkins:
+      url_username: "{{jenkins_username}}"
+      validate_certs: no
 
   
   tasks:
@@ -49,22 +59,20 @@
     copy:
       src: "{{ item.src }}"
       dest: "{{ item.dest }}"
-      owner: jenkins
-      group: jenkins
+      owner: "{{ jenkins_user }}"
+      group: "{{ jenkins_user }}"
       mode: 0777
     with_items:
-      - { src: '/Users/siddhantshah1/Desktop/CSC519DevOps/Project/SyncedFolder/jenkins.xml', dest: '/var/lib/jenkins/config.xml' }
+      - { src: './jenkins.xml', dest: '/var/lib/jenkins/config.xml' }
     # Change the source path according to where the config file is.
 
     # Setting jenkins as the owner of every job
   - name: Change jenkins permission
     file: dest=/var/lib/jenkins/workspace state=directory
-           owner=jenkins group=jenkins
+           owner={{ jenkins_user }}
+           group={{ jenkins_user }}
            mode=0775
            recurse=yes
-        # command: find {{ /var/lib/jenkins/workspace }} -type d -exec chmod 0777 {} \;
-    # shell: chown -R jenkins /var/lib/jenkins/workspace/
-    # become: yes
 
     # Restart Jenkins server after changing owner
   - name: Restart Jenkins
@@ -76,4 +84,57 @@
   - wait_for:
       timeout: 15
 
+  # - name: Bypass - jenkins.install.InstallUtil.lastExecVersion
+  #   copy: src={{ jenkins_home }}/jenkins.install.UpgradeWizard.state
+  #         dest={{ jenkins_home }}/jenkins.install.InstallUtil.lastExecVersion
+  #         owner={{ jenkins_user }}
+  #         group={{ jenkins_user }}
+  #         remote_src=True
+
+
+  ## Fix to bypass setup wizard https://github.com/geerlingguy/ansible-role-jenkins/issues/50
+  - name: Create a directory for Groovy
+    file:
+      path: "/var/lib/jenkins/init.groovy.d"
+      state: directory
+      mode: 0777
+   
+  - name: Create a template xml file for Jenkins checkbox build job
+    template: 
+      src: ./jenkins_script.groovy.j2 
+      dest: /var/lib/jenkins/init.groovy.d/basic-security.groovy 
+      mode: 0777
+
+  - name: Restart Jenkins (creates user through startup script)
+    service:
+      name: jenkins
+      state: restarted
+
+  - wait_for:
+      timeout: 15
+
+  - name: Remove User-Creation Script
+    file:
+      path: "/var/lib/jenkins/init.groovy.d/basic-security.groovy"
+      state: absent
+   
+  - name: Install Jenkin Plugins
+    jenkins_plugin:
+      name: "{{ item }}"
+      params: "{{ jenkins }}"
+      url_password: "{{jenkins_password}}"
+      url: "http://{{jenkins_ip}}:{{jenkins_port}}"
+    with_items:
+      - github
+      - postbuildscript
+      - postbuild-task
+      - ws-cleanup
+   
+  - name: Restart Jenkins (for plugins)
+    service:
+      name: jenkins
+      state: restarted
+
+  - wait_for:
+      timeout: 15
 
