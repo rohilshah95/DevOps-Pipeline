@@ -1,13 +1,8 @@
 ---
 
-# Java Role: /roles/maven/tasks/main.yml
-- name: Installing maven repo
-  apt_repository:
-    repo: 'ppa:andrei-pozolotin/maven3'
-    update_cache: yes
-
+# Maven Role: /roles/maven/tasks/main.yml
 - name: Installing Maven package
   apt:
-    name: maven3
+    name: maven
     update_cache: yes
     install_recommends: yes

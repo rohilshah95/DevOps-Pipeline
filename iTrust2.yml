@@ -41,8 +41,4 @@
       dest: /home/vagrant/code/iTrust2/src/main/java/email.properties
 
   - name: Running iTrust Tests
-    shell: cd /home/vagrant/code/iTrust2/ && mvn clean test verify checkstyle:checkstyle
-    register: output
-
-  - debug:
-      var: output.stdout_lines
+    shell: cd /home/vagrant/code/iTrust2/ && ( (nohup mvn jetty:run) & )
