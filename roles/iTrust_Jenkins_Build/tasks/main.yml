@@ -1,0 +1,39 @@
+---
+# Install java maven and git using roles , in the file that calls this file.
+# This is the template file for building.
+
+- name: Ensure file exists
+  copy:
+    content: ""
+    dest: /tmp/itrust_temp.xml
+    force: yes
+
+- name: Create a template file for iTrust build job
+  template: src=build_xml.j2 dest=/tmp/itrust_temp.xml
+
+- name: Update Sudoers file for Jenkins User
+  lineinfile:
+    dest: /etc/sudoers
+    line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
+  become: yes
+
+- name: Check if job exists
+  become: yes
+  shell: "java -jar {{ jenkins_cli_jar_loc }}/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ list-jobs --username {{jenkins_username}} --password {{jenkins_password}}"
+  register: jenkins_it_stat
+
+- name: Create jenkins jobs with xml files
+  become: yes
+  shell: "java -jar {{ jenkins_cli_jar_loc }}/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ create-job {{ jenkins_iTrust_job_name }} < /tmp/itrust_temp.xml --username {{jenkins_username}} --password {{jenkins_password}}"
+  when: jenkins_it_stat.stdout.find(jenkins_iTrust_job_name)==-1
+
+- name: Extract build location
+  lineinfile:
+    path: "{{jobs_extract_location}}/app_deploy/roles/iTrustDeploy/vars/main.yml"
+    line: "iTrustRepoLocation: /var/lib/jenkins/jobs/{{jenkins_iTrust_job_name}}/workspace/iTrust-v23/iTrust/"
+    state: present
+
+- name: Build Jenkins Job for iTrust
+  become: yes
+  shell: "java -jar {{ jenkins_cli_jar_loc }}/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{ jenkins_iTrust_job_name }} --username {{jenkins_username}} --password {{jenkins_password}} -s"
+
