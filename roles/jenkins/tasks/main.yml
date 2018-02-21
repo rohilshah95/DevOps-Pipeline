@@ -1,9 +1,11 @@
 ---
-- name: install maven (and other packages if needed)
+- name: install packages
   apt: pkg={{ item }} state=latest update_cache=yes 
   with_items:
     - maven
     - git
+    - npm
+    - nodejs-legacy
 
 - name: ensure required packages are installed for Java 8
   apt: name=python-software-properties
@@ -38,91 +40,51 @@
     state: present
     install_recommends: yes
 
-  # Update config file of jenkins
-- name: Modify the config file
-  copy:
-    src: jenkins.xml
-    dest: /var/lib/jenkins/config.xml
-    owner: "{{ jenkins_user }}"
-    group: "{{ jenkins_user }}"
+  ## Fix to bypass setup wizard https://github.com/geerlingguy/ansible-role-jenkins/issues/50
+- name: Create a directory for Groovy
+  file:
+    path: "/var/lib/jenkins/init.groovy.d"
+    state: directory
     mode: 0777
-  # Change the source path according to where the config file is.
+ 
+- name: Create a user for jenkins server
+  template: 
+    src: jenkins_script.groovy.j2 
+    dest: /var/lib/jenkins/init.groovy.d/basic-security.groovy 
+    mode: 0777
 
-    # Setting jenkins as the owner of every job
-- name: Change jenkins permission
-  file: dest=/var/lib/jenkins/workspace state=directory
-         owner={{ jenkins_user }}
-         group={{ jenkins_user }}
-         mode=0775
-         recurse=yes
-    # Restart Jenkins server after changing owner
-- name: Restart Jenkins
+- name: Restart Jenkins and add user
   service:
     name: jenkins
     state: restarted
-   #Wait for Jenkins server to restart
+
 - wait_for:
     timeout: 15
 
-- name: Jenkins skip setup wizard
-  lineinfile:
-    dest=/etc/default/jenkins
-    regexp='^JENKINS_JAVA_OPTIONS='
-    line='JENKINS_JAVA_OPTIONS="-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false"'
-  register: result_skip_startup_wizard
+- name: Remove script to avoid duplicate users
+  file:
+    path: "/var/lib/jenkins/init.groovy.d/basic-security.groovy"
+    state: absent
 
-  ## Fix to bypass setup wizard https://github.com/geerlingguy/ansible-role-jenkins/issues/50
-# - name: Create a directory for Groovy
-#   file:
-#     path: "/var/lib/jenkins/init.groovy.d"
-#     state: directory
-#     mode: 0777
- 
-# - name: Create a template xml file for Jenkins checkbox build job
-#   template: 
-#     src: jenkins_script.groovy.j2 
-#     dest: /var/lib/jenkins/init.groovy.d/basic-security.groovy 
-#     mode: 0777
-
-# - name: Restart Jenkins (creates user through startup script)
-#   service:
-#     name: jenkins
-#     state: restarted
-
-# - wait_for:
-#     timeout: 15
-
-# - name: Remove User-Creation Script
-#   file:
-#     path: "/var/lib/jenkins/init.groovy.d/basic-security.groovy"
-#     state: absent
-
-# - wait_for:
-#     timeout: 15
+- wait_for:
+    timeout: 30
    
 - name: Install Jenkin Plugins
   jenkins_plugin:
     name: "{{ item }}"
-    # params: "{{ jenkins }}"
-    # url_password: "{{jenkins_password}}"
+    params: "{{ jenkins }}"
+    url_password: "{{jenkins_password}}"
     url: "http://{{jenkins_ip}}:{{jenkins_port}}"
   with_items:
     - github
-    - postbuildscript
     - postbuild-task
     - ws-cleanup
+    - postbuildscript
    
-- name: Restart Jenkins (for plugins)
+- name: Restart Jenkins 
   service:
     name: jenkins
     state: restarted
 
 - wait_for:
     timeout: 30
-
-
-- name: Download jenkins-cli jar
-  shell: cd /var/lib/jenkins/; wget {{jenkins_ip}}:{{jenkins_port}}/jnlpJars/jenkins-cli.jar; 
-
-- name: Configure access to Jenkins CLI 
-  shell: chown jenkins /var/lib/jenkins/jenkins-cli.jar; chmod 777 /var/lib/jenkins/jenkins-cli.jar
