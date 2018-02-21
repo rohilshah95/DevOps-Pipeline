@@ -20,7 +20,7 @@
       prompt: "Type your GitHub NCSU password"
 
   tasks:
-  - name: Cloning Coffeemaker repo
+  - name: Cloning iTrust2 repo
     git: 
       repo: https://{{ ghusername | urlencode }}:{{ ghpassword | urlencode }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2
       dest: /home/vagrant/code
