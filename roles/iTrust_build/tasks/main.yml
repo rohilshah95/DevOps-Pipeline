@@ -1,0 +1,22 @@
+---
+
+  - name: Create a template file for iTrust build job
+    template: src=/Users/siddhantshah1/Desktop/CSC519DevOps/Project/SyncedFolder/iTrust.xml dest=/tmp/itrust_temp.xml
+
+  - name: Create a template file for iTrust build job
+    template: src=/Users/siddhantshah1/Desktop/CSC519DevOps/Project/SyncedFolder/db.properties.template dest={iTrust_path}/src/main/java/db.properties
+
+  - name: Create a template file for iTrust build job
+    template: src=/Users/siddhantshah1/Desktop/CSC519DevOps/Project/SyncedFolder/hibernate.properties.template dest={iTrust_path}/src/main/java/hibernate.properties
+
+  - name: Create a template file for iTrust build job
+    template: src=/Users/siddhantshah1/Desktop/CSC519DevOps/Project/SyncedFolder/email.properties.template dest={iTrust_path}/src/main/java/email.properties
+
+  - name: Create job iTrust
+    shell: java -jar /var/lib/jenkins/jenkins-cli.jar -s http://192.168.17.111:8080/ create-job iTrust < /tmp/itrust_temp.xml
+    ignore_errors: yes
+
+  - name: Run main job
+    shell: java -jar /var/lib/jenkins/jenkins-cli.jar -s http://192.168.17.111:8080/ build iTrust
+
+
