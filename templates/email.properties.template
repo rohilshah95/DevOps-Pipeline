@@ -1,4 +1,4 @@
 from 
 username onepluscarrental
-password 18182112
+password {{smtp_password}}
 host smtp.gmail.com
