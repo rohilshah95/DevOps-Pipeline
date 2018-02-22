@@ -2,7 +2,7 @@
   - name: Clone Checkbox IO application
     git: 
       repo: https://github.com/vjhebbar/checkbox.io.git
-      dest: /home/vagrant/checkbox
+      dest: {{cb_path}}
 
   - name: Start mongodb service
     service:
@@ -18,7 +18,7 @@
 
   - name: Copy the nginx configuration file
     copy: 
-      src: '/home/vagrant/checkbox/local-conf/nginx.conf'
+      src: '{{cb_path}}/local-conf/nginx.conf'
       dest: '/etc/nginx/nginx.conf'
       remote_src: yes  
       force: yes
@@ -26,7 +26,7 @@
   - name: Fetch nginx configuration file
     run_once: true
     fetch:
-      src: '/home/vagrant/checkbox/local-conf/default'
+      src: '{{cb_path}}/local-conf/default'
       dest: '/home/vagrant/tmp/'
       flat: yes
 
@@ -42,6 +42,6 @@
   - name: Start NodeJS Server
     command: 'nohup nodejs server.js &'
     args:
-      chdir: '/home/vagrant/checkbox/server-side/site'
+      chdir: '{{cb_path}}/server-side/site'
  
 
