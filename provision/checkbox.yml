@@ -4,7 +4,7 @@
   roles:
     - git
     - env
-
+    
   vars: 
     cb_path: '/home/vagrant/checkbox'
     mongo_user: 'admin'
@@ -14,35 +14,6 @@
     git: 
       repo: https://github.com/vjhebbar/checkbox.io.git
       dest: /home/vagrant/checkbox
-
-  - name: install pip
-    apt:
-     name: python3-pip
-     state: installed
-
-  - name: install pymongo
-    pip:
-     name: pymongo
-     state: present
-
-  - name: Adding the key for Mongodb
-    apt_key:
-      url: "https://www.mongodb.org/static/pgp/server-3.6.asc"
-      state: present
-
-  - name: Add the mongodb repo
-    apt_repository: 
-      repo: "deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" 
-      state: present
-  
-  - debug:
-      msg: "{{ansible_env.MAIL_USER}}"
- 
-  - name: Install mongodb
-    apt:
-      name: mongodb-org
-      state: installed
-      update_cache: yes
 
   - name: Start mongodb service
     service:
