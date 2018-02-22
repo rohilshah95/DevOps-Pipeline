@@ -6,3 +6,5 @@ roles/iTrust_build/templates/.DS_Store
 roles/iTrust_build/tasks/.DS_Store
 roles/.DS_Store
 .DS_Store
+password.txt
+.vault_pass.txt

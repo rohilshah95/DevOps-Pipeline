@@ -12,8 +12,11 @@
 
   roles: 
     # - mysql
-    - ansible
+    # - ansible
     # - jenkins
     # - checkbox_build
     # - iTrust_build
-    
+    #
+  tasks:
+    - name: Upload directory to Deployment host
+      copy: src=./provision dest=~/deploy directory_mode=yes 
