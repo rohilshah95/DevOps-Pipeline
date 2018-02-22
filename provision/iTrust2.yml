@@ -3,29 +3,18 @@
 
   become: yes
 
+  - include_vars: ../secrets.yml
+
   roles:
     - java
     - maven
     - git
     - mysql
 
-  vars_prompt:
-    - name: mysql_password
-      prompt: "Type your password for mysql server"
-
-    - name: ghusername
-      prompt: "Type your GitHub NCSU username"
-
-    - name: ghpassword
-      prompt: "Type your GitHub NCSU password"
-      
-    - name: smtp_password
-      prompt: "Type smtp password"
-
   tasks:
   - name: Cloning iTrust2 repo
     git: 
-      repo: https://{{ ghusername | urlencode }}:{{ ghpassword | urlencode }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2
+      repo: https://{{ git_token }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2
       dest: /home/vagrant/code
 
   - name: Configuring Hibernate for DB
