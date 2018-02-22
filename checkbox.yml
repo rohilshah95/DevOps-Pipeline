@@ -1,0 +1,78 @@
+---
+- hosts: all
+  become: yes
+  roles:
+    - git
+
+  vars: 
+    cb_path: '/home/vagrant/checkbox'
+ 
+  tasks:
+  - name: Clone Checkbox IO application
+    git: 
+      repo: https://github.com/vjhebbar/checkbox.io.git
+      dest: /home/vagrant/checkbox
+
+  # - name: Add environment variables
+  #   lineinfile:
+  #     dest: /etc/environment
+  #     state: present
+
+  - name: Adding the key for Mongodb
+    apt_key:
+      url: "https://www.mongodb.org/static/pgp/server-3.6.asc"
+      state: present
+
+  - name: Add the mongodb repo
+    apt_repository: 
+      repo: "deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" 
+      state: present
+
+  - name: Install mongodb
+    apt:
+      name: mongodb-org
+      state: installed
+      update_cache: yes
+
+  - name: Install nginx
+    apt:
+      name: nginx
+      state: installed
+   
+  - name: Add mongodb users
+    mongodb_user:
+      database: admin
+      name: admin
+      password: {{mongo_pass}}
+      state: present 
+
+  - name: Copy the nginx configuration file
+    copy: 
+      src: '/home/vagrant/checkbox/local-conf/nginx.conf'
+      dest: '/etc/nginx/nginx.conf'
+      remote_src: yes  
+      force: yes
+
+  - debug:
+      msg: "{{cb_path}}"
+
+
+  - name: Fetch mysql config file
+    run_once: true
+    fetch:
+      src: '/home/vagrant/checkbox/local-conf/default'
+      dest: '/home/vagrant/tmp/'
+      flat: yes
+
+  - name: Copy the nginx default files
+    template: 
+      src: '/home/vagrant/tmp/default'
+      dest: '/etc/nginx/sites-available/default'  
+      force: yes
+
+  - name: reload nginx
+    command: nginx -s reload 
+
+# setup the environment variables
+
+# start the node js server`
