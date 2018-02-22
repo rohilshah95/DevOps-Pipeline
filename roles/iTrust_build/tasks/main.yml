@@ -17,5 +17,5 @@
   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ create-job {{jenkins_iTrust}} < /tmp/itrust_temp.xml --username {{jenkins_username}} --password {{jenkins_password}}"
   when: jenkins_check.stdout.find(jenkins_iTrust)==-1
 
-# - name: Build iTrust job
-#   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{jenkins_iTrust}} --username {{jenkins_username}} --password {{jenkins_password}} -s"
+- name: Build iTrust job
+  shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{jenkins_iTrust}} --username {{jenkins_username}} --password {{jenkins_password}} -s"

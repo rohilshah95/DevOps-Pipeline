@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: ec2itrust
 
   become: yes
 
@@ -18,6 +18,9 @@
 
     - name: ghpassword
       prompt: "Type your GitHub NCSU password"
+      
+    - name: smtp_password
+      prompt: "Type smtp password"
 
   tasks:
   - name: Cloning iTrust2 repo
