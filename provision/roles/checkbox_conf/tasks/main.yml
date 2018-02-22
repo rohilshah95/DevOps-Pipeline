@@ -23,7 +23,7 @@
       remote_src: yes  
       force: yes
 
-  - name: Fetch nginx configuration file
+  - name: Fetch nginx default file for templating
     run_once: true
     fetch:
       src: '{{cb_path}}/local-conf/default'
