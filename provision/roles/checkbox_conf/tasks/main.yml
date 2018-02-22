@@ -27,12 +27,12 @@
     run_once: true
     fetch:
       src: '{{cb_path}}/local-conf/default'
-      dest: '/home/vagrant/tmp/'
+      dest: '/tmp/'
       flat: yes
 
   - name: Copy the nginx default files
     template: 
-      src: '/home/vagrant/tmp/default'
+      src: '/tmp/default'
       dest: '/etc/nginx/sites-available/default'  
       force: yes
 
@@ -40,7 +40,7 @@
     command: nginx -s reload
 
   - name: Start NodeJS Server
-    command: 'nohup nodejs server.js &'
+    command: 'nohup (nodejs server.js) &'
     args:
       chdir: '{{cb_path}}/server-side/site'
  
