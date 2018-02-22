@@ -10,7 +10,7 @@
     - mysql
 
   tasks:
-  - include_vars: ../secrets.yml
+  - include_vars: secrets.yml
   - name: Cloning iTrust2 repo
     git: 
       repo: https://{{ git_token }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2
