@@ -29,8 +29,8 @@
 
   roles: 
     # - mysql
-    # - ansible
+    - ansible
     # - jenkins
     # - checkbox_build
-    - iTrust_build
+    # - iTrust_build
     
