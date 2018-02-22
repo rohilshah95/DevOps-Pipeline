@@ -3,9 +3,11 @@
   become: yes
   roles:
     - git
+    - env
 
   vars: 
     cb_path: '/home/vagrant/checkbox'
+    mongo_user: 'admin'
  
   tasks:
   - name: Clone Checkbox IO application
@@ -13,10 +15,15 @@
       repo: https://github.com/vjhebbar/checkbox.io.git
       dest: /home/vagrant/checkbox
 
-  # - name: Add environment variables
-  #   lineinfile:
-  #     dest: /etc/environment
-  #     state: present
+  - name: install pip
+    apt:
+     name: python3-pip
+     state: installed
+
+  - name: install pymongo
+    pip:
+     name: pymongo
+     state: present
 
   - name: Adding the key for Mongodb
     apt_key:
@@ -27,23 +34,58 @@
     apt_repository: 
       repo: "deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" 
       state: present
-
+  
+  - debug:
+      msg: "{{ansible_env.MAIL_USER}}"
+ 
   - name: Install mongodb
     apt:
       name: mongodb-org
       state: installed
       update_cache: yes
 
+  - name: Start mongodb service
+    service:
+      name: mongod
+      state: started
+
   - name: Install nginx
     apt:
       name: nginx
       state: installed
+  
+#  - name: Add NodeJS GPG key
+#    apt_key:
+#      url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+
+#  - name: Add NodeJS Repo
+#    apt_repository:
+#      repo: "deb https://deb.nodesource.com/setup_9.x {{ ansible_distribution_release }} main"
+#      state: present
+
+  - name: Install NodeJS
+    apt:
+      name: nodejs-legacy
+      state: present
+      update_cache: yes
+
+  - name: Install NPM
+    apt:
+      name: npm
+      state: present
+      update_cache: yes
    
+  - name: Install node dependencies
+    npm:
+      path: /home/vagrant/checkbox/server-side/site/
+      state: present
+
+
   - name: Add mongodb users
     mongodb_user:
       database: admin
-      name: admin
-      password: {{mongo_pass}}
+      name: '{{mongo_user}}'
+      password: '{{mongo_pwd}}'
       state: present 
 
   - name: Copy the nginx configuration file
@@ -53,11 +95,7 @@
       remote_src: yes  
       force: yes
 
-  - debug:
-      msg: "{{cb_path}}"
-
-
-  - name: Fetch mysql config file
+  - name: Fetch nginx configuration file
     run_once: true
     fetch:
       src: '/home/vagrant/checkbox/local-conf/default'
@@ -71,8 +109,11 @@
       force: yes
 
   - name: reload nginx
-    command: nginx -s reload 
+    command: nginx -s reload
 
-# setup the environment variables
+  - name: Start NodeJS Server
+    command: 'nohup nodejs server.js &'
+    args:
+      chdir: '/home/vagrant/checkbox/server-side/site'
+ 
 
-# start the node js server`
