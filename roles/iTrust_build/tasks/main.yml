@@ -1,5 +1,5 @@
 ---
-
+- include_vars: ../../../secrets.yml
 - name: Create a template file for iTrust build job
   template: src=iTrust.xml dest=/tmp/itrust_temp.xml
 

@@ -1,29 +1,12 @@
 ---
 - hosts: all
   become: yes
-  vars_prompt: 
-    - name: jenkins_username 
-      prompt: "Enter jenkins username" 
-      private: no 
-    - name: jenkins_password 
-      prompt: "Enter jenkins password" 
-      private: yes
-    - name: mysql_password
-      prompt: "Type your password for mysql server"
-    - name: git_username
-      prompt: "Type your GitHub NCSU username"
-      private: no
-    - name: git_password
-      prompt: "Type your GitHub NCSU password"
 
   vars:
     jenkins_ip: localhost
     jenkins_port: 8080
     jenkins_user: "jenkins"
     jenkins_home: "/var/lib/jenkins"
-    jenkins:
-      url_username: "{{jenkins_username}}"
-      validate_certs: no
     jenkins_checkbox: checkboxJob
     jenkins_iTrust: iTrustJob
 

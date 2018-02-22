@@ -13,7 +13,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>git clone https://{{git_username | urlencode}}:{{git_password | urlencode}}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2.git
+      <command>git clone https://{{ git_token }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2.git
               sudo mv /tmp/db.properties iTrust2-v2/iTrust2/src/main/java/db.properties
               sudo mv /tmp/hibernate.properties iTrust2-v2/iTrust2/src/main/resources/hibernate.properties
               cd iTrust2-v2/iTrust2/
