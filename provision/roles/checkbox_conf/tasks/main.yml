@@ -2,7 +2,7 @@
   - name: Clone Checkbox IO application
     git: 
       repo: https://github.com/vjhebbar/checkbox.io.git
-      dest: {{cb_path}}
+      dest: '{{cb_path}}'
 
   - name: Start mongodb service
     service:
