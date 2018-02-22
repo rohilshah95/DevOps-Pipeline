@@ -73,7 +73,9 @@
 - name: Install Jenkin Plugins
   jenkins_plugin:
     name: "{{ item }}"
-    params: "{{ jenkins }}"
+    # params: "{{ jenkins }}"
+    url_username: "{{jenkins_username}}"
+    validate_certs: no
     url_password: "{{jenkins_password}}"
     url: "http://{{jenkins_ip}}:{{jenkins_port}}"
   with_items:
