@@ -40,8 +40,6 @@
     command: nginx -s reload
 
   - name: Start NodeJS Server
-    command: 'nohup (nodejs server.js) &'
-    args:
-      chdir: '{{cb_path}}/server-side/site'
- 
+    shell: cd {{cb_path}}/server-side/site && ( (nohup node server.js) & )
+    
 
