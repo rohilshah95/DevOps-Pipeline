@@ -10,6 +10,7 @@
     count: 1
 
   tasks:
+    - include_vars: secrets.yml
     - name: Create key
       ec2_key:
         aws_access_key: '{{aws_access_key}}'
