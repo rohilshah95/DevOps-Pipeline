@@ -1,5 +1,5 @@
 ---
-- hosts: locals
+- hosts: localhost
   become: false
   vars:
     instance_type: t2.micro
