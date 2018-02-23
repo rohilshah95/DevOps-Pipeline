@@ -101,4 +101,7 @@
       dest: /home/vagrant/code/iTrust2/src/main/java/email.properties
 
   - name: Run iTrust application
+    shell: cd /home/vagrant/code/iTrust2/ && mvn process-test-classes
+
+  - name: Run iTrust application
     shell: cd /home/vagrant/code/iTrust2/ && ( (nohup mvn jetty:run) & )
