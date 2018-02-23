@@ -8,3 +8,4 @@ roles/.DS_Store
 .DS_Store
 password.txt
 .vault_pass.txt
+*.pem

@@ -14,8 +14,8 @@
   <builders>
     <hudson.tasks.Shell>
       <command>git clone https://{{ git_token }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2.git
-              sudo mv /tmp/db.properties iTrust2-v2/iTrust2/src/main/java/db.properties
-              sudo mv /tmp/hibernate.properties iTrust2-v2/iTrust2/src/main/resources/hibernate.properties
+              sudo cp /tmp/db.properties iTrust2-v2/iTrust2/src/main/java/db.properties
+              sudo cp /tmp/hibernate.properties iTrust2-v2/iTrust2/src/main/resources/hibernate.properties
               cd iTrust2-v2/iTrust2/
               sudo mvn process-test-classes
               sudo mvn clean test verify checkstyle:checkstyle
@@ -33,8 +33,8 @@
             </hudson.plugins.postbuildtask.LogProperties>
           </logTexts>
           <EscalateStatus>false</EscalateStatus>
-          <RunIfJobSuccessful>false</RunIfJobSuccessful>
-          <script>ansible-playbook ~/deploy/iTrust.yml -i ~/deploy/inventory --vault-password-file ~/.password.txt</script>
+          <RunIfJobSuccessful>true</RunIfJobSuccessful>
+          <script>ansible-playbook /home/vagrant/deploy/iTrust2.yml -i /home/vagrant/deploy/inventory --vault-password-file /home/vagrant/deploy/password.txt </script>
         </hudson.plugins.postbuildtask.TaskProperties>
       </tasks>
     </hudson.plugins.postbuildtask.PostbuildTask>

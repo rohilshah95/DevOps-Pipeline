@@ -1,5 +1,9 @@
 ---
 - include_vars: ../../../secrets.yml
+
+- name: Upload directory to Deployment host
+  synchronize: src=./provision/ dest=~/deploy rsync_opts="--chmod=F666"
+
 - name: install packages
   apt: pkg={{ item }} state=latest update_cache=yes 
   with_items:
@@ -40,6 +44,9 @@
     name: jenkins
     state: present
     install_recommends: yes
+
+# - name: Copy aws key to jenkins 
+#   shell: cp /home/vagrant/deploy/rohilshah.pem /var/lib/jenkins && chmod 600 /var/lib/jenkins/rohilshah.pem && chown jenkins /var/lib/jenkins/rohilshah.pem && chgrp jenkins /var/lib/jenkins/rohilshah.pem
 
   ## Fix to bypass setup wizard https://github.com/geerlingguy/ansible-role-jenkins/issues/50
 - name: Create a directory for Groovy

@@ -45,8 +45,8 @@
             </hudson.plugins.postbuildtask.LogProperties>
           </logTexts>
           <EscalateStatus>false</EscalateStatus>
-          <RunIfJobSuccessful>false</RunIfJobSuccessful>
-          <script>ansible-playbook ~/deploy/checkbox.yml -i ~/deploy/inventory --vault-password-file ~/.password.txt</script>
+          <RunIfJobSuccessful>true</RunIfJobSuccessful>
+          <script>ansible-playbook /home/vagrant/deploy/checkbox.yml -i /home/vagrant/deploy/inventory --vault-password-file /home/vagrant/deploy/password.txt</script>
         </hudson.plugins.postbuildtask.TaskProperties>
       </tasks>
     </hudson.plugins.postbuildtask.PostbuildTask>

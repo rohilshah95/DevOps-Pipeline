@@ -5,21 +5,28 @@
     instance_type: t2.micro
     security_group: ansible-webserver 
     image: ami-79873901 
-    keypair: ec2checkbox 
+    keypair: ec2checkbox
     region: us-west-2 
     count: 1
 
   tasks:
     - name: Create key
       ec2_key:
+        aws_access_key: '{{aws_access_key}}'
+        aws_secret_key: '{{aws_secret_key}}'
         name: "{{keypair}}"
         region: us-west-2
-        key_material: "{{ item }}"
-      with_file: ~/.ssh/id_rsa.pub
-      register: ec2_key_result
+      register: ec2_key
+
+    # - debug: var=ec2_key 
+    - name: Save private key
+      copy: content="{{ ec2_key.key.private_key }}" dest="/var/lib/jenkins/aws-private.pem" mode=0600 owner="jenkins" group="jenkins"
+      when: ec2_key.changed
 
     - name: Launch the new EC2 Instance
       local_action: ec2 
+                    aws_access_key={{aws_access_key}}
+                    aws_secret_key={{aws_secret_key}}
                     group={{ security_group }} 
                     instance_type={{ instance_type}} 
                     image={{ image }} 
@@ -44,8 +51,7 @@
         groups=ec2checkbox
         ansible_ssh_host="{{ ec2.instances[0].public_ip }}"
         ansible_ssh_user=ubuntu
-        ansible_ssh_private_key_file="~/.ssh/id_rsa" 
-
+        ansible_ssh_private_key_file="~/aws-private.pem" 
     - pause: 
         minutes: 1
 
@@ -66,5 +72,3 @@
     - nginx
     - nodejs
     - checkbox_conf
-
- 
