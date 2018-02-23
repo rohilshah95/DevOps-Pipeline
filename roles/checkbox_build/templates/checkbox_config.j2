@@ -46,7 +46,7 @@
           </logTexts>
           <EscalateStatus>false</EscalateStatus>
           <RunIfJobSuccessful>true</RunIfJobSuccessful>
-          <script>ansible-playbook /home/ubuntu/deploy/checkbox.yml -i /home/ubuntu/deploy/inventory --vault-password-file /home/ubuntu/deploy/password.txt</script>
+          <script>ansible-playbook /home/ubuntu/deploy/checkbox.yml --vault-password-file /home/ubuntu/deploy/password.txt</script>
         </hudson.plugins.postbuildtask.TaskProperties>
       </tasks>
     </hudson.plugins.postbuildtask.PostbuildTask>
