@@ -9,6 +9,12 @@
 - name: Checkbox build config
   template: src=checkbox_config.j2 dest=/tmp/checkbox_config.xml
 
+- name: Update Sudoers file for Jenkins User
+  lineinfile:
+    dest: /etc/sudoers
+    line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
+  become: yes
+
 - name: Check if job already made
   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ list-jobs --username {{jenkins_username}} --password {{jenkins_password}}"
   register: jenkins_check

@@ -34,7 +34,7 @@
           </logTexts>
           <EscalateStatus>false</EscalateStatus>
           <RunIfJobSuccessful>true</RunIfJobSuccessful>
-          <script>ansible-playbook /home/vagrant/deploy/iTrust2.yml -i /home/vagrant/deploy/inventory --vault-password-file /home/vagrant/deploy/password.txt </script>
+          <script>ansible-playbook /home/ubuntu/deploy/iTrust2.yml -i /home/ubuntu/deploy/inventory --vault-password-file /home/ubuntu/deploy/password.txt </script>
         </hudson.plugins.postbuildtask.TaskProperties>
       </tasks>
     </hudson.plugins.postbuildtask.PostbuildTask>

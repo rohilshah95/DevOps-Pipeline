@@ -11,6 +11,12 @@
     - git
     - npm
     - nodejs-legacy
+    - python-pip
+
+- name: install boto
+  pip:
+    name: boto
+    state: latest
 
 - name: ensure required packages are installed for Java 8
   apt: name=python-software-properties
@@ -75,7 +81,7 @@
     state: absent
 
 - wait_for:
-    timeout: 30
+    timeout: 80
    
 - name: Install Jenkin Plugins
   jenkins_plugin:

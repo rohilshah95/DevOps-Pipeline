@@ -3,10 +3,17 @@
     apt:
       name: nodejs-legacy
       state: present
-      update_cache: yes
-
+      update_cache: yes   
+      
   - name: Install NPM
     apt:
       name: npm
       state: present
       update_cache: yes
+      
+  - name: Install forever 
+    npm:
+      name: forever
+      state: latest
+      global: yes
+    
