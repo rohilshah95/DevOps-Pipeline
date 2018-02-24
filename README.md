@@ -11,11 +11,11 @@ Rohil Shah      (rshah8)
 Siddhant Shah   (sshah14)  
 Vijay Hebbar    (vhhebbar)  
 
-## Subbmission
+## Submission
 
 #### Ansible Scripts
 
-[main.yml](main.yml), the only script to be run on the Configuration Management Server (machin having ansible) using the following command:
+[main.yml](main.yml), the only script to be run on the Configuration Management Server (machine having ansible) using the following command:
 
 ``` 
 ansible-playbook main.yml --vault-password-file ./password.txt
