@@ -7,8 +7,8 @@
 #### Learnings
 
 * Installing and configuring nginx automatically 
-* Configuring environment variables in an idempotent manner
-* Installing and configuring mongodb via ansible
+* Configuring environment variables permanently on a node in an idempotent manner
+* Installing and configuring mongodb automatically
 
 #### Challenges
 
