@@ -1,6 +1,28 @@
 ### Jenkins Server - rshah8 & sshah14
+#### Learnings
+
+* Implementing roles in ansible playbooks. 
+* Setting up the authentication of jenkings using ansible playbook.
+* Installing and configuring java, boto, maven and other such packages automatically
+
+#### Challenges
+
+* Learning how to write groovy scripts and integrating groovy with Jenkins as part of initialization.
+* Using usernames and passwords dynamically in ansible playbooks.
+* Interpreting status codes which jenkins returned in different situations. 
+
 
 ### Jobkins Job-Builder - rshah8 & sshah14
+#### Learnings
+
+
+
+#### Challenges
+
+* Since the script had to be idempotent, we had to figure out a way to restart the Jenkins server and also handle user login using Jenkins' command line interface.
+* We experienced little difficulty in parsing the XML format Jenkins Job file.
+* Waiting for Jenkins to start before creating the buil job was also troublesome.
+
 
 ### Checkbox.io - vhhebbar
 
