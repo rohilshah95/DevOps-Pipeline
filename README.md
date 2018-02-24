@@ -25,9 +25,8 @@ where password.txt contains the [vault](secrets.yml) password.
 
 [Jenkins automation](/roles/jenkins/tasks/main.yml)  
 [checkbox.io](/roles/checkbox_build/tasks/main.yml) + [iTrust](/roles/iTrust_build/tasks/main.yml) build jobs  
-[Provisioning two machines for deploying checkbox.io and iTrust](/provision/provision.yml)  
-[iTrust post-build configuration](/provision/iTrust2.yml)  
-[checkbox.io post-build configuration](/provision/checkbox.yml)  
+[iTrust post-build provisioning and configuration](/provision/iTrust2.yml)  
+[checkbox.io post-build provisioning and configuration](/provision/checkbox.yml)  
 
 #### Report
 
