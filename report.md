@@ -51,4 +51,8 @@
 
 #### Challenges
 
-* **mysql with iTrust** - It was easy to deploy the application, but we weren't able to login into iTrust for some reason. We used the 'skip-grant-tables' mode to override the root permission. This enables anyone to connect without a password and with all privileges.
+* **mysql with iTrust** - It was easy to deploy the application, but we weren't able to login into iTrust for some reason. We used the 'skip-grant-tables' mode to override the root permission. This enables anyone to connect to the database without a password and with all privileges.
+
+Attached logged in application:
+
+![](/contents/iTrust2_loggedin.JPG)
