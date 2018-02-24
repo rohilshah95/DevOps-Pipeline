@@ -14,7 +14,9 @@
 
 ### Jobkins Job-Builder - rshah8 & sshah14
 #### Learnings
-
+* Using plugins in Jenkins using jenkins_plugin module in ansible.
+* We also learnt how to use the Jenkins' command line interface using various Jenkins' user security mechanisms.
+* Another important concept we learnt was the creation, updating and deletion of jobs in ansible.
 
 
 #### Challenges
