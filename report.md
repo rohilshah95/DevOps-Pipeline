@@ -10,13 +10,12 @@
 * Learning how to write groovy scripts and integrating groovy with Jenkins to skip the initial setup task [(Reference to fix)](https://github.com/geerlingguy/ansible-role-jenkins/issues/50#issuecomment-246454894)
 
 
-### Jobkins Job-Builder - rshah8 & sshah14
+### Jenkins Job-Builder - rshah8 & sshah14
 #### Learnings
 * Using plugins in Jenkins using jenkins_plugin module in ansible.
 * We also learnt how to use the Jenkins' command line interface using various Jenkins' user security mechanisms.
 * Another important concept we learnt was the creation, updating and deletion of jobs in ansible.
 * Setup build jobs to build applications automatically, can be periodic and then being able to run a ppst build action that can run additional scripts after the build is a success. We can use this to run tests automatically on a build if the build job passes.
-
 
 
 #### Challenges
@@ -42,4 +41,14 @@
 
 * **nginx** - After configuring nginx files on vagrant - nginx.conf and sites-available/defaults, the nginx server still showed the old welcome page. Changing the nginx.conf to point to the sites-enabled/defaults instead of sites-available/defaults seemed to solve the problem, although this step was not necessary. However, this issue was solved after deploying nginx on AWS; on hindsight, it was most probably an environment issue.
 
-#### iTrust2 - rcoutin
+### iTrust2 - rcoutin
+
+#### Learnings
+
+* Installing and configuring iTrust automatically 
+* Configuring db properties, email properties and hibernte properties using templates
+* Configuring mysqld.cnf and adding users to iTrust database using HibernateDataGenerator
+
+#### Challenges
+
+* **mysql with iTrust** - It was easy to deploy the application, but we weren't able to login into iTrust for some reason. We used the 'skip-grant-tables' mode to override the root permission. This enables anyone to connect without a password and with all privileges.
