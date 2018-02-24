@@ -102,7 +102,7 @@
       src: ./templates/email.properties.template
       dest: /home/vagrant/code/iTrust2/src/main/java/email.properties
 
-  - name: Run iTrust application
+  - name: Build iTrust2 Database
     shell: cd /home/vagrant/code/iTrust2/ && mvn process-test-classes
 
   - name: Run iTrust application
