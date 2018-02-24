@@ -6,10 +6,10 @@
 
 **Members**:
 
-Rahul Coutinho  (rcoutin)
-Rohil Shah      (rshah8)
-Siddhant Shah   (sshah14)
-Vijay Hebbar    (vhhebbar)
+Rahul Coutinho  (rcoutin)  
+Rohil Shah      (rshah8)  
+Siddhant Shah   (sshah14)  
+Vijay Hebbar    (vhhebbar)  
 
 ## Subbmission
 
@@ -23,11 +23,11 @@ ansible-playbook main.yml --vault-password-file ./password.txt
 where password.txt contains the [vault](secrets.yml) password.
 
 
-[Jenkins automation](/roles/jenkins/tasks/main.yml)
-[checkbox.io](/roles/checkbox_build/tasks/main.yml) + [iTrust](/roles/iTrust_build/tasks/main.yml) build jobs
-[Provisioning two machines for deploying checkbox.io and iTrust](/provision/provision.yml)
-[iTrust post-build configuration](/provision/iTrust2.yml)
-[checkbox.io post-build configuration](/provision/checkbox.yml)
+[Jenkins automation](/roles/jenkins/tasks/main.yml)  
+[checkbox.io](/roles/checkbox_build/tasks/main.yml) + [iTrust](/roles/iTrust_build/tasks/main.yml) build jobs  
+[Provisioning two machines for deploying checkbox.io and iTrust](/provision/provision.yml)  
+[iTrust post-build configuration](/provision/iTrust2.yml)  
+[checkbox.io post-build configuration](/provision/checkbox.yml)  
 
 #### Report
 
