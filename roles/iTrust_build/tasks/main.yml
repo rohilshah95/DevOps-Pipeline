@@ -1,0 +1,75 @@
+---
+
+- name: Configuring mysqld.conf
+  lineinfile:
+    path: /etc/mysql/mysql.conf.d/mysqld.cnf
+    line: 'skip-grant-tables'
+    insertafter: '[mysqld]' 
+
+# - include_vars: ../../../secrets.yml
+- name: Download Jenkins CLI
+  get_url:
+    url: http://{{ jenkins_ip }}:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar
+    dest: '/var/lib/jenkins/'
+
+- name: Install Jenkins Job Builder using PIP
+  pip:
+    name: jenkins-job-builder
+    state: latest
+
+- name: Copy ini file to the directory
+  template:
+    src: templates/jenkins_jobs.ini
+    dest: /etc/jenkins_jobs/
+
+- name: Make jobs directory
+  file:
+    path: jobs
+    state: directory
+    mode: 0777
+
+- name: Create iTrust job builder file
+  template:
+    src: templates/itrust-job.yaml
+    dest: jobs/
+
+- name: Copy db.properties
+  template: src=db.properties.j2 dest=/tmp/db.properties
+
+- name: Copy hibernate.properties
+  template: src=hibernate.properties.j2 dest=/tmp/hibernate.properties
+
+- name: Copy email.properties
+  template: src=email.properties.template dest=/tmp/email.properties
+
+- name: Copy pom.xml
+  template: src=pom-data.xml dest=/tmp/pom-data.xml
+
+- name: Copy pom_original.xml
+  template: src=pom_original.xml dest=/tmp/pom_original.xml  
+
+- name: Add the jobs
+  shell: jenkins-jobs update jobs
+
+# - name: clone iTrust
+#   git: repo=https://{{ git_token | urlencode }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2 dest=/home/ubuntu/iTrust
+
+# - name: Create a template file for iTrust build job
+#   template: src=iTrust-job.xml.j2 dest=/tmp/itrust_temp.xml
+
+# - name: Copy db.properties
+#   template: src=db.properties.j2 dest=/home/ubuntu/iTrust/iTrust2/src/main/java/db.properties/
+
+# - name: Copy hibernate.properties
+#   template: src=hibernate.properties.j2 dest=/home/ubuntu/iTrust/iTrust2/src/main/resources/hibernate.properties
+
+# - name: Check if job already made
+#   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ list-jobs --username {{jenkins_username}} --password {{jenkins_password}}"
+#   register: jenkins_check
+
+# - name: Create Job
+#   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ create-job {{jenkins_iTrust}} < /tmp/itrust_temp.xml --username {{jenkins_username}} --password {{jenkins_password}}"
+#   when: jenkins_check.stdout.find(jenkins_iTrust)==-1
+
+# - name: Build iTrust job
+#   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{jenkins_iTrust}} --username {{jenkins_username}} --password {{jenkins_password}} -s"

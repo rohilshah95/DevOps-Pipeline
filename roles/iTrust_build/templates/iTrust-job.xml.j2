@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.plugins.build__timeout.BuildStepWithTimeout plugin="build-timeout@1.19">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>25</timeoutMinutes>
+      </strategy>
+      <buildStep class="hudson.tasks.Shell">
+        <command>
+          git clone https://{{ git_token | urlencode }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2
+          sudo cp /tmp/db.properties iTrust2-v2/iTrust2/src/main/java/db.properties
+          sudo cp /tmp/hibernate.properties iTrust2-v2/iTrust2/src/main/resources/hibernate.properties
+          sudo cp /tmp/email.properties iTrust2-v2/iTrust2/src/main/java/email.properties
+          sudo cp /tmp/pom-data.xml iTrust2-v2/iTrust2/pom-data.xml
+          cd iTrust2-v2/iTrust2/
+          sudo mvn -f pom-data.xml process-test-classes
+          sudo mvn test verify checkstyle:checkstyle
+        </command>
+      </buildStep>
+      <operationList class="empty-list"/>
+    </hudson.plugins.build__timeout.BuildStepWithTimeout>
+  </builders>
+  <publishers>
+    <hudson.plugins.jacoco.JacocoPublisher plugin="jacoco@2.2.1">
+      <execPattern>**/**.exec</execPattern>
+      <classPattern>**/classes</classPattern>
+      <sourcePattern>**/src</sourcePattern>
+      <inclusionPattern></inclusionPattern>
+      <exclusionPattern>**/*Test*.class</exclusionPattern>
+      <skipCopyOfSrcFiles>false</skipCopyOfSrcFiles>
+      <minimumInstructionCoverage>0</minimumInstructionCoverage>
+      <minimumBranchCoverage>0</minimumBranchCoverage>
+      <minimumComplexityCoverage>0</minimumComplexityCoverage>
+      <minimumLineCoverage>0</minimumLineCoverage>
+      <minimumMethodCoverage>0</minimumMethodCoverage>
+      <minimumClassCoverage>0</minimumClassCoverage>
+      <maximumInstructionCoverage>0</maximumInstructionCoverage>
+      <maximumBranchCoverage>0</maximumBranchCoverage>
+      <maximumComplexityCoverage>0</maximumComplexityCoverage>
+      <maximumLineCoverage>0</maximumLineCoverage>
+      <maximumMethodCoverage>0</maximumMethodCoverage>
+      <maximumClassCoverage>0</maximumClassCoverage>
+      <changeBuildStatus>false</changeBuildStatus>
+      <deltaInstructionCoverage>0</deltaInstructionCoverage>
+      <deltaBranchCoverage>0</deltaBranchCoverage>
+      <deltaComplexityCoverage>0</deltaComplexityCoverage>
+      <deltaLineCoverage>0</deltaLineCoverage>
+      <deltaMethodCoverage>0</deltaMethodCoverage>
+      <deltaClassCoverage>0</deltaClassCoverage>
+      <buildOverBuild>false</buildOverBuild>
+    </hudson.plugins.jacoco.JacocoPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.34">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>

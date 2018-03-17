@@ -1,0 +1,7 @@
+---
+- name: Add Ansible Repository
+  apt_repository:
+    repo: 'ppa:ansible/ansible'
+
+- name: Install ansible
+  apt: pkg=ansible

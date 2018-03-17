@@ -1,0 +1,5 @@
+
+*.txt
+inventory
+*.retry
+roles/.DS_Store

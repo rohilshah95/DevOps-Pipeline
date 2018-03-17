@@ -1,0 +1,4 @@
+from falcondevops
+username falcondevops
+password {{smtp_pwd}}
+host smtp.gmail.com

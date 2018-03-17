@@ -1,0 +1,10 @@
+- include_vars: ../../../secrets.yml
+- name: Install Prerequisites
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - git
+    - maven
+    - build-essential
