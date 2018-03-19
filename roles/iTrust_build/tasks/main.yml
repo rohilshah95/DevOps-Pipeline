@@ -10,7 +10,7 @@
 - name: Download Jenkins CLI
   get_url:
     url: http://{{ jenkins_ip }}:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar
-    dest: '/var/lib/jenkins/'
+    dest: /var/lib/jenkins/
 
 - name: Install Jenkins Job Builder using PIP
   pip:
@@ -28,43 +28,42 @@
     state: directory
     mode: 0777
 
-- name: Create iTrust job builder file
+- name: Copy iTrust job builder file
   template:
     src: templates/itrust-job.yaml
     dest: jobs/
 
 - name: Copy db.properties
-  template: src=db.properties.j2 dest=/tmp/db.properties
+  template: 
+    src: db.properties.j2 
+    dest: /tmp/db.properties
 
 - name: Copy hibernate.properties
-  template: src=hibernate.properties.j2 dest=/tmp/hibernate.properties
+  template: 
+    src: hibernate.properties.j2 
+    dest: /tmp/hibernate.properties
 
 - name: Copy email.properties
-  template: src=email.properties.template dest=/tmp/email.properties
+  template: 
+    src: email.properties.template 
+    dest: /tmp/email.properties
 
 - name: Copy pom.xml
-  template: src=pom-data.xml dest=/tmp/pom-data.xml
+  template: 
+    src: pom-data.xml 
+    dest: /tmp/pom-data.xml
 
 - name: Copy pom_original.xml
-  template: src=pom_original.xml dest=/tmp/pom_original.xml  
+  template: 
+    src: pom_original.xml 
+    dest: /tmp/pom_original.xml  
 
 - name: Add the jobs
   shell: jenkins-jobs update jobs
 
-- name: clone iTrust
-  git: repo=https://{{ git_token | urlencode }}@github.ncsu.edu/sshah14/iTrust2-v2 dest=/home/ubuntu/iTrust
 
 # - name: Create a template file for iTrust build job
 #   template: src=iTrust-job.xml.j2 dest=/tmp/itrust_temp.xml
-
-- name: Copy db.properties
-  template: src=db.properties.j2 dest=/home/ubuntu/iTrust/iTrust2/src/main/java/db.properties/
-
-- name: Copy email.properties
-  template: src=email.properties.template dest=/home/ubuntu/iTrust/iTrust2/src/main/java/email.properties/
-
-- name: Copy hibernate.properties
-  template: src=hibernate.properties.j2 dest=/home/ubuntu/iTrust/iTrust2/src/main/resources/hibernate.properties
 
 # - name: Check if job already made
 #   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ list-jobs --username {{jenkins_username}} --password {{jenkins_password}}"

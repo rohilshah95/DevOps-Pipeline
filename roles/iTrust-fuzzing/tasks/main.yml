@@ -1,27 +1,39 @@
 ---
+- name: clone iTrust
+  git: repo=https://{{ git_token | urlencode }}@github.ncsu.edu/sshah14/iTrust2-v2 dest=/home/ubuntu/iTrust
 
-- name: Copy fuzzing files to Jenkins home dir
+- name: Copy db.properties
+  template: 
+    src: db.properties.j2 
+    dest: /home/ubuntu/iTrust/iTrust2/src/main/java/db.properties/
+
+- name: Copy email.properties
+  template: 
+    src: email.properties.template 
+    dest: /home/ubuntu/iTrust/iTrust2/src/main/java/email.properties/
+
+- name: Copy hibernate.properties
+  template: 
+    src: hibernate.properties.j2 
+    dest: /home/ubuntu/iTrust/iTrust2/src/main/resources/hibernate.properties
+
+- name: Copy package.json to iTrust directory
   copy:
     src: package.json
-    dest: "/home/ubuntu/iTrust/"
+    dest: /home/ubuntu/iTrust/
 
-- name: Copy fuzzing files to Jenkins home dir
+- name: Copy fuzzing.js to iTrust directory
   copy:
     src: fuzzing.js
-    dest: "/home/ubuntu/iTrust/"
-
-- name: Copy report files to Jenkins home dir
-  template:
-    src: copyReport.js
-    dest: "/home/ubuntu/iTrust/"
+    dest: /home/ubuntu/iTrust/
 
 - name: Add git config
-  shell: git config --global user.email "rshah8"
+  shell: git config --global user.email "rshah8@ncsu.edu"
 
 - name: Add git config
   shell: git config --global user.name "Rohil Shah"
 
-- name: Copy fuzzing files to Jenkins home dir
+- name: Copy runFuzzing.js to iTrust directory
   template:
     src: templates/runFuzzing.js
     dest: /home/ubuntu/iTrust/
@@ -34,7 +46,7 @@
 
 - name: Install packages based on package.json.
   npm:
-    path: "/home/ubuntu/iTrust/"
+    path: /home/ubuntu/iTrust/
 
 - name: Create iTrust job builder file
   template:
@@ -52,7 +64,7 @@
     group: jenkins
     mode: 0755
 
-- name: Creates directory
+- name: Creates empty directory
   file:
     path: /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2
     state: directory
@@ -68,12 +80,12 @@
 - name: Copy report files to Jenkins home dir
   template:
     src: copyReport.js
-    dest: "/var/lib/jenkins/"
+    dest: /var/lib/jenkins/
 
-- name: Copy fuzzing files to Jenkins home dir
+- name: Copy package.json to Jenkins home dir
   copy:
     src: package.json
-    dest: "/var/lib/jenkins"
+    dest: /var/lib/jenkins
 
 - name: Install packages based on package.json.
   npm:
