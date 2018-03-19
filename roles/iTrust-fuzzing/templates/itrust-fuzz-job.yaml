@@ -3,11 +3,12 @@
     description: "built by job builder"
     builders:
       - shell: |
-            sudo cp /tmp/db.properties iTrust2-v2/iTrust2/src/main/java/db.properties 
-            sudo cp /tmp/hibernate.properties iTrust2-v2/iTrust2/src/main/resources/hibernate.properties 
-            sudo cp /tmp/email.properties iTrust2-v2/iTrust2/src/main/java/email.properties 
-            sudo cp /tmp/pom-data.xml iTrust2-v2/iTrust2/pom-data.xml 
+            sudo cp /tmp/db.properties iTrust2-v2/iTrust/iTrust2/src/main/java/db.properties 
+            sudo cp /tmp/hibernate.properties iTrust2-v2/iTrust/iTrust2/src/main/resources/hibernate.properties 
+            sudo cp /tmp/email.properties iTrust2-v2/iTrust/iTrust2/src/main/java/email.properties 
+            sudo cp /tmp/pom-data.xml iTrust2-v2/iTrust/iTrust2/pom-data.xml 
             cd iTrust2-v2
+            cd iTrust
             cd iTrust2
             sudo mvn process-test-classes -f pom-data.xml 
             sudo mvn clean test verify checkstyle:checkstyle

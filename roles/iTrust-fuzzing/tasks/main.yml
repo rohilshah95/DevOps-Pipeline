@@ -10,6 +10,12 @@
     src: fuzzing.js
     dest: "/home/ubuntu/iTrust/"
 
+- name: Add git config
+  shell: git config --global user.email "rshah8"
+
+- name: Add git config
+  shell: git config --global user.name "Rohil Shah"
+
 - name: Copy fuzzing files to Jenkins home dir
   template:
     src: templates/runFuzzing.js
@@ -48,6 +54,11 @@
     owner: jenkins
     group: jenkins
     mode: 0755
+
+- name: run fuzzer job
+  shell: node runFuzzing.js
+  args:
+    chdir: /home/ubuntu/iTrust
 
 # - name: Build Jenkins Job for iTrust
   # shell: "java -jar {{ jenkins_cli_jar_loc }}/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{ jenkins_iTrust_fuzz }} --username {{jenkins_username}} --password {{jenkins_password}} -s"

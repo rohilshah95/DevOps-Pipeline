@@ -33,7 +33,7 @@ function main() {
 
 
 
-    for (var i = 1; i <= 2; i++) {
+    for (var i = 1; i <= 5; i++) {
 
         // var maxRetries = 50;
 
@@ -98,7 +98,7 @@ function pull(local) {
 
 function commit(local, message) {
 
-    console.log("hi")
+    // console.log("hi")
     var result = child_process.execSync(`sudo git add *java && sudo git commit -m "${message}" `, {
         cwd: local
     }).toString('utf8');
