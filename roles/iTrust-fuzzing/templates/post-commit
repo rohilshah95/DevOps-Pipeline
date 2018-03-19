@@ -1,0 +1,8 @@
+#!/bin/bash
+sudo rm -rf /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2 
+sudo mkdir /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2
+sudo cp -R /home/ubuntu/iTrust/ /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/ 
+echo "hello"
+sudo chgrp -R jenkins /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2 
+sudo chown -R jenkins /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2 
+java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{jenkins_iTrust_fuzz}} --username {{jenkins_username}} --password {{jenkins_password}} -s

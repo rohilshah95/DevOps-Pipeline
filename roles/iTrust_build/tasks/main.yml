@@ -51,17 +51,20 @@
 - name: Add the jobs
   shell: jenkins-jobs update jobs
 
-# - name: clone iTrust
-#   git: repo=https://{{ git_token | urlencode }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2 dest=/home/ubuntu/iTrust
+- name: clone iTrust
+  git: repo=https://{{ git_token | urlencode }}@github.ncsu.edu/sshah14/iTrust2-v2 dest=/home/ubuntu/iTrust
 
 # - name: Create a template file for iTrust build job
 #   template: src=iTrust-job.xml.j2 dest=/tmp/itrust_temp.xml
 
-# - name: Copy db.properties
-#   template: src=db.properties.j2 dest=/home/ubuntu/iTrust/iTrust2/src/main/java/db.properties/
+- name: Copy db.properties
+  template: src=db.properties.j2 dest=/home/ubuntu/iTrust/iTrust2/src/main/java/db.properties/
 
-# - name: Copy hibernate.properties
-#   template: src=hibernate.properties.j2 dest=/home/ubuntu/iTrust/iTrust2/src/main/resources/hibernate.properties
+- name: Copy email.properties
+  template: src=email.properties.template dest=/home/ubuntu/iTrust/iTrust2/src/main/java/email.properties/
+
+- name: Copy hibernate.properties
+  template: src=hibernate.properties.j2 dest=/home/ubuntu/iTrust/iTrust2/src/main/resources/hibernate.properties
 
 # - name: Check if job already made
 #   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ list-jobs --username {{jenkins_username}} --password {{jenkins_password}}"

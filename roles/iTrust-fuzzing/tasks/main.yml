@@ -1,0 +1,53 @@
+---
+
+- name: Copy fuzzing files to Jenkins home dir
+  copy:
+    src: package.json
+    dest: "/home/ubuntu/iTrust/"
+
+- name: Copy fuzzing files to Jenkins home dir
+  copy:
+    src: fuzzing.js
+    dest: "/home/ubuntu/iTrust/"
+
+- name: Copy fuzzing files to Jenkins home dir
+  template:
+    src: templates/runFuzzing.js
+    dest: /home/ubuntu/iTrust/
+
+- name: Copy post commit files to iTrust hook
+  template:
+    src: templates/post-commit
+    dest: /home/ubuntu/iTrust/.git/hooks/
+    mode: 0777
+
+- name: Install packages based on package.json.
+  npm:
+    path: "/home/ubuntu/iTrust/"
+
+- name: Create iTrust job builder file
+  template:
+    src: templates/itrust-fuzz-job.yaml
+    dest: jobs/
+
+- name: Add the jobs
+  shell: jenkins-jobs update jobs
+
+- name: Creates directory
+  file:
+    path: /var/lib/jenkins/workspace/iTrust-Fuzz-Job
+    state: directory
+    owner: jenkins
+    group: jenkins
+    mode: 0755
+
+- name: Creates directory
+  file:
+    path: /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2
+    state: directory
+    owner: jenkins
+    group: jenkins
+    mode: 0755
+
+# - name: Build Jenkins Job for iTrust
+  # shell: "java -jar {{ jenkins_cli_jar_loc }}/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{ jenkins_iTrust_fuzz }} --username {{jenkins_username}} --password {{jenkins_password}} -s"
