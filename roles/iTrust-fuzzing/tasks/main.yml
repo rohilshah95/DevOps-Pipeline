@@ -89,7 +89,7 @@
 
 - name: Install packages based on package.json.
   npm:
-    path: "/var/lib/jenkins"
+    path: /var/lib/jenkins
 
 - name: run fuzzer job
   shell: node runFuzzing.js
