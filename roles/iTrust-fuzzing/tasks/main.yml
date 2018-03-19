@@ -10,6 +10,11 @@
     src: fuzzing.js
     dest: "/home/ubuntu/iTrust/"
 
+- name: Copy report files to Jenkins home dir
+  template:
+    src: copyReport.js
+    dest: "/home/ubuntu/iTrust/"
+
 - name: Add git config
   shell: git config --global user.email "rshah8"
 
@@ -54,6 +59,25 @@
     owner: jenkins
     group: jenkins
     mode: 0755
+
+- name: Creates report directory
+  file:
+    path: /home/ubuntu/reports
+    state: directory
+
+- name: Copy report files to Jenkins home dir
+  template:
+    src: copyReport.js
+    dest: "/var/lib/jenkins/"
+
+- name: Copy fuzzing files to Jenkins home dir
+  copy:
+    src: package.json
+    dest: "/var/lib/jenkins"
+
+- name: Install packages based on package.json.
+  npm:
+    path: "/var/lib/jenkins"
 
 - name: run fuzzer job
   shell: node runFuzzing.js
