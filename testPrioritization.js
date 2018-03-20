@@ -2,7 +2,9 @@ var fs = require('fs'),
     xml2js = require('xml2js'),
     child  = require('child_process'),
     Bluebird = require('bluebird');
+var xmlparser = require('junit-xml-parser').parser;
 var parser = new xml2js.Parser();
+var obj = fs.readFileSync('/Users/siddhantshah1/Downloads/DevOps-master/Workshops/workshop-testsuite/TestSuites/result.xml','utf8')
 
 /* Add file path here */
 var testReport =  '';
@@ -85,6 +87,9 @@ fs.readFile(__dirname + testReport, function(err, data) {
         }
 
                 console.log(testResult);
+        xmlparser.parse(obj).then(function (result) {
+        console.log(result)
+    })
 
     });
 });
