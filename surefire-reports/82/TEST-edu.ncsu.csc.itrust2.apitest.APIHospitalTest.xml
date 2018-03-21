@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.ncsu.csc.itrust2.apitest.APIHospitalTest" time="0.175" tests="2" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.161-b12"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/iTrust/iTrust2"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/iTrust/iTrust2"/>
+    <property name="java.runtime.version" value="1.8.0_161-b12"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="4.4.0-116-generic"/>
+    <property name="user.home" value="/root"/>
+    <property name="user.timezone" value="Etc/UTC"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="user.name" value="root"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-oracle/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test verify checkstyle:checkstyle"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_161"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="testGetNonExistentHospital" classname="edu.ncsu.csc.itrust2.apitest.APIHospitalTest" time="0.026"/>
+  <testcase name="testHospitalAPI" classname="edu.ncsu.csc.itrust2.apitest.APIHospitalTest" time="0.106">
+    <failure message="Status expected:&lt;200&gt; but was:&lt;404&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<200> but was:<404>
+	at edu.ncsu.csc.itrust2.apitest.APIHospitalTest.testHospitalAPI(APIHospitalTest.java:81)
+]]></failure>
+    <system-out><![CDATA[21:07:43.484 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [edu.ncsu.csc.itrust2.apitest.APIHospitalTest]
+21:07:43.484 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [edu.ncsu.csc.itrust2.apitest.APIHospitalTest]
+21:07:43.484 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@42a363a testClass = APIHospitalTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+21:07:43.484 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@194e913b size = 1, maxSize = 32, parentContextCount = 0, hitCount = 39, missCount = 1]
+21:07:43.484 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test context [DefaultTestContext@7bacb1b0 testClass = APIHospitalTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIHospitalTest@e6cd3f2, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@42a363a testClass = APIHospitalTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+21:07:43.484 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@7bacb1b0 testClass = APIHospitalTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIHospitalTest@e6cd3f2, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@42a363a testClass = APIHospitalTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]].
+21:07:43.484 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@42a363a testClass = APIHospitalTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+21:07:43.484 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@194e913b size = 1, maxSize = 32, parentContextCount = 0, hitCount = 40, missCount = 1]
+21:07:43.485 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Processing injected element of bean 'edu.ncsu.csc.itrust2.apitest.APIHospitalTest': AutowiredFieldElement for private org.springframework.web.context.WebApplicationContext edu.ncsu.csc.itrust2.apitest.APIHospitalTest.context
+21:07:43.485 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - Before test method: context [DefaultTestContext@7bacb1b0 testClass = APIHospitalTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIHospitalTest@e6cd3f2, testMethod = testHospitalAPI@APIHospitalTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@42a363a testClass = APIHospitalTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+21:07:43.485 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
+21:07:43.485 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+21:07:43.485 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
+21:07:43.493 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+21:07:43.493 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+21:07:43.493 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+21:07:43.494 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+21:07:43.494 [main] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
+21:07:43.494 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
+21:07:43.494 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+21:07:43.494 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+21:07:43.494 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate LocaleResolver with name 'localeResolver': using default [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@110ff7e2]
+21:07:43.494 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+21:07:43.494 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+21:07:43.494 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@72937624]
+21:07:43.495 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewControllerHandlerMapping'
+21:07:43.495 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'beanNameHandlerMapping'
+21:07:43.495 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'resourceHandlerMapping'
+21:07:43.495 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'defaultServletHandlerMapping'
+21:07:43.495 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerMapping'
+21:07:43.495 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerAdapter'
+21:07:43.495 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'httpRequestHandlerAdapter'
+21:07:43.495 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'simpleControllerHandlerAdapter'
+21:07:43.495 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'handlerExceptionResolver'
+21:07:43.495 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+21:07:43.495 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+21:07:43.495 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1a88c8c7]
+21:07:43.496 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'mvcViewResolver'
+21:07:43.496 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewResolver'
+21:07:43.496 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+21:07:43.496 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+21:07:43.496 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@6deb4efb]
+21:07:43.496 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
+21:07:43.496 [main] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+21:07:43.496 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
+21:07:43.496 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing DELETE request for [/api/v1/hospitals]
+21:07:43.496 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/hospitals
+21:07:43.497 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolving exception from handler [null]: org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' not supported
+21:07:43.497 [main] DEBUG o.s.w.s.m.a.ResponseStatusExceptionResolver - Resolving exception from handler [null]: org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' not supported
+21:07:43.497 [main] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolving exception from handler [null]: org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' not supported
+21:07:43.497 [main] WARN  o.s.web.servlet.PageNotFound - Request method 'DELETE' not supported
+21:07:43.497 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+21:07:43.497 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+21:07:43.498 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing POST request for [/api/v1/hospitals]
+21:07:43.498 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/hospitals
+21:07:43.498 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIHospitalController.createHospital(edu.ncsu.csc.itrust2.forms.admin.HospitalForm)]
+21:07:43.498 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIHospitalController'
+21:07:43.499 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class edu.ncsu.csc.itrust2.forms.admin.HospitalForm] as "application/json" with [org.springframework.http.converter.json.GsonHttpMessageConverter@266ffc8c]
+21:07:43.499 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+21:07:43.515 [main] DEBUG org.hibernate.SQL - select this_.name as name1_4_0_, this_.address as address2_4_0_, this_.state as state3_4_0_, this_.zip as zip4_4_0_ from Hospitals this_ where this_.name=?
+Hibernate: select this_.name as name1_4_0_, this_.address as address2_4_0_, this_.state as state3_4_0_, this_.zip as zip4_4_0_ from Hospitals this_ where this_.name=?
+21:07:43.517 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+21:07:43.517 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.518 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.518 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.518 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+21:07:43.518 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+21:07:43.518 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+21:07:43.518 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+21:07:43.518 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+21:07:43.518 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+21:07:43.518 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Hospital{zip=27607, address=1 iTrust Test Street, name=iTrust Test Hospital 2, state=NC}
+21:07:43.522 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [{"status":"failed","message":"Hospital with the name iTrust Test Hospital 2 already exists"}] as "text/plain" using [org.springframework.http.converter.StringHttpMessageConverter@6fcfe31b]
+21:07:43.522 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+21:07:43.522 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+21:07:43.522 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/api/v1/hospitals/iTrust%20Test%20Hospital%202]
+21:07:43.523 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/hospitals/iTrust Test Hospital 2
+21:07:43.524 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIHospitalController.getHospital(java.lang.String)]
+21:07:43.524 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIHospitalController'
+21:07:43.524 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Last-Modified value for [/api/v1/hospitals/iTrust%20Test%20Hospital%202] is: -1
+21:07:43.524 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+21:07:43.534 [main] DEBUG org.hibernate.SQL - select this_.name as name1_4_0_, this_.address as address2_4_0_, this_.state as state3_4_0_, this_.zip as zip4_4_0_ from Hospitals this_ where this_.name=?
+Hibernate: select this_.name as name1_4_0_, this_.address as address2_4_0_, this_.state as state3_4_0_, this_.zip as zip4_4_0_ from Hospitals this_ where this_.name=?
+21:07:43.536 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+21:07:43.536 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.536 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.536 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.536 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+21:07:43.536 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+21:07:43.537 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+21:07:43.537 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+21:07:43.537 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+21:07:43.537 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+21:07:43.537 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Hospital{zip=27607, address=1 iTrust Test Street, name=iTrust Test Hospital 2, state=NC}
+21:07:43.540 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+21:07:43.542 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+21:07:43.543 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+21:07:43.545 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 541, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+21:07:43.546 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+21:07:43.546 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+21:07:43.546 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+21:07:43.546 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+21:07:43.546 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+21:07:43.546 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+21:07:43.546 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.LogEntry{secondaryUser=null, logCode=16, primaryUser=SPRING_API_TEST_USER, id=541, time=java.util.GregorianCalendar[time=1521666463540,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2018,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=4,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=9,HOUR_OF_DAY=21,MINUTE=7,SECOND=43,MILLISECOND=540,ZONE_OFFSET=0,DST_OFFSET=0], message=null}
+21:07:43.546 [main] DEBUG org.hibernate.SQL - insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+21:07:43.551 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+21:07:43.552 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [edu.ncsu.csc.itrust2.models.persistent.Hospital@5cbf2d80] as "application/json" using [org.springframework.http.converter.json.GsonHttpMessageConverter@266ffc8c]
+21:07:43.552 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+21:07:43.552 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+21:07:43.553 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing POST request for [/api/v1/hospitals]
+21:07:43.553 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/hospitals
+21:07:43.553 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIHospitalController.createHospital(edu.ncsu.csc.itrust2.forms.admin.HospitalForm)]
+21:07:43.553 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIHospitalController'
+21:07:43.554 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class edu.ncsu.csc.itrust2.forms.admin.HospitalForm] as "application/json" with [org.springframework.http.converter.json.GsonHttpMessageConverter@266ffc8c]
+21:07:43.554 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+21:07:43.562 [main] DEBUG org.hibernate.SQL - select this_.name as name1_4_0_, this_.address as address2_4_0_, this_.state as state3_4_0_, this_.zip as zip4_4_0_ from Hospitals this_ where this_.name=?
+Hibernate: select this_.name as name1_4_0_, this_.address as address2_4_0_, this_.state as state3_4_0_, this_.zip as zip4_4_0_ from Hospitals this_ where this_.name=?
+21:07:43.564 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+21:07:43.564 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.565 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.565 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.565 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+21:07:43.565 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+21:07:43.565 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+21:07:43.565 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+21:07:43.565 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+21:07:43.565 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+21:07:43.565 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Hospital{zip=27607, address=1 iTrust Test Street, name=iTrust Test Hospital 2, state=NC}
+21:07:43.569 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [{"status":"failed","message":"Hospital with the name iTrust Test Hospital 2 already exists"}] as "text/plain" using [org.springframework.http.converter.StringHttpMessageConverter@6fcfe31b]
+21:07:43.569 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+21:07:43.569 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+21:07:43.569 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing PUT request for [/api/v1/hospitals/iTrust%20Test%20Hospital%202]
+21:07:43.570 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/hospitals/iTrust Test Hospital 2
+21:07:43.570 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIHospitalController.updateHospital(java.lang.String,edu.ncsu.csc.itrust2.forms.admin.HospitalForm)]
+21:07:43.570 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIHospitalController'
+21:07:43.584 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class edu.ncsu.csc.itrust2.forms.admin.HospitalForm] as "application/json" with [org.springframework.http.converter.json.GsonHttpMessageConverter@266ffc8c]
+21:07:43.584 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+21:07:43.585 [main] DEBUG org.hibernate.SQL - select this_.name as name1_4_0_, this_.address as address2_4_0_, this_.state as state3_4_0_, this_.zip as zip4_4_0_ from Hospitals this_ where this_.name=?
+Hibernate: select this_.name as name1_4_0_, this_.address as address2_4_0_, this_.state as state3_4_0_, this_.zip as zip4_4_0_ from Hospitals this_ where this_.name=?
+21:07:43.586 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+21:07:43.586 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.587 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.587 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Hospital#iTrust Test Hospital 2]
+21:07:43.587 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+21:07:43.587 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+21:07:43.587 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+21:07:43.587 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+21:07:43.587 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+21:07:43.587 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+21:07:43.587 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Hospital{zip=27607, address=1 iTrust Test Street, name=iTrust Test Hospital 2, state=NC}
+21:07:43.591 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [{"status":"failed","message":"No hospital found for name iTrust Test Hospital 2"}] as "text/plain" using [org.springframework.http.converter.StringHttpMessageConverter@6fcfe31b]
+21:07:43.591 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+21:07:43.591 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+21:07:43.591 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - After test method: context [DefaultTestContext@7bacb1b0 testClass = APIHospitalTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIHospitalTest@e6cd3f2, testMethod = testHospitalAPI@APIHospitalTest, testException = java.lang.AssertionError: Status expected:<200> but was:<404>, mergedContextConfiguration = [WebMergedContextConfiguration@42a363a testClass = APIHospitalTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+21:07:43.592 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test context [DefaultTestContext@7bacb1b0 testClass = APIHospitalTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIHospitalTest@e6cd3f2, testMethod = testHospitalAPI@APIHospitalTest, testException = java.lang.AssertionError: Status expected:<200> but was:<404>, mergedContextConfiguration = [WebMergedContextConfiguration@42a363a testClass = APIHospitalTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+]]></system-out>
+    <system-err><![CDATA[HOSPITALS
+HOSPITALS
+]]></system-err>
+  </testcase>
+</testsuite>

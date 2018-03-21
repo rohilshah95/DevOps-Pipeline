@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.ncsu.csc.itrust2.apitest.APIPatientTest" time="0.151" tests="4" errors="1" skipped="0" failures="2">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.161-b12"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/iTrust/iTrust2"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/iTrust/iTrust2"/>
+    <property name="java.runtime.version" value="1.8.0_161-b12"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="4.4.0-116-generic"/>
+    <property name="user.home" value="/root"/>
+    <property name="user.timezone" value="Etc/UTC"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="user.name" value="root"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-oracle/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test verify checkstyle:checkstyle"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_161"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="testGetNonExistentPatient" classname="edu.ncsu.csc.itrust2.apitest.APIPatientTest" time="0.001">
+    <failure message="Status expected:&lt;404&gt; but was:&lt;200&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<404> but was:<200>
+	at edu.ncsu.csc.itrust2.apitest.APIPatientTest.testGetNonExistentPatient(APIPatientTest.java:70)
+]]></failure>
+    <system-out><![CDATA[22:07:44.250 [main] DEBUG o.s.t.c.j.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.254 [main] DEBUG o.s.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+22:07:44.254 [main] DEBUG o.s.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+22:07:44.254 [main] DEBUG o.s.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [edu.ncsu.csc.itrust2.apitest.APIPatientTest] from class [org.springframework.test.context.web.WebTestContextBootstrapper]
+22:07:44.255 [main] DEBUG o.s.t.c.s.AbstractDelegatingSmartContextLoader - Delegating to AnnotationConfigWebContextLoader to process context configuration [ContextConfigurationAttributes@4fe0c175 declaringClass = 'edu.ncsu.csc.itrust2.apitest.APIPatientTest', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.test.context.ContextLoader'].
+22:07:44.256 [main] DEBUG o.s.t.c.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.256 [main] DEBUG o.s.t.c.w.WebTestContextBootstrapper - @TestExecutionListeners is not present for class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]: using defaults.
+22:07:44.258 [main] INFO  o.s.t.c.w.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:07:44.259 [main] INFO  o.s.t.c.w.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3c69fb1c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@388de0dd, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@28abd6d7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6507714, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7592cdd9, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@22ce50be, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@5425275e]
+22:07:44.266 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.266 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.266 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.266 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.266 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.266 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.267 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+22:07:44.267 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.267 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.267 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+22:07:44.267 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@3bc22ada size = 1, maxSize = 32, parentContextCount = 0, hitCount = 11, missCount = 1]
+22:07:44.267 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@624c1ca8, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+22:07:44.267 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@624c1ca8, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]].
+22:07:44.267 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+22:07:44.268 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@3bc22ada size = 1, maxSize = 32, parentContextCount = 0, hitCount = 12, missCount = 1]
+22:07:44.270 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Processing injected element of bean 'edu.ncsu.csc.itrust2.apitest.APIPatientTest': AutowiredFieldElement for private org.springframework.web.context.WebApplicationContext edu.ncsu.csc.itrust2.apitest.APIPatientTest.context
+22:07:44.270 [main] DEBUG o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowiring by type from bean name 'edu.ncsu.csc.itrust2.apitest.APIPatientTest' to bean named 'org.springframework.web.context.support.GenericWebApplicationContext@37df14d1'
+22:07:44.270 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'metaDataSourceAdvisor'
+22:07:44.271 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - Before test method: context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@624c1ca8, testMethod = testGetNonExistentPatient@APIPatientTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+22:07:44.275 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
+22:07:44.275 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+22:07:44.275 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
+22:07:44.276 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:07:44.276 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:07:44.276 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+22:07:44.276 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+22:07:44.276 [main] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
+22:07:44.276 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
+22:07:44.276 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+22:07:44.276 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+22:07:44.276 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate LocaleResolver with name 'localeResolver': using default [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@ee7d94e]
+22:07:44.276 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+22:07:44.276 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+22:07:44.276 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@3b2916f]
+22:07:44.277 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerMapping'
+22:07:44.277 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewControllerHandlerMapping'
+22:07:44.277 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'beanNameHandlerMapping'
+22:07:44.277 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'resourceHandlerMapping'
+22:07:44.277 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'defaultServletHandlerMapping'
+22:07:44.277 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerAdapter'
+22:07:44.278 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'httpRequestHandlerAdapter'
+22:07:44.278 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'simpleControllerHandlerAdapter'
+22:07:44.278 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'handlerExceptionResolver'
+22:07:44.278 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+22:07:44.278 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+22:07:44.278 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@19974ed]
+22:07:44.279 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'mvcViewResolver'
+22:07:44.279 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewResolver'
+22:07:44.279 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+22:07:44.279 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+22:07:44.279 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@681d113e]
+22:07:44.279 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
+22:07:44.279 [main] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 3 ms
+22:07:44.279 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
+22:07:44.280 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/api/v1/patients/-1]
+22:07:44.280 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/patients/-1
+22:07:44.281 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIPatientController.getPatient(java.lang.String)]
+22:07:44.281 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIPatientController'
+22:07:44.281 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Last-Modified value for [/api/v1/patients/-1] is: -1
+22:07:44.310 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.312 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+22:07:44.319 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.320 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.322 [main] DEBUG org.hibernate.SQL - select this_.self_id as self_id18_12_2_, this_.address1 as address1_12_2_, this_.address2 as address2_12_2_, this_.bloodType as bloodTyp3_12_2_, this_.causeOfDeath as causeOfD4_12_2_, this_.city as city5_12_2_, this_.dateOfBirth as dateOfBi6_12_2_, this_.dateOfDeath as dateOfDe7_12_2_, this_.email as email8_12_2_, this_.ethnicity as ethnicit9_12_2_, this_.father_id as father_19_12_2_, this_.firstName as firstNa10_12_2_, this_.gender as gender11_12_2_, this_.id as id12_12_2_, this_.lastName as lastNam13_12_2_, this_.mother_id as mother_20_12_2_, this_.phone as phone14_12_2_, this_.preferredName as preferr15_12_2_, this_.state as state16_12_2_, this_.zip as zip17_12_2_, user2_.username as username1_15_0_, user2_.enabled as enabled2_15_0_, user2_.password as password3_15_0_, user2_.role as role4_15_0_, user3_.username as username1_15_1_, user3_.enabled as enabled2_15_1_, user3_.password as password3_15_1_, user3_.role as role4_15_1_ from Patients this_ left outer join Users user2_ on this_.father_id=user2_.username left outer join Users user3_ on this_.mother_id=user3_.username where this_.self_id=?
+Hibernate: select this_.self_id as self_id18_12_2_, this_.address1 as address1_12_2_, this_.address2 as address2_12_2_, this_.bloodType as bloodTyp3_12_2_, this_.causeOfDeath as causeOfD4_12_2_, this_.city as city5_12_2_, this_.dateOfBirth as dateOfBi6_12_2_, this_.dateOfDeath as dateOfDe7_12_2_, this_.email as email8_12_2_, this_.ethnicity as ethnicit9_12_2_, this_.father_id as father_19_12_2_, this_.firstName as firstNa10_12_2_, this_.gender as gender11_12_2_, this_.id as id12_12_2_, this_.lastName as lastNam13_12_2_, this_.mother_id as mother_20_12_2_, this_.phone as phone14_12_2_, this_.preferredName as preferr15_12_2_, this_.state as state16_12_2_, this_.zip as zip17_12_2_, user2_.username as username1_15_0_, user2_.enabled as enabled2_15_0_, user2_.password as password3_15_0_, user2_.role as role4_15_0_, user3_.username as username1_15_1_, user3_.enabled as enabled2_15_1_, user3_.password as password3_15_1_, user3_.role as role4_15_1_ from Patients this_ left outer join Users user2_ on this_.father_id=user2_.username left outer join Users user3_ on this_.mother_id=user3_.username where this_.self_id=?
+22:07:44.324 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.324 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.325 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+22:07:44.325 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+22:07:44.327 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 16, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+22:07:44.330 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.330 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+22:07:44.330 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+22:07:44.330 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+22:07:44.330 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+22:07:44.331 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+22:07:44.331 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.LogEntry{secondaryUser=-1, logCode=53, primaryUser=SPRING_API_TEST_USER, id=16, time=java.util.GregorianCalendar[time=1521670064324,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2018,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=4,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=10,HOUR_OF_DAY=22,MINUTE=7,SECOND=44,MILLISECOND=324,ZONE_OFFSET=0,DST_OFFSET=0], message=HCP retrieved demographics for patient with username -1}
+22:07:44.333 [main] DEBUG org.hibernate.SQL - insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+22:07:44.343 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+22:07:44.344 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+22:07:44.344 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+22:07:44.344 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - After test method: context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@624c1ca8, testMethod = testGetNonExistentPatient@APIPatientTest, testException = java.lang.AssertionError: Status expected:<404> but was:<200>, mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+22:07:44.344 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@624c1ca8, testMethod = testGetNonExistentPatient@APIPatientTest, testException = java.lang.AssertionError: Status expected:<404> but was:<200>, mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+]]></system-out>
+  </testcase>
+  <testcase name="testPatientAPI" classname="edu.ncsu.csc.itrust2.apitest.APIPatientTest" time="0.077">
+    <failure message="Status expected:&lt;404&gt; but was:&lt;400&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<404> but was:<400>
+	at edu.ncsu.csc.itrust2.apitest.APIPatientTest.testPatientAPI(APIPatientTest.java:106)
+]]></failure>
+    <system-out><![CDATA[22:07:44.345 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.345 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.345 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+22:07:44.345 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@3bc22ada size = 1, maxSize = 32, parentContextCount = 0, hitCount = 13, missCount = 1]
+22:07:44.345 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@3df2b66f, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+22:07:44.345 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@3df2b66f, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]].
+22:07:44.345 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+22:07:44.345 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@3bc22ada size = 1, maxSize = 32, parentContextCount = 0, hitCount = 14, missCount = 1]
+22:07:44.346 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Processing injected element of bean 'edu.ncsu.csc.itrust2.apitest.APIPatientTest': AutowiredFieldElement for private org.springframework.web.context.WebApplicationContext edu.ncsu.csc.itrust2.apitest.APIPatientTest.context
+22:07:44.346 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - Before test method: context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@3df2b66f, testMethod = testPatientAPI@APIPatientTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+22:07:44.346 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+22:07:44.346 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@3bc22ada size = 1, maxSize = 32, parentContextCount = 0, hitCount = 15, missCount = 1]
+22:07:44.346 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.security.test.context.support.WithMockUserSecurityContextFactory'
+22:07:44.347 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.security.test.context.support.WithMockUserSecurityContextFactory'
+22:07:44.347 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
+22:07:44.347 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+22:07:44.347 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
+22:07:44.347 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:07:44.347 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:07:44.347 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+22:07:44.347 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+22:07:44.347 [main] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
+22:07:44.347 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
+22:07:44.347 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+22:07:44.348 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+22:07:44.348 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate LocaleResolver with name 'localeResolver': using default [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@3798f847]
+22:07:44.348 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+22:07:44.348 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+22:07:44.348 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@69ac1501]
+22:07:44.348 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerMapping'
+22:07:44.348 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewControllerHandlerMapping'
+22:07:44.348 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'beanNameHandlerMapping'
+22:07:44.348 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'resourceHandlerMapping'
+22:07:44.349 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'defaultServletHandlerMapping'
+22:07:44.349 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerAdapter'
+22:07:44.349 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'httpRequestHandlerAdapter'
+22:07:44.349 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'simpleControllerHandlerAdapter'
+22:07:44.349 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'handlerExceptionResolver'
+22:07:44.358 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+22:07:44.358 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+22:07:44.358 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@41c59795]
+22:07:44.358 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'mvcViewResolver'
+22:07:44.358 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewResolver'
+22:07:44.359 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+22:07:44.359 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+22:07:44.359 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@7672104c]
+22:07:44.359 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
+22:07:44.359 [main] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 12 ms
+22:07:44.359 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
+22:07:44.359 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.360 [main] DEBUG org.hibernate.SQL - select this_.self_id as self_id18_12_2_, this_.address1 as address1_12_2_, this_.address2 as address2_12_2_, this_.bloodType as bloodTyp3_12_2_, this_.causeOfDeath as causeOfD4_12_2_, this_.city as city5_12_2_, this_.dateOfBirth as dateOfBi6_12_2_, this_.dateOfDeath as dateOfDe7_12_2_, this_.email as email8_12_2_, this_.ethnicity as ethnicit9_12_2_, this_.father_id as father_19_12_2_, this_.firstName as firstNa10_12_2_, this_.gender as gender11_12_2_, this_.id as id12_12_2_, this_.lastName as lastNam13_12_2_, this_.mother_id as mother_20_12_2_, this_.phone as phone14_12_2_, this_.preferredName as preferr15_12_2_, this_.state as state16_12_2_, this_.zip as zip17_12_2_, user2_.username as username1_15_0_, user2_.enabled as enabled2_15_0_, user2_.password as password3_15_0_, user2_.role as role4_15_0_, user3_.username as username1_15_1_, user3_.enabled as enabled2_15_1_, user3_.password as password3_15_1_, user3_.role as role4_15_1_ from Patients this_ left outer join Users user2_ on this_.father_id=user2_.username left outer join Users user3_ on this_.mother_id=user3_.username
+Hibernate: select this_.self_id as self_id18_12_2_, this_.address1 as address1_12_2_, this_.address2 as address2_12_2_, this_.bloodType as bloodTyp3_12_2_, this_.causeOfDeath as causeOfD4_12_2_, this_.city as city5_12_2_, this_.dateOfBirth as dateOfBi6_12_2_, this_.dateOfDeath as dateOfDe7_12_2_, this_.email as email8_12_2_, this_.ethnicity as ethnicit9_12_2_, this_.father_id as father_19_12_2_, this_.firstName as firstNa10_12_2_, this_.gender as gender11_12_2_, this_.id as id12_12_2_, this_.lastName as lastNam13_12_2_, this_.mother_id as mother_20_12_2_, this_.phone as phone14_12_2_, this_.preferredName as preferr15_12_2_, this_.state as state16_12_2_, this_.zip as zip17_12_2_, user2_.username as username1_15_0_, user2_.enabled as enabled2_15_0_, user2_.password as password3_15_0_, user2_.role as role4_15_0_, user3_.username as username1_15_1_, user3_.enabled as enabled2_15_1_, user3_.password as password3_15_1_, user3_.role as role4_15_1_ from Patients this_ left outer join Users user2_ on this_.father_id=user2_.username left outer join Users user3_ on this_.mother_id=user3_.username
+22:07:44.362 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+22:07:44.362 [main] DEBUG org.hibernate.SQL - select user0_.username as username1_15_0_, user0_.enabled as enabled2_15_0_, user0_.password as password3_15_0_, user0_.role as role4_15_0_ from Users user0_ where user0_.username=?
+Hibernate: select user0_.username as username1_15_0_, user0_.enabled as enabled2_15_0_, user0_.password as password3_15_0_, user0_.role as role4_15_0_ from Users user0_ where user0_.username=?
+22:07:44.366 [main] DEBUG o.h.l.p.e.p.i.ResultSetProcessorImpl - Starting ResultSet row #0
+22:07:44.375 [main] DEBUG o.h.l.p.e.p.i.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+22:07:44.376 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.User#AliceThirteen]
+22:07:44.376 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.User#AliceThirteen]
+22:07:44.376 [main] DEBUG o.h.r.j.i.ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+22:07:44.377 [main] DEBUG o.h.l.e.p.AbstractLoadPlanBasedEntityLoader - Done entity load : edu.ncsu.csc.itrust2.models.persistent.User#AliceThirteen
+22:07:44.377 [main] DEBUG org.hibernate.loader.Loader - Result row: null, null, EntityKey[edu.ncsu.csc.itrust2.models.persistent.Patient#component[self]{self=edu.ncsu.csc.itrust2.models.persistent.User#AliceThirteen}]
+22:07:44.378 [main] DEBUG org.hibernate.loader.Loader - Result set row: 1
+22:07:44.379 [main] DEBUG org.hibernate.SQL - select user0_.username as username1_15_0_, user0_.enabled as enabled2_15_0_, user0_.password as password3_15_0_, user0_.role as role4_15_0_ from Users user0_ where user0_.username=?
+Hibernate: select user0_.username as username1_15_0_, user0_.enabled as enabled2_15_0_, user0_.password as password3_15_0_, user0_.role as role4_15_0_ from Users user0_ where user0_.username=?
+22:07:44.379 [main] DEBUG o.h.l.p.e.p.i.ResultSetProcessorImpl - Starting ResultSet row #0
+22:07:44.380 [main] DEBUG o.h.l.p.e.p.i.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+22:07:44.380 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.User#BobTheFourYearOld]
+22:07:44.380 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.User#BobTheFourYearOld]
+22:07:44.380 [main] DEBUG o.h.r.j.i.ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+22:07:44.380 [main] DEBUG o.h.l.e.p.AbstractLoadPlanBasedEntityLoader - Done entity load : edu.ncsu.csc.itrust2.models.persistent.User#BobTheFourYearOld
+22:07:44.380 [main] DEBUG org.hibernate.loader.Loader - Result row: null, null, EntityKey[edu.ncsu.csc.itrust2.models.persistent.Patient#component[self]{self=edu.ncsu.csc.itrust2.models.persistent.User#BobTheFourYearOld}]
+22:07:44.381 [main] DEBUG org.hibernate.loader.Loader - Result set row: 2
+22:07:44.381 [main] DEBUG org.hibernate.SQL - select user0_.username as username1_15_0_, user0_.enabled as enabled2_15_0_, user0_.password as password3_15_0_, user0_.role as role4_15_0_ from Users user0_ where user0_.username=?
+Hibernate: select user0_.username as username1_15_0_, user0_.enabled as enabled2_15_0_, user0_.password as password3_15_0_, user0_.role as role4_15_0_ from Users user0_ where user0_.username=?
+22:07:44.390 [main] DEBUG o.h.l.p.e.p.i.ResultSetProcessorImpl - Starting ResultSet row #0
+22:07:44.390 [main] DEBUG o.h.l.p.e.p.i.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+22:07:44.390 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.User#TimTheOneYearOld]
+22:07:44.390 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.User#TimTheOneYearOld]
+22:07:44.391 [main] DEBUG o.h.r.j.i.ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+22:07:44.391 [main] DEBUG o.h.l.e.p.AbstractLoadPlanBasedEntityLoader - Done entity load : edu.ncsu.csc.itrust2.models.persistent.User#TimTheOneYearOld
+22:07:44.391 [main] DEBUG org.hibernate.loader.Loader - Result row: null, null, EntityKey[edu.ncsu.csc.itrust2.models.persistent.Patient#component[self]{self=edu.ncsu.csc.itrust2.models.persistent.User#TimTheOneYearOld}]
+22:07:44.391 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Patient#component[self]{self=edu.ncsu.csc.itrust2.models.persistent.User#AliceThirteen}]
+22:07:44.392 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Patient#component[self]{self=edu.ncsu.csc.itrust2.models.persistent.User#AliceThirteen}]
+22:07:44.392 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Patient#component[self]{self=edu.ncsu.csc.itrust2.models.persistent.User#BobTheFourYearOld}]
+22:07:44.392 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Patient#component[self]{self=edu.ncsu.csc.itrust2.models.persistent.User#BobTheFourYearOld}]
+22:07:44.392 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Patient#component[self]{self=edu.ncsu.csc.itrust2.models.persistent.User#TimTheOneYearOld}]
+22:07:44.392 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Patient#component[self]{self=edu.ncsu.csc.itrust2.models.persistent.User#TimTheOneYearOld}]
+22:07:44.393 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.393 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+22:07:44.393 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+22:07:44.394 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 3 deletions to 6 objects
+22:07:44.394 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+22:07:44.394 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+22:07:44.394 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8., role=ROLE_PATIENT, enabled=1, username=BobTheFourYearOld}
+22:07:44.394 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Patient{zip=null, lastName=Smith, ethnicity=null, gender=null, address2=null, city=null, dateOfDeath=null, address1=null, father=null, dateOfBirth=java.util.GregorianCalendar[time=1490134043000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2017,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=3,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=10,HOUR_OF_DAY=22,MINUTE=7,SECOND=23,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], bloodType=null, firstName=TimTheOneYearOld, mother=null, phone=null, id=null, preferredName=null, state=null, causeOfDeath=null, email=null}
+22:07:44.394 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8., role=ROLE_PATIENT, enabled=1, username=AliceThirteen}
+22:07:44.394 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$EblZqNptyYvcLm/VwDCVAuBjzZOI7khzdyGPBr08PpIi0na624b8., role=ROLE_PATIENT, enabled=1, username=TimTheOneYearOld}
+22:07:44.394 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Patient{zip=null, lastName=Smith, ethnicity=null, gender=null, address2=null, city=null, dateOfDeath=null, address1=null, father=null, dateOfBirth=java.util.GregorianCalendar[time=1111442843000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2005,MONTH=2,WEEK_OF_YEAR=13,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=2,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=10,HOUR_OF_DAY=22,MINUTE=7,SECOND=23,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], bloodType=null, firstName=AliceThirteen, mother=null, phone=null, id=null, preferredName=null, state=null, causeOfDeath=null, email=null}
+22:07:44.394 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Patient{zip=null, lastName=Smith, ethnicity=null, gender=null, address2=null, city=null, dateOfDeath=null, address1=null, father=null, dateOfBirth=java.util.GregorianCalendar[time=1395439643000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2014,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=6,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=10,HOUR_OF_DAY=22,MINUTE=7,SECOND=23,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], bloodType=null, firstName=BobTheFourYearOld, mother=null, phone=null, id=null, preferredName=null, state=null, causeOfDeath=null, email=null}
+22:07:44.395 [main] DEBUG org.hibernate.SQL - delete from Patients where self_id=?
+Hibernate: delete from Patients where self_id=?
+22:07:44.396 [main] DEBUG org.hibernate.SQL - delete from Patients where self_id=?
+Hibernate: delete from Patients where self_id=?
+22:07:44.396 [main] DEBUG org.hibernate.SQL - delete from Patients where self_id=?
+Hibernate: delete from Patients where self_id=?
+22:07:44.398 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+22:07:44.399 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing POST request for [/api/v1/users]
+22:07:44.399 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/users
+22:07:44.400 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIUserController.createUser(edu.ncsu.csc.itrust2.forms.admin.UserForm)]
+22:07:44.406 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIUserController'
+22:07:44.407 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class edu.ncsu.csc.itrust2.forms.admin.UserForm] as "application/json" with [org.springframework.http.converter.json.GsonHttpMessageConverter@75a87b8c]
+22:07:44.527 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.530 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=?
+22:07:44.533 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.534 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.535 [main] DEBUG org.hibernate.SQL - select user_.username, user_.enabled as enabled2_15_, user_.password as password3_15_, user_.role as role4_15_ from Users user_ where user_.username=?
+Hibernate: select user_.username, user_.enabled as enabled2_15_, user_.password as password3_15_, user_.role as role4_15_ from Users user_ where user_.username=?
+22:07:44.536 [main] DEBUG o.h.r.j.i.ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+22:07:44.536 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: antti, using strategy: org.hibernate.id.Assigned
+22:07:44.536 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.538 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+22:07:44.544 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+22:07:44.544 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+22:07:44.544 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+22:07:44.544 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+22:07:44.544 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$pUWqAIbihI.qVg8jRcU/y.e89EuPrB6yGL5xyq4QDGGodAIIpAw56, role=ROLE_PATIENT, enabled=1, username=antti}
+22:07:44.546 [main] DEBUG org.hibernate.SQL - insert into Users (enabled, password, role, username) values (?, ?, ?, ?)
+Hibernate: insert into Users (enabled, password, role, username) values (?, ?, ?, ?)
+22:07:44.549 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+22:07:44.549 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.550 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+22:07:44.550 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+22:07:44.552 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 17, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+22:07:44.552 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.552 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+22:07:44.552 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+22:07:44.554 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+22:07:44.554 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+22:07:44.554 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+22:07:44.555 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.LogEntry{secondaryUser=null, logCode=7, primaryUser=hcp, id=17, time=java.util.GregorianCalendar[time=1521670064549,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2018,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=4,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=10,HOUR_OF_DAY=22,MINUTE=7,SECOND=44,MILLISECOND=549,ZONE_OFFSET=0,DST_OFFSET=0], message=null}
+22:07:44.555 [main] DEBUG org.hibernate.SQL - insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+22:07:44.558 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+22:07:44.559 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [edu.ncsu.csc.itrust2.models.persistent.User@a0dfac1c] as "application/json" using [org.springframework.http.converter.json.GsonHttpMessageConverter@75a87b8c]
+22:07:44.559 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+22:07:44.559 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+22:07:44.563 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing PUT request for [/api/v1/patients/antti]
+22:07:44.565 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/patients/antti
+22:07:44.565 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIPatientController.updatePatient(java.lang.String,edu.ncsu.csc.itrust2.forms.hcp_patient.PatientForm)]
+22:07:44.567 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIPatientController'
+22:07:44.569 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class edu.ncsu.csc.itrust2.forms.hcp_patient.PatientForm] as "application/json" with [org.springframework.http.converter.json.GsonHttpMessageConverter@75a87b8c]
+22:07:44.572 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.573 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+22:07:44.574 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+22:07:44.574 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.User#antti]
+22:07:44.575 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.User#antti]
+22:07:44.576 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.User#antti]
+22:07:44.578 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.578 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+22:07:44.578 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+22:07:44.578 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+22:07:44.579 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+22:07:44.579 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+22:07:44.579 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$pUWqAIbihI.qVg8jRcU/y.e89EuPrB6yGL5xyq4QDGGodAIIpAw56, role=ROLE_PATIENT, enabled=1, username=antti}
+22:07:44.580 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.581 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+22:07:44.581 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.582 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.583 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+22:07:44.584 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.588 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [{"status":"failed","message":"Could not update edu.ncsu.csc.itrust2.forms.hcp_patient.PatientForm@5a05332e because of Date of death must be of the form mm/dd/yyyy"}] as "text/plain" using [org.springframework.http.converter.StringHttpMessageConverter@7d41615a]
+22:07:44.588 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+22:07:44.588 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+22:07:44.589 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - After test method: context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@3df2b66f, testMethod = testPatientAPI@APIPatientTest, testException = java.lang.AssertionError: Status expected:<404> but was:<400>, mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+22:07:44.589 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@3df2b66f, testMethod = testPatientAPI@APIPatientTest, testException = java.lang.AssertionError: Status expected:<404> but was:<400>, mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+]]></system-out>
+  </testcase>
+  <testcase name="testPatientAsPatient" classname="edu.ncsu.csc.itrust2.apitest.APIPatientTest" time="0.043">
+    <error message="Date of death must be of the form mm/dd/yyyy" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Date of death must be of the form mm/dd/yyyy
+	at edu.ncsu.csc.itrust2.apitest.APIPatientTest.testPatientAsPatient(APIPatientTest.java:185)
+</error>
+    <system-out><![CDATA[22:07:44.589 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.590 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [edu.ncsu.csc.itrust2.apitest.APIPatientTest]
+22:07:44.590 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+22:07:44.590 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@3bc22ada size = 1, maxSize = 32, parentContextCount = 0, hitCount = 16, missCount = 1]
+22:07:44.590 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@156531f1, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+22:07:44.590 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@156531f1, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]].
+22:07:44.590 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+22:07:44.590 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@3bc22ada size = 1, maxSize = 32, parentContextCount = 0, hitCount = 17, missCount = 1]
+22:07:44.591 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Processing injected element of bean 'edu.ncsu.csc.itrust2.apitest.APIPatientTest': AutowiredFieldElement for private org.springframework.web.context.WebApplicationContext edu.ncsu.csc.itrust2.apitest.APIPatientTest.context
+22:07:44.591 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - Before test method: context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@156531f1, testMethod = testPatientAsPatient@APIPatientTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+22:07:44.592 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+22:07:44.592 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@3bc22ada size = 1, maxSize = 32, parentContextCount = 0, hitCount = 18, missCount = 1]
+22:07:44.592 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.security.test.context.support.WithMockUserSecurityContextFactory'
+22:07:44.592 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.security.test.context.support.WithMockUserSecurityContextFactory'
+22:07:44.592 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
+22:07:44.592 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+22:07:44.592 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
+22:07:44.592 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+22:07:44.597 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+22:07:44.597 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+22:07:44.597 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+22:07:44.598 [main] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
+22:07:44.602 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
+22:07:44.602 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+22:07:44.602 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+22:07:44.602 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate LocaleResolver with name 'localeResolver': using default [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@4036243b]
+22:07:44.602 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+22:07:44.603 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+22:07:44.603 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@33d9e350]
+22:07:44.603 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerMapping'
+22:07:44.603 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewControllerHandlerMapping'
+22:07:44.603 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'beanNameHandlerMapping'
+22:07:44.603 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'resourceHandlerMapping'
+22:07:44.604 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'defaultServletHandlerMapping'
+22:07:44.604 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerAdapter'
+22:07:44.604 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'httpRequestHandlerAdapter'
+22:07:44.604 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'simpleControllerHandlerAdapter'
+22:07:44.604 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'handlerExceptionResolver'
+22:07:44.605 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+22:07:44.605 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+22:07:44.605 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@f0fa663]
+22:07:44.605 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'mvcViewResolver'
+22:07:44.605 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewResolver'
+22:07:44.607 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+22:07:44.607 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+22:07:44.608 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@18847abc]
+22:07:44.608 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
+22:07:44.608 [main] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 7 ms
+22:07:44.608 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
+22:07:44.608 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.612 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+22:07:44.613 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+22:07:44.614 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.User#antti]
+22:07:44.614 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.User#antti]
+22:07:44.614 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.User#antti]
+22:07:44.614 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.614 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+22:07:44.614 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+22:07:44.615 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+22:07:44.615 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+22:07:44.615 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+22:07:44.615 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$pUWqAIbihI.qVg8jRcU/y.e89EuPrB6yGL5xyq4QDGGodAIIpAw56, role=ROLE_PATIENT, enabled=1, username=antti}
+22:07:44.617 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.618 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+22:07:44.619 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.620 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+22:07:44.622 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=? and this_.role=?
+22:07:44.630 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+22:07:44.633 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - After test method: context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@156531f1, testMethod = testPatientAsPatient@APIPatientTest, testException = java.lang.IllegalArgumentException: Date of death must be of the form mm/dd/yyyy, mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+22:07:44.633 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test context [DefaultTestContext@51c80219 testClass = APIPatientTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPatientTest@156531f1, testMethod = testPatientAsPatient@APIPatientTest, testException = java.lang.IllegalArgumentException: Date of death must be of the form mm/dd/yyyy, mergedContextConfiguration = [WebMergedContextConfiguration@3257e1fc testClass = APIPatientTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+]]></system-out>
+  </testcase>
+  <testcase name="testPatientUnauthenticated" classname="edu.ncsu.csc.itrust2.apitest.APIPatientTest" time="0.025"/>
+</testsuite>

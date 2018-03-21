@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest" time="0.003" tests="1" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.161-b12"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/iTrust/iTrust2"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/iTrust/iTrust2"/>
+    <property name="java.runtime.version" value="1.8.0_161-b12"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="4.4.0-116-generic"/>
+    <property name="user.home" value="/root"/>
+    <property name="user.timezone" value="Etc/UTC"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="user.name" value="root"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-oracle/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test verify checkstyle:checkstyle"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_161"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="testPrescriptionAPI" classname="edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest" time="0.002">
+    <failure message="expected:&lt;576&gt; but was:&lt;null&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<576> but was:<null>
+	at edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest.testPrescriptionAPI(APIPrescriptionTest.java:150)
+]]></failure>
+    <system-out><![CDATA[20:00:23.668 [main] DEBUG o.s.t.c.j.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest]
+20:00:23.668 [main] DEBUG o.s.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+20:00:23.668 [main] DEBUG o.s.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+20:00:23.668 [main] DEBUG o.s.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest] from class [org.springframework.test.context.web.WebTestContextBootstrapper]
+20:00:23.668 [main] DEBUG o.s.t.c.s.AbstractDelegatingSmartContextLoader - Delegating to AnnotationConfigWebContextLoader to process context configuration [ContextConfigurationAttributes@123b25f9 declaringClass = 'edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.test.context.ContextLoader'].
+20:00:23.674 [main] DEBUG o.s.t.c.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest]
+20:00:23.674 [main] DEBUG o.s.t.c.w.WebTestContextBootstrapper - @TestExecutionListeners is not present for class [edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest]: using defaults.
+20:00:23.675 [main] INFO  o.s.t.c.w.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+20:00:23.675 [main] INFO  o.s.t.c.w.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@278e2e51, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4dced99d, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4ef718a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@697cfea6, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3f56a97e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@46f8d38, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@7bf3df1e]
+20:00:23.675 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest]
+20:00:23.675 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest]
+20:00:23.679 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest]
+20:00:23.679 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest]
+20:00:23.684 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest]
+20:00:23.684 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest]
+20:00:23.685 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@75f49708 testClass = APIPrescriptionTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7fe3cd91 testClass = APIPrescriptionTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+20:00:23.685 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest]
+20:00:23.685 [main] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest]
+20:00:23.685 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@7fe3cd91 testClass = APIPrescriptionTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+20:00:23.685 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2c0b29cf size = 1, maxSize = 32, parentContextCount = 0, hitCount = 55, missCount = 1]
+20:00:23.685 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Setting up MockHttpServletRequest, MockHttpServletResponse, ServletWebRequest, and RequestContextHolder for test context [DefaultTestContext@75f49708 testClass = APIPrescriptionTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest@71d9918, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7fe3cd91 testClass = APIPrescriptionTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+20:00:23.685 [main] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@75f49708 testClass = APIPrescriptionTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest@71d9918, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7fe3cd91 testClass = APIPrescriptionTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]].
+20:00:23.685 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@7fe3cd91 testClass = APIPrescriptionTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+20:00:23.685 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2c0b29cf size = 1, maxSize = 32, parentContextCount = 0, hitCount = 56, missCount = 1]
+20:00:23.687 [main] DEBUG o.s.b.f.annotation.InjectionMetadata - Processing injected element of bean 'edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest': AutowiredFieldElement for private org.springframework.web.context.WebApplicationContext edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest.context
+20:00:23.687 [main] DEBUG o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Autowiring by type from bean name 'edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest' to bean named 'org.springframework.web.context.support.GenericWebApplicationContext@a098d76'
+20:00:23.687 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'metaDataSourceAdvisor'
+20:00:23.687 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - Before test method: context [DefaultTestContext@75f49708 testClass = APIPrescriptionTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest@71d9918, testMethod = testPrescriptionAPI@APIPrescriptionTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7fe3cd91 testClass = APIPrescriptionTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+20:00:23.688 [main] DEBUG o.s.t.c.c.DefaultCacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[WebMergedContextConfiguration@7fe3cd91 testClass = APIPrescriptionTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]]
+20:00:23.688 [main] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2c0b29cf size = 1, maxSize = 32, parentContextCount = 0, hitCount = 57, missCount = 1]
+20:00:23.688 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.security.test.context.support.WithMockUserSecurityContextFactory'
+20:00:23.688 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.security.test.context.support.WithMockUserSecurityContextFactory'
+20:00:23.688 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
+20:00:23.688 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
+20:00:23.688 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
+20:00:23.688 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+20:00:23.688 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+20:00:23.688 [main] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
+20:00:23.688 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+20:00:23.688 [main] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
+20:00:23.688 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver'
+20:00:23.689 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate LocaleResolver with name 'localeResolver': using default [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@33ee3a4b]
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.theme.FixedThemeResolver'
+20:00:23.689 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate ThemeResolver with name 'themeResolver': using default [org.springframework.web.servlet.theme.FixedThemeResolver@5280e6e2]
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerMapping'
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewControllerHandlerMapping'
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'beanNameHandlerMapping'
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'resourceHandlerMapping'
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'defaultServletHandlerMapping'
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'requestMappingHandlerAdapter'
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'httpRequestHandlerAdapter'
+20:00:23.689 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'simpleControllerHandlerAdapter'
+20:00:23.690 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'handlerExceptionResolver'
+20:00:23.690 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+20:00:23.690 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator'
+20:00:23.690 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate RequestToViewNameTranslator with name 'viewNameTranslator': using default [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@39be60f3]
+20:00:23.690 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'mvcViewResolver'
+20:00:23.690 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'viewResolver'
+20:00:23.690 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+20:00:23.690 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.web.servlet.support.SessionFlashMapManager'
+20:00:23.690 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate FlashMapManager with name 'flashMapManager': using default [org.springframework.web.servlet.support.SessionFlashMapManager@46dc87e3]
+20:00:23.690 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
+20:00:23.690 [main] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
+20:00:23.690 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
+20:00:23.691 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing POST request for [/api/v1/users]
+20:00:23.692 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/users
+20:00:23.697 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIUserController.createUser(edu.ncsu.csc.itrust2.forms.admin.UserForm)]
+20:00:23.697 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIUserController'
+20:00:23.703 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class edu.ncsu.csc.itrust2.forms.admin.UserForm] as "application/json" with [org.springframework.http.converter.json.GsonHttpMessageConverter@5c2b5dfa]
+20:00:23.995 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.000 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=?
+20:00:24.001 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.003 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.005 [main] DEBUG org.hibernate.SQL - select user_.username, user_.enabled as enabled2_15_, user_.password as password3_15_, user_.role as role4_15_ from Users user_ where user_.username=?
+Hibernate: select user_.username, user_.enabled as enabled2_15_, user_.password as password3_15_, user_.role as role4_15_ from Users user_ where user_.username=?
+20:00:24.006 [main] DEBUG o.h.r.j.i.ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+20:00:24.006 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: api_test_patient, using strategy: org.hibernate.id.Assigned
+20:00:24.007 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.007 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.007 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.007 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.007 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.008 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.008 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$aym1qOTiZ4N/DTHuNqQW/uP8w91wNbfIp5FVZwWToHSks42WRRXVq, role=ROLE_PATIENT, enabled=1, username=api_test_patient}
+20:00:24.009 [main] DEBUG org.hibernate.SQL - insert into Users (enabled, password, role, username) values (?, ?, ?, ?)
+Hibernate: insert into Users (enabled, password, role, username) values (?, ?, ?, ?)
+20:00:24.012 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+20:00:24.013 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.014 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+20:00:24.015 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+20:00:24.017 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 573, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+20:00:24.017 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.017 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.017 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.017 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.017 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.017 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.017 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.LogEntry{secondaryUser=null, logCode=7, primaryUser=hcp, id=573, time=java.util.GregorianCalendar[time=1521662424013,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2018,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=4,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=8,HOUR_OF_DAY=20,MINUTE=0,SECOND=24,MILLISECOND=13,ZONE_OFFSET=0,DST_OFFSET=0], message=null}
+20:00:24.018 [main] DEBUG org.hibernate.SQL - insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+20:00:24.020 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+20:00:24.022 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [edu.ncsu.csc.itrust2.models.persistent.User@4a6dcea2] as "application/json" using [org.springframework.http.converter.json.GsonHttpMessageConverter@5c2b5dfa]
+20:00:24.023 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+20:00:24.023 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+20:00:24.024 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing POST request for [/api/v1/drugs]
+20:00:24.024 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/drugs
+20:00:24.024 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIDrugController.addDrug(edu.ncsu.csc.itrust2.forms.admin.DrugForm)]
+20:00:24.024 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIDrugController'
+20:00:24.024 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class edu.ncsu.csc.itrust2.forms.admin.DrugForm] as "application/json" with [org.springframework.http.converter.json.GsonHttpMessageConverter@5c2b5dfa]
+20:00:24.025 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Secure object: ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIDrugController.addDrug(edu.ncsu.csc.itrust2.forms.admin.DrugForm); target is of class [edu.ncsu.csc.itrust2.controllers.api.APIDrugController]; Attributes: [[authorize: 'hasRole('ROLE_ADMIN')', filter: 'null', filterTarget: 'null']]
+20:00:24.025 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Previously Authenticated: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@ad1c8f34: Principal: org.springframework.security.core.userdetails.User@192d5: Username: hcp; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN,ROLE_HCP,ROLE_USER; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_ADMIN, ROLE_HCP, ROLE_USER
+20:00:24.025 [main] DEBUG o.s.s.access.vote.AffirmativeBased - Voter: org.springframework.security.access.prepost.PreInvocationAuthorizationAdviceVoter@60410abb, returned: 1
+20:00:24.025 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Authorization successful
+20:00:24.025 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - RunAsManager did not change Authentication object
+20:00:24.025 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.026 [main] DEBUG org.hibernate.SQL - select this_.id as id1_3_0_, this_.code as code2_3_0_, this_.description as descript3_3_0_, this_.name as name4_3_0_ from Drugs this_ where this_.code=?
+Hibernate: select this_.id as id1_3_0_, this_.code as code2_3_0_, this_.description as descript3_3_0_, this_.name as name4_3_0_ from Drugs this_ where this_.code=?
+20:00:24.028 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.031 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.033 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+20:00:24.034 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+20:00:24.038 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 574, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+20:00:24.039 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.039 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.039 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.039 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.040 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.040 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.040 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Drug{code=0000-0000-20, name=TEST, description=DESC, id=574}
+20:00:24.042 [main] DEBUG org.hibernate.SQL - insert into Drugs (code, description, name, id) values (?, ?, ?, ?)
+Hibernate: insert into Drugs (code, description, name, id) values (?, ?, ?, ?)
+20:00:24.047 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+20:00:24.048 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.050 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+20:00:24.051 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+20:00:24.054 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 575, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+20:00:24.054 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.054 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.054 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.054 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.054 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.054 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.054 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.LogEntry{secondaryUser=null, logCode=42, primaryUser=hcp, id=575, time=java.util.GregorianCalendar[time=1521662424048,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2018,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=4,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=8,HOUR_OF_DAY=20,MINUTE=0,SECOND=24,MILLISECOND=48,ZONE_OFFSET=0,DST_OFFSET=0], message=Drug 0000-0000-20 created}
+20:00:24.055 [main] DEBUG org.hibernate.SQL - insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+20:00:24.059 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+20:00:24.065 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [edu.ncsu.csc.itrust2.models.persistent.Drug@78770e28] as "application/json" using [org.springframework.http.converter.json.GsonHttpMessageConverter@5c2b5dfa]
+20:00:24.065 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+20:00:24.066 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+20:00:24.066 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing POST request for [/api/v1/prescriptions]
+20:00:24.067 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/prescriptions
+20:00:24.067 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController.addPrescription(edu.ncsu.csc.itrust2.forms.hcp.PrescriptionForm)]
+20:00:24.067 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIPrescriptionController'
+20:00:24.068 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class edu.ncsu.csc.itrust2.forms.hcp.PrescriptionForm] as "application/json" with [org.springframework.http.converter.json.GsonHttpMessageConverter@5c2b5dfa]
+20:00:24.068 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Secure object: ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController.addPrescription(edu.ncsu.csc.itrust2.forms.hcp.PrescriptionForm); target is of class [edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController]; Attributes: [[authorize: 'hasRole('ROLE_HCP')', filter: 'null', filterTarget: 'null']]
+20:00:24.069 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Previously Authenticated: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@ad1c8f34: Principal: org.springframework.security.core.userdetails.User@192d5: Username: hcp; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN,ROLE_HCP,ROLE_USER; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_ADMIN, ROLE_HCP, ROLE_USER
+20:00:24.069 [main] DEBUG o.s.s.access.vote.AffirmativeBased - Voter: org.springframework.security.access.prepost.PreInvocationAuthorizationAdviceVoter@60410abb, returned: 1
+20:00:24.069 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Authorization successful
+20:00:24.069 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - RunAsManager did not change Authentication object
+20:00:24.105 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.108 [main] DEBUG org.hibernate.SQL - select this_.id as id1_3_0_, this_.code as code2_3_0_, this_.description as descript3_3_0_, this_.name as name4_3_0_ from Drugs this_ where this_.code=?
+Hibernate: select this_.id as id1_3_0_, this_.code as code2_3_0_, this_.description as descript3_3_0_, this_.name as name4_3_0_ from Drugs this_ where this_.code=?
+20:00:24.110 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+20:00:24.110 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.110 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.111 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.111 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.111 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.111 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.111 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.111 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.111 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.111 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Drug{code=0000-0000-20, name=TEST, description=DESC, id=574}
+20:00:24.112 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.114 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=?
+20:00:24.116 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+20:00:24.117 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.117 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.117 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.117 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.117 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.117 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.117 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.117 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.117 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.117 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$aym1qOTiZ4N/DTHuNqQW/uP8w91wNbfIp5FVZwWToHSks42WRRXVq, role=ROLE_PATIENT, enabled=1, username=api_test_patient}
+20:00:24.120 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.121 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+20:00:24.122 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+20:00:24.125 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 576, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+20:00:24.132 [main] DEBUG org.hibernate.SQL - select user_.username, user_.enabled as enabled2_15_, user_.password as password3_15_, user_.role as role4_15_ from Users user_ where user_.username=?
+Hibernate: select user_.username, user_.enabled as enabled2_15_, user_.password as password3_15_, user_.role as role4_15_ from Users user_ where user_.username=?
+20:00:24.133 [main] DEBUG o.h.r.j.i.ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+20:00:24.133 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.134 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.134 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.134 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.134 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.134 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.134 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Prescription{dosage=100, endDate=java.util.GregorianCalendar[time=1286668800000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2010,MONTH=9,WEEK_OF_YEAR=42,WEEK_OF_MONTH=3,DAY_OF_MONTH=10,DAY_OF_YEAR=283,DAY_OF_WEEK=1,DAY_OF_WEEK_IN_MONTH=2,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], patient=edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient, id=576, renewals=12, startDate=java.util.GregorianCalendar[time=1255132800000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2009,MONTH=9,WEEK_OF_YEAR=41,WEEK_OF_MONTH=2,DAY_OF_MONTH=10,DAY_OF_YEAR=283,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=2,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], drug=edu.ncsu.csc.itrust2.models.persistent.Drug#574}
+20:00:24.148 [main] DEBUG org.hibernate.SQL - insert into Prescriptions (dosage, drug_id, endDate, patient_id, renewals, startDate, id) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into Prescriptions (dosage, drug_id, endDate, patient_id, renewals, startDate, id) values (?, ?, ?, ?, ?, ?, ?)
+20:00:24.156 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+20:00:24.157 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.158 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+20:00:24.160 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+20:00:24.162 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 577, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+20:00:24.162 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.162 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.162 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.162 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.162 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.162 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.162 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.LogEntry{secondaryUser=api_test_patient, logCode=46, primaryUser=hcp, id=577, time=java.util.GregorianCalendar[time=1521662424157,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2018,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=4,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=8,HOUR_OF_DAY=20,MINUTE=0,SECOND=24,MILLISECOND=157,ZONE_OFFSET=0,DST_OFFSET=0], message=Created prescription with id 576}
+20:00:24.163 [main] DEBUG org.hibernate.SQL - insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+20:00:24.176 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+20:00:24.177 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [edu.ncsu.csc.itrust2.models.persistent.Prescription@41e383d9] as "application/json" using [org.springframework.http.converter.json.GsonHttpMessageConverter@5c2b5dfa]
+20:00:24.177 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+20:00:24.177 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+20:00:24.179 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing POST request for [/api/v1/prescriptions]
+20:00:24.182 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/prescriptions
+20:00:24.185 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController.addPrescription(edu.ncsu.csc.itrust2.forms.hcp.PrescriptionForm)]
+20:00:24.185 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIPrescriptionController'
+20:00:24.186 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class edu.ncsu.csc.itrust2.forms.hcp.PrescriptionForm] as "application/json" with [org.springframework.http.converter.json.GsonHttpMessageConverter@5c2b5dfa]
+20:00:24.192 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Secure object: ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController.addPrescription(edu.ncsu.csc.itrust2.forms.hcp.PrescriptionForm); target is of class [edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController]; Attributes: [[authorize: 'hasRole('ROLE_HCP')', filter: 'null', filterTarget: 'null']]
+20:00:24.193 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Previously Authenticated: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@ad1c8f34: Principal: org.springframework.security.core.userdetails.User@192d5: Username: hcp; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN,ROLE_HCP,ROLE_USER; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_ADMIN, ROLE_HCP, ROLE_USER
+20:00:24.194 [main] DEBUG o.s.s.access.vote.AffirmativeBased - Voter: org.springframework.security.access.prepost.PreInvocationAuthorizationAdviceVoter@60410abb, returned: 1
+20:00:24.194 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Authorization successful
+20:00:24.194 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - RunAsManager did not change Authentication object
+20:00:24.195 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.196 [main] DEBUG org.hibernate.SQL - select this_.id as id1_3_0_, this_.code as code2_3_0_, this_.description as descript3_3_0_, this_.name as name4_3_0_ from Drugs this_ where this_.code=?
+Hibernate: select this_.id as id1_3_0_, this_.code as code2_3_0_, this_.description as descript3_3_0_, this_.name as name4_3_0_ from Drugs this_ where this_.code=?
+20:00:24.197 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+20:00:24.197 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.197 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.197 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.197 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.197 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.197 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.198 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.198 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.198 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.198 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Drug{code=0000-0000-20, name=TEST, description=DESC, id=574}
+20:00:24.198 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.200 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=?
+20:00:24.201 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+20:00:24.201 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.201 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.202 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.202 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.202 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.202 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.202 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.202 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.202 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.202 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$aym1qOTiZ4N/DTHuNqQW/uP8w91wNbfIp5FVZwWToHSks42WRRXVq, role=ROLE_PATIENT, enabled=1, username=api_test_patient}
+20:00:24.207 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.209 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+20:00:24.209 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+20:00:24.211 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 578, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+20:00:24.211 [main] DEBUG org.hibernate.SQL - select user_.username, user_.enabled as enabled2_15_, user_.password as password3_15_, user_.role as role4_15_ from Users user_ where user_.username=?
+Hibernate: select user_.username, user_.enabled as enabled2_15_, user_.password as password3_15_, user_.role as role4_15_ from Users user_ where user_.username=?
+20:00:24.212 [main] DEBUG o.h.r.j.i.ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+20:00:24.212 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.212 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.212 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.213 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.213 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.213 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.213 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Prescription{dosage=200, endDate=java.util.GregorianCalendar[time=1604966400000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2020,MONTH=10,WEEK_OF_YEAR=46,WEEK_OF_MONTH=2,DAY_OF_MONTH=10,DAY_OF_YEAR=315,DAY_OF_WEEK=3,DAY_OF_WEEK_IN_MONTH=2,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], patient=edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient, id=578, renewals=3, startDate=java.util.GregorianCalendar[time=1602288000000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2020,MONTH=9,WEEK_OF_YEAR=41,WEEK_OF_MONTH=2,DAY_OF_MONTH=10,DAY_OF_YEAR=284,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=2,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], drug=edu.ncsu.csc.itrust2.models.persistent.Drug#574}
+20:00:24.214 [main] DEBUG org.hibernate.SQL - insert into Prescriptions (dosage, drug_id, endDate, patient_id, renewals, startDate, id) values (?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into Prescriptions (dosage, drug_id, endDate, patient_id, renewals, startDate, id) values (?, ?, ?, ?, ?, ?, ?)
+20:00:24.216 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+20:00:24.217 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.218 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+20:00:24.219 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+20:00:24.222 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 579, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+20:00:24.222 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.222 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.222 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.222 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.222 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.222 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.222 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.LogEntry{secondaryUser=api_test_patient, logCode=46, primaryUser=hcp, id=579, time=java.util.GregorianCalendar[time=1521662424217,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2018,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=4,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=8,HOUR_OF_DAY=20,MINUTE=0,SECOND=24,MILLISECOND=217,ZONE_OFFSET=0,DST_OFFSET=0], message=Created prescription with id 578}
+20:00:24.223 [main] DEBUG org.hibernate.SQL - insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+20:00:24.228 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+20:00:24.232 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [edu.ncsu.csc.itrust2.models.persistent.Prescription@6f2ab3f6] as "application/json" using [org.springframework.http.converter.json.GsonHttpMessageConverter@5c2b5dfa]
+20:00:24.233 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+20:00:24.233 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+20:00:24.235 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/api/v1/prescriptions]
+20:00:24.235 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/prescriptions
+20:00:24.236 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public java.util.List<edu.ncsu.csc.itrust2.models.persistent.Prescription> edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController.getPrescriptions()]
+20:00:24.236 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIPrescriptionController'
+20:00:24.236 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Last-Modified value for [/api/v1/prescriptions] is: -1
+20:00:24.238 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Secure object: ReflectiveMethodInvocation: public java.util.List edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController.getPrescriptions(); target is of class [edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController]; Attributes: [[authorize: 'hasAnyRole('ROLE_HCP', 'ROLE_PATIENT')', filter: 'null', filterTarget: 'null']]
+20:00:24.239 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Previously Authenticated: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@ad1c8f34: Principal: org.springframework.security.core.userdetails.User@192d5: Username: hcp; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN,ROLE_HCP,ROLE_USER; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_ADMIN, ROLE_HCP, ROLE_USER
+20:00:24.240 [main] DEBUG o.s.s.access.vote.AffirmativeBased - Voter: org.springframework.security.access.prepost.PreInvocationAuthorizationAdviceVoter@60410abb, returned: 1
+20:00:24.240 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Authorization successful
+20:00:24.240 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - RunAsManager did not change Authentication object
+20:00:24.240 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.250 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+20:00:24.251 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+20:00:24.253 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 580, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+20:00:24.253 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.253 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.253 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.253 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.253 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.253 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.254 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.LogEntry{secondaryUser=null, logCode=49, primaryUser=hcp, id=580, time=java.util.GregorianCalendar[time=1521662424240,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2018,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=4,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=8,HOUR_OF_DAY=20,MINUTE=0,SECOND=24,MILLISECOND=240,ZONE_OFFSET=0,DST_OFFSET=0], message=HCP viewed a list of all prescriptions}
+20:00:24.254 [main] DEBUG org.hibernate.SQL - insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+20:00:24.263 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+20:00:24.263 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.264 [main] DEBUG org.hibernate.SQL - select this_.id as id1_14_2_, this_.dosage as dosage2_14_2_, this_.drug_id as drug_id6_14_2_, this_.endDate as endDate3_14_2_, this_.patient_id as patient_7_14_2_, this_.renewals as renewals4_14_2_, this_.startDate as startDat5_14_2_, drug2_.id as id1_3_0_, drug2_.code as code2_3_0_, drug2_.description as descript3_3_0_, drug2_.name as name4_3_0_, user3_.username as username1_15_1_, user3_.enabled as enabled2_15_1_, user3_.password as password3_15_1_, user3_.role as role4_15_1_ from Prescriptions this_ inner join Drugs drug2_ on this_.drug_id=drug2_.id inner join Users user3_ on this_.patient_id=user3_.username
+Hibernate: select this_.id as id1_14_2_, this_.dosage as dosage2_14_2_, this_.drug_id as drug_id6_14_2_, this_.endDate as endDate3_14_2_, this_.patient_id as patient_7_14_2_, this_.renewals as renewals4_14_2_, this_.startDate as startDat5_14_2_, drug2_.id as id1_3_0_, drug2_.code as code2_3_0_, drug2_.description as descript3_3_0_, drug2_.name as name4_3_0_, user3_.username as username1_15_1_, user3_.enabled as enabled2_15_1_, user3_.password as password3_15_1_, user3_.role as role4_15_1_ from Prescriptions this_ inner join Drugs drug2_ on this_.drug_id=drug2_.id inner join Users user3_ on this_.patient_id=user3_.username
+20:00:24.265 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+20:00:24.265 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.Drug#574], EntityKey[edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient], EntityKey[edu.ncsu.csc.itrust2.models.persistent.Prescription#576]
+20:00:24.265 [main] DEBUG org.hibernate.loader.Loader - Result set row: 1
+20:00:24.265 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.Drug#574], EntityKey[edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient], EntityKey[edu.ncsu.csc.itrust2.models.persistent.Prescription#578]
+20:00:24.265 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.265 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.265 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.265 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.265 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Prescription#576]
+20:00:24.265 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Prescription#576]
+20:00:24.265 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Prescription#578]
+20:00:24.265 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Prescription#578]
+20:00:24.266 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.266 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.266 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.266 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 4 objects
+20:00:24.266 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.266 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.266 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Drug{code=0000-0000-20, name=TEST, description=DESC, id=574}
+20:00:24.266 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$aym1qOTiZ4N/DTHuNqQW/uP8w91wNbfIp5FVZwWToHSks42WRRXVq, role=ROLE_PATIENT, enabled=1, username=api_test_patient}
+20:00:24.266 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Prescription{dosage=100, endDate=java.util.GregorianCalendar[time=1286668800000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2010,MONTH=9,WEEK_OF_YEAR=42,WEEK_OF_MONTH=3,DAY_OF_MONTH=10,DAY_OF_YEAR=283,DAY_OF_WEEK=1,DAY_OF_WEEK_IN_MONTH=2,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], patient=edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient, id=576, renewals=12, startDate=java.util.GregorianCalendar[time=1255132800000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2009,MONTH=9,WEEK_OF_YEAR=41,WEEK_OF_MONTH=2,DAY_OF_MONTH=10,DAY_OF_YEAR=283,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=2,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], drug=edu.ncsu.csc.itrust2.models.persistent.Drug#574}
+20:00:24.266 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Prescription{dosage=200, endDate=java.util.GregorianCalendar[time=1604966400000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2020,MONTH=10,WEEK_OF_YEAR=46,WEEK_OF_MONTH=2,DAY_OF_MONTH=10,DAY_OF_YEAR=315,DAY_OF_WEEK=3,DAY_OF_WEEK_IN_MONTH=2,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], patient=edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient, id=578, renewals=3, startDate=java.util.GregorianCalendar[time=1602288000000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2020,MONTH=9,WEEK_OF_YEAR=41,WEEK_OF_MONTH=2,DAY_OF_MONTH=10,DAY_OF_YEAR=284,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=2,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], drug=edu.ncsu.csc.itrust2.models.persistent.Drug#574}
+20:00:24.269 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Written [[edu.ncsu.csc.itrust2.models.persistent.Prescription@6a50ead, edu.ncsu.csc.itrust2.models.persistent.Prescription@59f3373a]] as "application/json" using [org.springframework.http.converter.json.GsonHttpMessageConverter@5c2b5dfa]
+20:00:24.269 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+20:00:24.269 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+20:00:24.299 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing PUT request for [/api/v1/prescriptions]
+20:00:24.300 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Looking up handler method for path /api/v1/prescriptions
+20:00:24.300 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController.editPrescription(edu.ncsu.csc.itrust2.forms.hcp.PrescriptionForm)]
+20:00:24.300 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Returning cached instance of singleton bean 'APIPrescriptionController'
+20:00:24.300 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class edu.ncsu.csc.itrust2.forms.hcp.PrescriptionForm] as "application/json" with [org.springframework.http.converter.json.GsonHttpMessageConverter@5c2b5dfa]
+20:00:24.301 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Secure object: ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController.editPrescription(edu.ncsu.csc.itrust2.forms.hcp.PrescriptionForm); target is of class [edu.ncsu.csc.itrust2.controllers.api.APIPrescriptionController]; Attributes: [[authorize: 'hasRole('ROLE_HCP')', filter: 'null', filterTarget: 'null']]
+20:00:24.301 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Previously Authenticated: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@ad1c8f34: Principal: org.springframework.security.core.userdetails.User@192d5: Username: hcp; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN,ROLE_HCP,ROLE_USER; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_ADMIN, ROLE_HCP, ROLE_USER
+20:00:24.301 [main] DEBUG o.s.s.access.vote.AffirmativeBased - Voter: org.springframework.security.access.prepost.PreInvocationAuthorizationAdviceVoter@60410abb, returned: 1
+20:00:24.301 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - Authorization successful
+20:00:24.301 [main] DEBUG o.s.s.a.i.a.MethodSecurityInterceptor - RunAsManager did not change Authentication object
+20:00:24.302 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.303 [main] DEBUG org.hibernate.SQL - select this_.id as id1_3_0_, this_.code as code2_3_0_, this_.description as descript3_3_0_, this_.name as name4_3_0_ from Drugs this_ where this_.code=?
+Hibernate: select this_.id as id1_3_0_, this_.code as code2_3_0_, this_.description as descript3_3_0_, this_.name as name4_3_0_ from Drugs this_ where this_.code=?
+20:00:24.303 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+20:00:24.304 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.304 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.304 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.304 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.304 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.304 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.304 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.304 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.304 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.304 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Drug{code=0000-0000-20, name=TEST, description=DESC, id=574}
+20:00:24.305 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.314 [main] DEBUG org.hibernate.SQL - select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=?
+Hibernate: select this_.username as username1_15_0_, this_.enabled as enabled2_15_0_, this_.password as password3_15_0_, this_.role as role4_15_0_ from Users this_ where this_.username=?
+20:00:24.317 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+20:00:24.317 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.317 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.317 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.317 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.317 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.317 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.317 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.317 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.317 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.318 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$aym1qOTiZ4N/DTHuNqQW/uP8w91wNbfIp5FVZwWToHSks42WRRXVq, role=ROLE_PATIENT, enabled=1, username=api_test_patient}
+20:00:24.322 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.324 [main] DEBUG org.hibernate.SQL - select this_.id as id1_14_2_, this_.dosage as dosage2_14_2_, this_.drug_id as drug_id6_14_2_, this_.endDate as endDate3_14_2_, this_.patient_id as patient_7_14_2_, this_.renewals as renewals4_14_2_, this_.startDate as startDat5_14_2_, drug2_.id as id1_3_0_, drug2_.code as code2_3_0_, drug2_.description as descript3_3_0_, drug2_.name as name4_3_0_, user3_.username as username1_15_1_, user3_.enabled as enabled2_15_1_, user3_.password as password3_15_1_, user3_.role as role4_15_1_ from Prescriptions this_ inner join Drugs drug2_ on this_.drug_id=drug2_.id inner join Users user3_ on this_.patient_id=user3_.username where this_.id=?
+Hibernate: select this_.id as id1_14_2_, this_.dosage as dosage2_14_2_, this_.drug_id as drug_id6_14_2_, this_.endDate as endDate3_14_2_, this_.patient_id as patient_7_14_2_, this_.renewals as renewals4_14_2_, this_.startDate as startDat5_14_2_, drug2_.id as id1_3_0_, drug2_.code as code2_3_0_, drug2_.description as descript3_3_0_, drug2_.name as name4_3_0_, user3_.username as username1_15_1_, user3_.enabled as enabled2_15_1_, user3_.password as password3_15_1_, user3_.role as role4_15_1_ from Prescriptions this_ inner join Drugs drug2_ on this_.drug_id=drug2_.id inner join Users user3_ on this_.patient_id=user3_.username where this_.id=?
+20:00:24.327 [main] DEBUG org.hibernate.loader.Loader - Result set row: 0
+20:00:24.331 [main] DEBUG org.hibernate.loader.Loader - Result row: EntityKey[edu.ncsu.csc.itrust2.models.persistent.Drug#574], EntityKey[edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient], EntityKey[edu.ncsu.csc.itrust2.models.persistent.Prescription#576]
+20:00:24.331 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.331 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Drug#574]
+20:00:24.331 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.331 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient]
+20:00:24.331 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving associations for [edu.ncsu.csc.itrust2.models.persistent.Prescription#576]
+20:00:24.331 [main] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [edu.ncsu.csc.itrust2.models.persistent.Prescription#576]
+20:00:24.332 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.332 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.332 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.332 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 3 objects
+20:00:24.332 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.332 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.332 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Drug{code=0000-0000-20, name=TEST, description=DESC, id=574}
+20:00:24.332 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.User{password=$2a$10$aym1qOTiZ4N/DTHuNqQW/uP8w91wNbfIp5FVZwWToHSks42WRRXVq, role=ROLE_PATIENT, enabled=1, username=api_test_patient}
+20:00:24.332 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.Prescription{dosage=100, endDate=java.util.GregorianCalendar[time=1286668800000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2010,MONTH=9,WEEK_OF_YEAR=42,WEEK_OF_MONTH=3,DAY_OF_MONTH=10,DAY_OF_YEAR=283,DAY_OF_WEEK=1,DAY_OF_WEEK_IN_MONTH=2,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], patient=edu.ncsu.csc.itrust2.models.persistent.User#api_test_patient, id=576, renewals=12, startDate=java.util.GregorianCalendar[time=1255132800000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2009,MONTH=9,WEEK_OF_YEAR=41,WEEK_OF_MONTH=2,DAY_OF_MONTH=10,DAY_OF_YEAR=283,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=2,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=0,ZONE_OFFSET=0,DST_OFFSET=0], drug=edu.ncsu.csc.itrust2.models.persistent.Drug#574}
+20:00:24.333 [main] DEBUG o.h.e.t.internal.TransactionImpl - begin
+20:00:24.334 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+Hibernate: select next_val as id_val from hibernate_sequence for update
+20:00:24.334 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+20:00:24.336 [main] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 581, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+20:00:24.337 [main] DEBUG o.h.e.t.internal.TransactionImpl - committing
+20:00:24.337 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+20:00:24.337 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+20:00:24.338 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+20:00:24.338 [main] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+20:00:24.338 [main] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+20:00:24.338 [main] DEBUG o.h.internal.util.EntityPrinter - edu.ncsu.csc.itrust2.models.persistent.LogEntry{secondaryUser=null, logCode=47, primaryUser=hcp, id=581, time=java.util.GregorianCalendar[time=1521662424333,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id="Etc/UTC",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null],firstDayOfWeek=1,minimalDaysInFirstWeek=1,ERA=1,YEAR=2018,MONTH=2,WEEK_OF_YEAR=12,WEEK_OF_MONTH=4,DAY_OF_MONTH=21,DAY_OF_YEAR=80,DAY_OF_WEEK=4,DAY_OF_WEEK_IN_MONTH=3,AM_PM=1,HOUR=8,HOUR_OF_DAY=20,MINUTE=0,SECOND=24,MILLISECOND=333,ZONE_OFFSET=0,DST_OFFSET=0], message=No prescription found with id 576}
+20:00:24.339 [main] DEBUG org.hibernate.SQL - insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+Hibernate: insert into LogEntries (logCode, message, primaryUser, secondaryUser, time, id) values (?, ?, ?, ?, ?, ?)
+20:00:24.345 [main] DEBUG o.h.e.j.internal.JdbcCoordinatorImpl - HHH000420: Closing un-released batch
+20:00:24.348 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [{"status":"failed","message":"No prescription found with id 576"}] as "text/plain" using [org.springframework.http.converter.StringHttpMessageConverter@50a5b9b5]
+20:00:24.348 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
+20:00:24.348 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
+20:00:24.349 [main] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - After test method: context [DefaultTestContext@75f49708 testClass = APIPrescriptionTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest@71d9918, testMethod = testPrescriptionAPI@APIPrescriptionTest, testException = java.lang.AssertionError: expected:<576> but was:<null>, mergedContextConfiguration = [WebMergedContextConfiguration@7fe3cd91 testClass = APIPrescriptionTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+20:00:24.349 [main] DEBUG o.s.t.c.w.ServletTestExecutionListener - Resetting RequestContextHolder for test context [DefaultTestContext@75f49708 testClass = APIPrescriptionTest, testInstance = edu.ncsu.csc.itrust2.apitest.APIPrescriptionTest@71d9918, testMethod = testPrescriptionAPI@APIPrescriptionTest, testException = java.lang.AssertionError: expected:<576> but was:<null>, mergedContextConfiguration = [WebMergedContextConfiguration@7fe3cd91 testClass = APIPrescriptionTest, locations = '{}', classes = '{class edu.ncsu.csc.itrust2.config.RootConfiguration, class edu.ncsu.csc.itrust2.mvc.config.WebMvcConfiguration}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.test.context.web.WebDelegatingSmartContextLoader', parent = [null]]].
+]]></system-out>
+  </testcase>
+</testsuite>

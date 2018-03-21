@@ -2,10 +2,10 @@
 - name: clone iTrust
   git: repo=https://{{ git_token | urlencode }}@github.ncsu.edu/rshah8/iTrust2-v2 dest=/home/ubuntu/iTrust
 
-# - name: Download Jenkins CLI
-#   get_url:
-#     url: http://{{ jenkins_ip }}:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar
-#     dest: /var/lib/jenkins/
+- name: Download Jenkins CLI
+  get_url:
+    url: http://{{ jenkins_ip }}:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar
+    dest: /var/lib/jenkins/
 
 - name: Copy db.properties
   template: 
@@ -58,10 +58,10 @@
   npm:
     path: /home/ubuntu/iTrust/
 
-# - name: Copy ini file to the directory
-#   template:
-#     src: templates/jenkins_jobs.ini
-#     dest: /etc/jenkins_jobs/
+- name: Copy ini file to the directory
+  template:
+    src: templates/jenkins_jobs.ini
+    dest: /etc/jenkins_jobs/
 
 - name: Install Jenkins Job Builder using PIP
   pip:
@@ -105,12 +105,18 @@
 #     owner: jenkins
 #     group: jenkins 
 #     mode: 0755
-# - name: copy iTrust for initial build
-#   shell: "cp -R /home/ubuntu/iTrust/ /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/ && chgrp -R jenkins /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2 && chown -R jenkins /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2"
+    
+- name: copy iTrust for initial build
+  shell: "cp -R /home/ubuntu/iTrust/ /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/ && chgrp -R jenkins /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2 && chown -R jenkins /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2"
+
+# - name: Creates report directory
+#   file:
+#     path: /home/ubuntu/reports
+#     state: directory
 
 - name: Creates report directory
   file:
-    path: /home/ubuntu/reports
+    path: /home/ubuntu/surefire-reports
     state: directory
 
 - name: Copy report files to Jenkins home dir
@@ -127,13 +133,13 @@
   npm:
     path: /var/lib/jenkins
 
-# - name: Restart Jenkins and add user
-#   service:
-#     name: jenkins
-#     state: restarted
+- name: Restart Jenkins and add user
+  service:
+    name: jenkins
+    state: restarted
 
-# - wait_for:
-#     timeout: 30
+- wait_for:
+    timeout: 30
 
 # - name: Get jenkins crumb
 #   shell: curl -s 'http://{{jenkins_username}}:{{jenkins_password}}@{{jenkins_ip}}:{{jenkins_port}}/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
@@ -143,8 +149,8 @@
 #   shell: curl -X POST http://{{jenkins_username}}:{{jenkins_password}}@{{jenkins_ip}}:{{jenkins_port}}/job/{{jenkins_iTrust_fuzz}}/build -H "{{crumb.stdout}}"
 #   register: result
 
-# - name: Build iTrust job
-#   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{jenkins_iTrust_fuzz}} --username {{jenkins_username}} --password {{jenkins_password}} -s"
+- name: Build iTrust job
+  shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{jenkins_iTrust_fuzz}} --username {{jenkins_username}} --password {{jenkins_password}} -s"
 
 - name: run fuzzer job
   shell: node runFuzzing.js
