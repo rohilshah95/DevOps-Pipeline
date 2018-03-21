@@ -1,6 +1,6 @@
 var ncp=require('ncp').ncp;
 var fs = require('fs');
-
+var findRemoveSync=require('find-remove');
 var rootDir='/var/lib/jenkins/jobs/iTrust-Fuzz-Job/builds';
 
 
@@ -13,17 +13,26 @@ function getDirectories(path) {
 var max='0';
 var ans= getDirectories(rootDir);
 ans.forEach(function(n){
-	if(!isNaN(n))
+	if(!isNaN(parseInt(n)))
 	{
-		if (n>max)
-			max=n;
+		if (parseInt(n)>max)
+			max=parseInt(n);
 	}
 });
 
+// var source='/var/lib/jenkins/jobs/iTrust-Fuzz-Job/builds/'+(max-1)+'/junitResult.xml';
 var source='/var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/iTrust/iTrust2/target/surefire-reports'
-var destination='/home/ubuntu/reports/'+max;
+var destination='/home/ubuntu/surefire-reports/'+(max);
+//fs.copySync(path.resolve(__dirname,source), './test/mainisp.jpg');
+
+// fs.copy(source, destination, err => {
+//   if (err) return console.error(err)
+//   console.log('success!')
+// });
+
 ncp(source, destination, function (err) {
- if (err) {
-   return console.error(err);
- }
+if (err) {
+  return console.error(err);
+}
+var result = findRemoveSync(destination, {extensions: ['.txt']})
 });

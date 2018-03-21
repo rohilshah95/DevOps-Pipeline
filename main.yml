@@ -124,8 +124,8 @@
     # - mysql
     # - ansible
     # - jenkins
-    # # - checkbox_build
-    - iTrust_build
+    # - checkbox_build
+    # - iTrust_build
     - iTrust-fuzzing
     #
    

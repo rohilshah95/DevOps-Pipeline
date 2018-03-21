@@ -4,7 +4,7 @@ var fs = require('fs'),
     Bluebird = require('bluebird');
 var xmlparser = require('junit-xml-parser').parser;
 var parser = new xml2js.Parser();
-var obj = fs.readFileSync('/Users/siddhantshah1/Downloads/DevOps-master/Workshops/workshop-testsuite/TestSuites/result.xml','utf8')
+var obj = fs.readFileSync('./reports/0/junitResult.xml','utf8')
 
 /* Add file path here */
 var testReport =  '';

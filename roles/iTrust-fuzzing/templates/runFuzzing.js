@@ -4,12 +4,12 @@ var fuzzer = require('./fuzzing');
 var sleep = require('system-sleep');
 var child_process = require('child_process');
 
-var REPO = "github.ncsu.edu/sshah14/iTrust2-v2.git";
+var REPO = "https://github.ncsu.edu/rshah8/iTrust2-v2";
 var REMOTE = ``;
 var BRANCH = "fuzzer";
 var TOKEN = "{{git_token}}"
 var LOCALPATH= "/home/ubuntu/iTrust"
-var JENKINSPATH= "/var/lib/jenkins/workspace/iTrust-Fuzz-Job"
+var JENKINSPATH= "/var/lib/jenkins/"
 var ITRUST2_V2 = "iTrust2";
 var ITRUST = "iTrust";
 var GITPATH = ``;
@@ -20,7 +20,7 @@ function main() {
     REMOTE = `https://${TOKEN}@${REPO}`;
     GITPATH = `${LOCALPATH}/`;
     clone(REMOTE, LOCALPATH, BRANCH);
-    for (var i = 1; i <= 5; i++) 
+    for (var i = 1; i <= 100; i++) 
     {
         {
             fuzzer.main(LOCALPATH + ITRUST_RELATIVE_PATH);   
@@ -28,7 +28,7 @@ function main() {
             // build , post commit hook
             revertChanges(GITPATH);
         }
-        sleep(120000);
+        sleep(60000);
     }
 }
 
