@@ -1,21 +1,31 @@
 ---
 - name: clone iTrust
-  git: repo=https://{{ git_token | urlencode }}@github.ncsu.edu/sshah14/iTrust2-v2 dest=/home/ubuntu/iTrust
+  git: repo=https://{{ git_token | urlencode }}@github.ncsu.edu/rshah8/iTrust2-v2 dest=/home/ubuntu/iTrust
+
+# - name: Download Jenkins CLI
+#   get_url:
+#     url: http://{{ jenkins_ip }}:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar
+#     dest: /var/lib/jenkins/
 
 - name: Copy db.properties
   template: 
     src: db.properties.j2 
-    dest: /home/ubuntu/iTrust/iTrust2/src/main/java/db.properties/
+    dest: /home/ubuntu/iTrust/iTrust2/src/main/java/db.properties
 
 - name: Copy email.properties
   template: 
     src: email.properties.template 
-    dest: /home/ubuntu/iTrust/iTrust2/src/main/java/email.properties/
+    dest: /home/ubuntu/iTrust/iTrust2/src/main/java/email.properties
 
 - name: Copy hibernate.properties
   template: 
     src: hibernate.properties.j2 
     dest: /home/ubuntu/iTrust/iTrust2/src/main/resources/hibernate.properties
+
+- name: Copy pom.xml
+  template: 
+    src: pom-data.xml 
+    dest: /home/ubuntu/iTrust/iTrust2/pom-data.xml
 
 - name: Copy package.json to iTrust directory
   copy:
@@ -48,6 +58,22 @@
   npm:
     path: /home/ubuntu/iTrust/
 
+# - name: Copy ini file to the directory
+#   template:
+#     src: templates/jenkins_jobs.ini
+#     dest: /etc/jenkins_jobs/
+
+- name: Install Jenkins Job Builder using PIP
+  pip:
+    name: jenkins-job-builder
+    state: latest
+
+- name: Make jobs directory
+  file:
+    path: jobs
+    state: directory
+    mode: 0777
+
 - name: Create iTrust job builder file
   template:
     src: templates/itrust-fuzz-job.yaml
@@ -72,6 +98,16 @@
     group: jenkins
     mode: 0755
 
+# - name: copy iTrust for initial build
+#   synchronize:
+#     src: /home/ubuntu/iTrust
+#     dest: /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/
+#     owner: jenkins
+#     group: jenkins 
+#     mode: 0755
+# - name: copy iTrust for initial build
+#   shell: "cp -R /home/ubuntu/iTrust/ /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/ && chgrp -R jenkins /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2 && chown -R jenkins /var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2"
+
 - name: Creates report directory
   file:
     path: /home/ubuntu/reports
@@ -91,10 +127,27 @@
   npm:
     path: /var/lib/jenkins
 
+# - name: Restart Jenkins and add user
+#   service:
+#     name: jenkins
+#     state: restarted
+
+# - wait_for:
+#     timeout: 30
+
+# - name: Get jenkins crumb
+#   shell: curl -s 'http://{{jenkins_username}}:{{jenkins_password}}@{{jenkins_ip}}:{{jenkins_port}}/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
+#   register: crumb
+
+# - name: Run fuzzer initial job
+#   shell: curl -X POST http://{{jenkins_username}}:{{jenkins_password}}@{{jenkins_ip}}:{{jenkins_port}}/job/{{jenkins_iTrust_fuzz}}/build -H "{{crumb.stdout}}"
+#   register: result
+
+# - name: Build iTrust job
+#   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{jenkins_iTrust_fuzz}} --username {{jenkins_username}} --password {{jenkins_password}} -s"
+
 - name: run fuzzer job
   shell: node runFuzzing.js
   args:
     chdir: /home/ubuntu/iTrust
 
-# - name: Build Jenkins Job for iTrust
-  # shell: "java -jar {{ jenkins_cli_jar_loc }}/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{ jenkins_iTrust_fuzz }} --username {{jenkins_username}} --password {{jenkins_password}} -s"

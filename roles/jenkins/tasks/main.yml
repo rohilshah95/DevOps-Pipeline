@@ -86,16 +86,16 @@
     path: "/var/lib/jenkins/init.groovy.d/basic-security.groovy"
     state: absent
 
-# - wait_for:
-#     timeout: 100
-- name: Wait for restart
-  uri:
-    url: "http://{{jenkins_ip}}:{{jenkins_port}}/cli/"
-    status_code: 200
-  register: result
-  until: result.status == 200
-  retries: 60
-  delay: 10
+- wait_for:
+    timeout: 100
+# - name: Wait for restart
+#   uri:
+#     url: "http://{{jenkins_ip}}:{{jenkins_port}}/cli/"
+#     status_code: 200
+#   register: result
+#   until: result.status == 200
+#   retries: 60
+#   delay: 10
    
 - name: Install Jenkin Plugins
   jenkins_plugin:

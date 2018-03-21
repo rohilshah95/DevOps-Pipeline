@@ -3,10 +3,6 @@
     description: "built by job builder"
     builders:
       - shell: |
-            sudo cp /tmp/db.properties iTrust2-v2/iTrust/iTrust2/src/main/java/db.properties 
-            sudo cp /tmp/hibernate.properties iTrust2-v2/iTrust/iTrust2/src/main/resources/hibernate.properties 
-            sudo cp /tmp/email.properties iTrust2-v2/iTrust/iTrust2/src/main/java/email.properties 
-            sudo cp /tmp/pom-data.xml iTrust2-v2/iTrust/iTrust2/pom-data.xml 
             cd iTrust2-v2
             cd iTrust
             cd iTrust2
@@ -14,7 +10,10 @@
             sudo mvn clean test verify checkstyle:checkstyle
     publishers:
       - jacoco
+      - junit: 
+            results: iTrust2-v2/iTrust/iTrust2/target/surefire-reports/*.xml
     wrappers:
     - timeout:
-        timeout: 2
+        timeout: 5
         fail: true
+
