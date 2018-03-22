@@ -47,20 +47,20 @@ function createRandomChangesInAFile(filePath) {
  		{
             if((!line.match(/<.+>/) && !line.match(/->/)) && (line.match("while") || line.match("if")))
             {
-                if(randomizer.bool(0.2) && line.match(">"))
+                if(randomizer.bool(0.3) && line.match(">"))
                     lines[index] = lines[index].replace('>','<');
-                if(randomizer.bool(0.2) && line.match("<"))
+                if(randomizer.bool(0.3) && line.match("<"))
                     lines[index] = lines[index].replace('<','>');
-                if(randomizer.bool(0.2) && line.match("=="))
+                if(randomizer.bool(0.3) && line.match("=="))
                     lines[index] = lines[index].replace('==','!=');
-                if(randomizer.bool(0.2) && line.match("!="))
+                if(randomizer.bool(0.3) && line.match("!="))
                     lines[index] = lines[index].replace('!=','==');
             }
 
-            if(randomizer.bool(0.2) && line.match('"((\\"|[^"])+0(\\"|[^"])*|(\\"|[^"])*0(\\"|[^"])+)"')  )
+            if(randomizer.bool(0.3) && line.match('"((\\"|[^"])+0(\\"|[^"])*|(\\"|[^"])*0(\\"|[^"])+)"')  )
                 lines[index] = lines[index].replace('0','1');
 
-            if(randomizer.bool(0.2) && line.match('\"(\\"|[^\"])*\"') && !line.match("//") && !line.match("@"))
+            if(randomizer.bool(0.3) && line.match('\"(\\"|[^\"])*\"') && !line.match("//") && !line.match("@"))
                 lines[index] = lines[index].replace(/\"(\\"|[^\"])*\"/g, '"' + randomizer.string(10) + '"')
         }
  	});
