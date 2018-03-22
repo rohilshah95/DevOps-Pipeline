@@ -53,6 +53,10 @@ function createRandomChangesInAFile(filePath) {
                     lines[index] = lines[index].replace('<','>');
                 if(randomizer.bool(0.3) && line.match("=="))
                     lines[index] = lines[index].replace('==','!=');
+                if(randomizer.bool(0.3) && line.match("&&"))
+                    lines[index] = lines[index].replace('&&','||');
+                if(randomizer.bool(0.3) && line.match("||"))
+                    lines[index] = lines[index].replace('||','&&');
                 if(randomizer.bool(0.3) && line.match("!="))
                     lines[index] = lines[index].replace('!=','==');
             }
