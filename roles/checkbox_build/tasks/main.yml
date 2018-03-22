@@ -14,13 +14,39 @@
     dest: /etc/sudoers
     line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
 
-- name: Check if job already made
-  shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ list-jobs --username {{jenkins_username}} --password {{jenkins_password}}"
-  register: jenkins_check
+- name: Install Jenkins Job Builder using PIP
+  pip:
+    name: jenkins-job-builder
+    state: latest
 
-- name: Create Job
-  shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ create-job {{jenkins_checkbox}} < /tmp/checkbox_config.xml --username {{jenkins_username}} --password {{jenkins_password}}"
-  when: jenkins_check.stdout.find(jenkins_checkbox)==-1
+- name: Copy ini file to the directory
+  template:
+    src: templates/jenkins_jobs.ini
+    dest: /etc/jenkins_jobs/
+
+- name: Make jobs directory
+  file:
+    path: jobs
+    state: directory
+    mode: 0777
+
+- name: Copy iTrust job builder file
+  template:
+    src: templates/checkbox.yaml
+    dest: jobs/
+
+- name: Copy db.properties
+  template: 
+    src: package.json 
+    dest: /tmp/package.json
+
+# - name: Check if job already made
+#   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ list-jobs --username {{jenkins_username}} --password {{jenkins_password}}"
+#   register: jenkins_check
+
+# - name: Create Job
+#   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ create-job {{jenkins_checkbox}} < /tmp/checkbox_config.xml --username {{jenkins_username}} --password {{jenkins_password}}"
+#   when: jenkins_check.stdout.find(jenkins_checkbox)==-1
 
 - name: Build checkbox job
   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{jenkins_checkbox}} --username {{jenkins_username}} --password {{jenkins_password}} -s"
