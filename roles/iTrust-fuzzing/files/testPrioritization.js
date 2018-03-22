@@ -36,33 +36,39 @@ function main(directoryPath) {
     listOfFiles.forEach(function(element) {
     	readFile(element);
     });
+    
     sleep(120000);
+    
     for(key in map){
     	map[key].time /= 100
     }
-    var xyz=Object.values(map);
-    xyz.sort(function(a, b){
+    
+    var arr=Object.values(map);
+	
+    arr.sort(function(a, b){
     	if(a.failed==b.failed)
-    		return (b.time-a.time)
+    	   return (b.time-a.time)
     	else
-    		return (b.failed-a.failed)
+    	   return (b.failed-a.failed)
     });
-	fs.appendFile('/home/ubuntu/result.md', '|Test name|Time|No of times Failed|\n', function(err){
-			if (err)
-				console.log(err);
-		})
-	fs.appendFile('/home/ubuntu/result.md', '|---|---|---|\n', function(err){
-			if (err)
-				console.log(err);
-		})
+	
+    fs.appendFile('/home/ubuntu/result.md', '|Test name|Time|No of times Failed|\n', function(err){
+	if (err)
+	    console.log(err);
+    })
+	
+    fs.appendFile('/home/ubuntu/result.md', '|---|---|---|\n', function(err){
+	if (err)
+	    console.log(err);
+    })
 
-	xyz.forEach(function(v) {
-		var temp=JSON.parse(JSON.stringify(v))
-		fs.appendFile('/home/ubuntu/result.md', "|"+temp.name+"\t\t\t\t\t|"+temp.time+"\t\t\t\t\t|"+temp.failed + '\n', function(err){
-			if (err)
-				console.log(err);
-		})
-	});	
+    arr.forEach(function(v) {
+	var temp=JSON.parse(JSON.stringify(v))
+	fs.appendFile('/home/ubuntu/result.md', "|"+temp.name+"\t\t\t\t\t|"+temp.time+"\t\t\t\t\t|"+temp.failed + '\n', function(err){
+	    if (err)
+	        console.log(err);
+	})
+    });	
 }
 
 function readFile(testReport){
