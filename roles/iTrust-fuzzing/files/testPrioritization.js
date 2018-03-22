@@ -7,7 +7,7 @@ const parseString = require('xml2js-parser').parseString;
 var parser = new xml2js.Parser();
 const path = require('path');
 var validFileExtensions = ["xml"];
-var directoryPath = "~/surefire-reports/"
+var directoryPath = "/home/ubuntu/surefire-reports/"
 var map = new Map();
 var testResults = []
 
@@ -47,18 +47,18 @@ function main(directoryPath) {
     	else
     		return (b.failed-a.failed)
     });
-	fs.appendFile('./result.md', '|Test name|Time|No of times Failed|\n', function(err){
+	fs.appendFile('/home/ubuntu/result.md', '|Test name|Time|No of times Failed|\n', function(err){
 			if (err)
 				console.log(err);
 		})
-	fs.appendFile('./result.md', '|---|---|---|\n', function(err){
+	fs.appendFile('/home/ubuntu/result.md', '|---|---|---|\n', function(err){
 			if (err)
 				console.log(err);
 		})
 
 	xyz.forEach(function(v) {
 		var temp=JSON.parse(JSON.stringify(v))
-		fs.appendFile('./result.md', "|"+temp.name+"\t\t\t\t\t|"+temp.time+"\t\t\t\t\t|"+temp.failed + '\n', function(err){
+		fs.appendFile('/home/ubuntu/result.md', "|"+temp.name+"\t\t\t\t\t|"+temp.time+"\t\t\t\t\t|"+temp.failed + '\n', function(err){
 			if (err)
 				console.log(err);
 		})

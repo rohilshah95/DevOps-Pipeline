@@ -1,6 +1,6 @@
 - job:
     name: "{{jenkins_iTrust_fuzz}}"
-    description: "built by job builder"
+    description: "built using jenkins-job-builder"
     builders:
       - shell: |
             cd iTrust2-v2
