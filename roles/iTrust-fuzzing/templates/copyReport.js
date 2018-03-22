@@ -20,15 +20,9 @@ ans.forEach(function(n){
 	}
 });
 
-// var source='/var/lib/jenkins/jobs/iTrust-Fuzz-Job/builds/'+(max-1)+'/junitResult.xml';
+
 var source='/var/lib/jenkins/workspace/iTrust-Fuzz-Job/iTrust2-v2/iTrust/iTrust2/target/surefire-reports'
 var destination='/home/ubuntu/surefire-reports/'+(max);
-//fs.copySync(path.resolve(__dirname,source), './test/mainisp.jpg');
-
-// fs.copy(source, destination, err => {
-//   if (err) return console.error(err)
-//   console.log('success!')
-// });
 
 ncp(source, destination, function (err) {
 if (err) {
