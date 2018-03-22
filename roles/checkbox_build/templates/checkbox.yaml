@@ -8,12 +8,13 @@
           sudo cp tmp/package.json ./
           sudo npm install
           sudo node main.js server.js
-          sudo node test.js
-          # get reports
+          sudo node test.js &
     publishers: 
       - post-tasks:
           script: |
-            #download fromm server and extract  
+            sudo sleep 10s
+            sudo wget http://localhost:4004/coverage/download
+            sudo unzip download -d /var/lib/jenkins/workspace/{{jenkins_checkbox}}/
       - html-publisher:
           name: "Coverage report"
           dir: "lcov-report"
