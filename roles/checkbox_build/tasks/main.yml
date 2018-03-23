@@ -60,8 +60,8 @@
 
 - name: Copy template files
   template: 
-    src: mon.js 
-    dest: /tmp/coverage/mon.js
+    src: mocker.js 
+    dest: /tmp/coverage/mocker.js
 
 - name: Copy template files
   template: 
