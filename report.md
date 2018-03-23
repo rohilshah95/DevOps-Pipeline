@@ -61,5 +61,5 @@ We have also integrated the test generation on Jenkins. The cov_server.js using 
 Problems faced: 
 
 Test Coverage Results:
-![img](./content/test_report.png)
+![img](./content/test_screenshot.png)
 
