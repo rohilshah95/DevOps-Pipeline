@@ -26,7 +26,6 @@
     "mock-fs": "^4.4.2",
     "mock-require": "^3.0.1",
     "mockery": "^2.1.0",
-    "mockgo": "^1.1.7",
     "mockgoose": "^7.3.5",
     "mongo-mock": "^3.1.0",
     "mongo-mocker": "0.0.8",

@@ -58,7 +58,16 @@ Integration with Jenkins:
 
 We have also integrated the test generation on Jenkins. The cov_server.js using istanbul-middleware, creates reports on the URI `/coverage/`. We download these reports and add them to Jenkins using HTML publisher Jenkins plugin.
 
-Problems faced: 
+Problems faced:   
+A lot of effort was spent in identifying the right API and the approach to mock the mongo db database.  
+We experimented with several modules to look for an elegant appraoch.  
+We tried the following appraoches:  
+* MongoDB prototype methods with Sinon Stubs. We used Sinon mock and stub methods to override the Collection methods from mongodb. While this approach gave us good results, it was not scalable.  
+* We also tried creating test data using a local mongodb server, but look towards mocking again since it was more elegant.  
+* Finally, we used a combination of mongo-mock, mongodb and a Sinon stubs and mocks to achieve the desired result.  
+We ran into issues with the esprima code while we aimed at creating the input test data automatically. The approach would have theoretically produced a higher test coverage than that of what we have currently.
+
+
 
 Test Coverage Results:
 ![img](./content/test_screenshot.png)
