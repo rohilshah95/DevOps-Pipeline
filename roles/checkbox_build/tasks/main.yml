@@ -6,8 +6,14 @@
     url: http://{{ jenkins_ip }}:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar
     dest: '/var/lib/jenkins/'
 
+- name: Make tmp directory
+  file:
+    path: /tmp/coverage
+    state: directory
+    mode: 0777
+
 - name: Checkbox build config
-  template: src=checkbox_config.j2 dest=/tmp/checkbox_config.xml
+  template: src=checkbox_config.j2 dest=/tmp/coverage/checkbox_config.xml
 
 - name: Add jenkins user to Sudoers
   lineinfile:
@@ -30,22 +36,62 @@
     state: directory
     mode: 0777
 
-- name: Copy iTrust job builder file
+- name: Copy checkbox job builder file
   template:
     src: templates/checkbox.yaml
     dest: jobs/
 
-- name: Copy db.properties
+
+
+- name: Copy template files
   template: 
     src: package.json 
-    dest: /tmp/package.json
+    dest: /tmp/coverage/package.json
+
+- name: Copy template files
+  template: 
+    src: cov_server.js 
+    dest: /tmp/coverage/cov_server.js
+
+- name: Copy template files
+  template: 
+    src: main.js 
+    dest: /tmp/coverage/main.js
+
+- name: Copy template files
+  template: 
+    src: mon.js 
+    dest: /tmp/coverage/mon.js
+
+- name: Copy template files
+  template: 
+    src: server.js 
+    dest: /tmp/coverage/server.js
+
+- name: Copy template files
+  template: 
+    src: constraint.js
+    dest: /tmp/coverage/constraint.js
+
+- name: Copy template files
+  template: 
+    src: testgenerator.js 
+    dest: /tmp/coverage/testgenerator.js
+
+- name: Copy template files
+  template: 
+    src: format-polyfill.js 
+    dest: /tmp/coverage/format-polyfill.js
+
+- name: Add the jobs
+  shell: jenkins-jobs update jobs
 
 # - name: Check if job already made
 #   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ list-jobs --username {{jenkins_username}} --password {{jenkins_password}}"
 #   register: jenkins_check
 
 # - name: Create Job
-#   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ create-job {{jenkins_checkbox}} < /tmp/checkbox_config.xml --username {{jenkins_username}} --password {{jenkins_password}}"
+#   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ create-job {{jenkins_checkbox}} < /tmp/coverage/checkbox_config.xml --username {{jenkins_username}} --password {{jenkins_password}}"
 #   when: jenkins_check.stdout.find(jenkins_checkbox)==-1
 
 - name: Build checkbox job
