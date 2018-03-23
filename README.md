@@ -23,10 +23,11 @@ ansible-playbook main.yml --vault-password-file ./password.txt
 where password.txt contains the [vault](secrets.yml) password.
 
 [Jenkins automation](/roles/jenkins/tasks/main.yml)  
-[checkbox.io](/roles/checkbox_build/tasks/main.yml) + [iTrust](/roles/iTrust_build/tasks/main.yml) build jobs  
+[checkbox.io Provisioning and Test Generation](/roles/checkbox_build/tasks/main.yml) + [iTrust](/roles/iTrust_build/tasks/main.yml) build jobs  
 [iTrust post-build provisioning and configuration](/provision/iTrust2.yml)  
 [checkbox.io post-build provisioning and configuration](/provision/checkbox.yml)  
 [iTrust Test Prioritization Report](testPrioritizationReport.md)
+]
 
 #### Report
 Report can be found [here](report.md)
