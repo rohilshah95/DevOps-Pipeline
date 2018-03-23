@@ -58,6 +58,8 @@ Integration with Jenkins:
 
 We have also integrated the test generation on Jenkins. The cov_server.js using istanbul-middleware, creates reports on the URI `/coverage/`. We download these reports and add them to Jenkins using HTML publisher Jenkins plugin.
 
-Problems faced:
+Problems faced: 
 
 Test Coverage Results:
+![img](./content/test_report.png)
+
