@@ -1,6 +1,8 @@
 // Core/NPM Modules
 const fs      = require("fs");
 const faker = require('faker')
+const _ = require('lodash')
+const mongo = require('mongodb')
 
 /**
  * Generate test cases based on the global object functionConstraints.
@@ -9,126 +11,44 @@ const faker = require('faker')
  * @param {Object} functionConstraints Constraints object as returned by `constraints`.
  */
 function generateTestCases(filepath, functionConstraints) {
-    let initial = `let subject = require('./mon.js')\nlet sleep = require('system-sleep')\nsleep(5000)\nvar needle = require('needle')\n`
+    let initial = `let mocker = require('./mocker.js')\nlet sleep = require('system-sleep')\nsleep(5000)\nvar needle = require('needle')\n`
     var content = initial;
     for ( let i in functionConstraints ) {
-         content += `try {` +  constructReq(functionConstraints[i])+ `  } catch (e) {} \n`;
+        if(functionConstraints[i].info && ['post','get'].includes(functionConstraints[i].info.type)){
+           content+= constructReq(functionConstraints[i])
+        }
     }
     fs.writeFileSync('test.js', content, "utf8");
 }
 
 function constructReq(constraint){
-    let reqType = constraint.value.type
-    let url = constraint.value.url
-    let needsParam = constraint.value.needsParams
+    let reqType = constraint.info.type
+    let url = constraint.info.url
+    let needsParam = constraint.info.needsParams
     let host = "http://localhost:3002"
     let val = needsParam? 1 : ""
+    var content = "";
+
 
     if(reqType == 'get'){
-        // get some value here
-        return "needle." + reqType + "('" + host+  url + val + "')";
+        val = new mongo.ObjectID("5aac31beb748e953ca4dc091")
+       content+= "needle." + reqType + "('" + host+  url + val + "')\n";
+
     }
     else if(reqType == 'post'){
-
-        // get the generated mock object here 
-        // get the parameter if required.
-        var mocked = postMockObject(constraint.value.resource)
-        console.log(constraint)
-        var objString = mocked?JSON.stringify(mocked):""
-
-        return "needle." + reqType + "('" + host+  url + val + "'," +objString+ ")";
+        var objString = JSON.stringify(constraint.member.req.body)
+        console.log(objString)
+        content+= "needle." + reqType + "('" + host+  url + val + "'," +objString+ ")\n";
     }
-}
 
-function postMockObject(resource){
-
-    if(resource == 'study'){
-        return generateStudyMock()
-        //generate a mock study object here with fake data
-    }
-    else if(resource == 'vote'){
-        return generateVoteMock()
-        //generate a mock vote objcet here with fake data
-    }
-}
-
-function generateStudyMock(){
-    return {
-        _id:"",
-        name:faker.name.findName,
-        description: "this is random text",
-        studyKind:"survey",
-        researcherName:faker.name.findName,
-        contact:faker.internet.email(),
-        awards:null,
-        awardOptions:[
-            "Amazon Gift Card",
-            "Github Swag",
-            "BrowserStack",
-            "Windows Surface RT",
-            "iPad Mini",
-            "Other",
-            "None"
-        ],
-        status:"open",
-        goal:"100",
-        invitecode:"RESEARCH",
-        markdown : ""
-    }
-}
-
-function generateVoteMock(){
-    return {
-            _id:"",
-            studyId:"2",
-            timestamp:"",
-            ip:"192.168.33.1",
-            fingerprint:"2019582184",
-            answers:[
-                {
-                    question:1,
-                    kind:"multichoice",
-                    answer:[
-                        "0"
-                    ]
-                },
-                {
-                    question:2,
-                    kind:"singlechoice",
-                    answer:"0"
-                },
-                {
-                question:3,
-                    kind:"singlechoicetable",
-                    answer:{
-                        "3_0":"1",
-                        "3_1":"2",
-                        "3_2":"3",
-                        "3_3":"2"
-                    }
-                },
-                {
-                    "question":4,
-                    "kind":"multichoicetable",
-                    "answer":{
-                        "4_0":[
-                            "2"
-                        ],
-                        "4_1":[
-                            "2"
-                        ],
-                        "4_2":[
-                            "2"
-                        ],
-                        "4_3":[
-                            "2"
-                        ]
-                    }
-                }
-            ],
-            email:"",
-            contact:"false"
-        }
+    // if(constraint.tests){
+    //     for(let i in constraint.tests){
+    //         content += `try {` +  constructReq(constraint.tests[i])+ `  } catch (e) {} \n`;
+            
+    //     }   
+    // }
+    console.log(content)
+    return content
 }
 // Export
 module.exports = generateTestCases;
