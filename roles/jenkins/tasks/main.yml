@@ -17,6 +17,11 @@
   pip:
     name: boto
     state: latest
+	
+- name: Updating nodejs
+  shell: |
+    sudo npm install n
+	sudo n stable
 
 - name: ensure required packages are installed for Java 8
   apt: name=python-software-properties

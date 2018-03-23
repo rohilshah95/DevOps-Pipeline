@@ -5,7 +5,7 @@
       - shell: |
           sudo git clone https://github.com/chrisparnin/checkbox.io
           cd checkbox.io/server-side/site
-          sudo cp tmp/package.json ./
+          sudo cp -a /tmp/coverage/. ./
           sudo npm install
           sudo node main.js server.js
           sudo node test.js &
