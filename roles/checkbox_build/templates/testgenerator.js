@@ -9,7 +9,7 @@ const faker = require('faker')
  * @param {Object} functionConstraints Constraints object as returned by `constraints`.
  */
 function generateTestCases(filepath, functionConstraints) {
-    let initial = `let subject = require('./testserver.js')\nlet sleep = require('system-sleep')\nsleep(5000)\nvar needle = require('needle')\n`
+    let initial = `let subject = require('./mon.js')\nlet sleep = require('system-sleep')\nsleep(5000)\nvar needle = require('needle')\n`
     var content = initial;
     for ( let i in functionConstraints ) {
          content += `try {` +  constructReq(functionConstraints[i])+ `  } catch (e) {} \n`;
