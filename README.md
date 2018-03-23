@@ -27,7 +27,7 @@ where password.txt contains the [vault](secrets.yml) password.
 [iTrust post-build provisioning and configuration](/provision/iTrust2.yml)  
 [checkbox.io post-build provisioning and configuration](/provision/checkbox.yml)  
 [iTrust Test Prioritization Report](testPrioritizationReport.md)
-]
+
 
 #### Report
 Report can be found [here](report.md)
