@@ -39,4 +39,25 @@ We analyzed the reports of our test cases and generated a report.md file (using 
 
 
 ### Automated Test Generation
+For generating test cases to test the routes in server.js of checkbox.io server-side code, we have used the following modules:
+* mongo-mock - To mock mongodb calls.
+* mongodb prototypes - To define prototypes to which mongo-mock will intercept calls.
+* Istanbul middleware - To hook into the app server to cover internal api resource functions.
+* Sinon - To stub the connect method from mongodb and to parse the mongo-mocks mocked db object into the app server.
 
+Program flow:
+
+1. We run ```node main.js``` to parse the files in `/routes/` folder using esprima and getting all the objects that are dependent on the API calls.
+2. Post esprima parsing, main.js internally runs `testgenerator.js` which internally runs `mocker.js`
+3. We then have mocker.js which contains **mongomock** along with stubs to mongodb prototypes, which will return mock objects in response to actual db connections and queries made in the app server.
+4. We then load `cov_server.js` inside mocker.js to run the mock server at a different port(4004) than the actual app server(3002). This coverage-server has code to allow **istanbul-middleware** to be hooked into the real app server. Once the istanbul-middleware is set up, we run the app server to allow the APIs to be called and the coverage to be recorded.
+5. Lastly, coming back from server.js --> cov_server.js --> mocker.js --> testgenerator.js, the test generator then generates all the API calls according to the esprima results and exits out to main.js, returning a `test.js` having all the test cases generated for execution.
+6. Now we run ```node test.js``` which runs all the required test cases generating reports at `localhost:9090/coverage`.
+
+Integration with Jenkins:
+
+We have also integrated the test generation on Jenkins. The cov_server.js using istanbul-middleware, creates reports on the URI `/coverage/`. We download these reports and add them to Jenkins using HTML publisher Jenkins plugin.
+
+Problems faced:
+
+Test Coverage Results:
