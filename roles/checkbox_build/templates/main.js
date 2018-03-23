@@ -20,10 +20,10 @@ require('./format-polyfill');
         args = ["subject.js"];
     }
     let filePath = path.resolve(args[0]);
-
+    console.log("Input it")
     // Initialize constraints based on input file
     let functionConstraints = constraints(filePath);
-
+    console.log("Got the constraints")
     // Generate test cases
     generateTestCases(filePath, functionConstraints);
 
