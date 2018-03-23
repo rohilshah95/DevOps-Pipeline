@@ -1,4 +1,4 @@
-# DevOps-Project
+# DevOps-Project Milestone 2
 
 ## Team Information
 
