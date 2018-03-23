@@ -31,8 +31,9 @@ function constructReq(constraint){
 
 
     if(reqType == 'get'){
-        
+        val = new mongo.ObjectID("5aac31beb748e953ca4dc091")
        content+= "needle." + reqType + "('" + host+  url + val + "')\n";
+
     }
     else if(reqType == 'post'){
         var objString = JSON.stringify(constraint.member.req.body)
