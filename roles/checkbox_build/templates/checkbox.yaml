@@ -9,12 +9,26 @@
           sudo npm install
           sudo node main.js server.js
           sudo node test.js &
-    publishers: 
+    publishers:
       - post-tasks:
+        - matches:
+          - log-text: 
+            operator: AND
+          escalate-status: false
+          run-if-job-successful: false
           script: |
-            sudo sleep 10s
-            sudo wget http://localhost:4004/coverage/download
-            sudo unzip download -d /var/lib/jenkins/workspace/{{jenkins_checkbox}}/
+              sudo sleep 10s
+              sudo wget http://localhost:4004/coverage/download
+              sudo unzip download -d /var/lib/jenkins/workspace/{{jenkins_checkbox}}/
       - html-publisher:
-          name: "Coverage report"
+          name: "Coverage Report"
           dir: "lcov-report"
+          files: "index.html"
+          keep-all: false
+          allow-missing: false
+          link-to-last-build: false
+      # - html-publisher:
+      #     name: "Coverage report"
+      #     dir: "lcov-report"
+    wrappers:
+      - workspace-cleanup
