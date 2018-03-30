@@ -1,15 +1,16 @@
 ---
 - hosts: localhost
   become: false
-  # vars:
+  vars:
   #   do_token: "{{ lookup('env', 'DOTOKEN') }}"
-    # instance_type: t2.micro
-    # security_group: ansible-webserver 
-    # image: ami-79873901 
-    # keypair: ec2main 
-    # region: us-west-2 
-    # count: 1
-
+    instance_type: t2.micro
+    security_group: ansible-webserver 
+    image: ami-79873901 
+    keypair: ec2main 
+    region: us-west-2 
+    count: 1
+  roles:
+    - createVM
   tasks:
     - include_vars: secrets.yml
     ### DIGITAL OCEAN ###
@@ -101,33 +102,40 @@
     # - pause: 
     #     minutes: 1
 
-- hosts: localhost
+- hosts: iTrust-checkbox-jenkins-mysql
   become: yes
   gather_facts: false
+  vars:
+    ansible_ssh_private_key_file: "~/aws-private3.pem"
+    host_key_checking: False
+    ansible_python_interpreter: "/usr/bin/python3"
+  remote_user: "ubuntu"
+  connection: ssh
+
   tasks: 
     - name: install python 2
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
 
     
-- hosts: localhost
-  become: yes
+# - hosts: localhost
+#   become: yes
 
-  vars:
-    jenkins_ip: localhost
-    jenkins_port: 9090
-    jenkins_user: "jenkins"
-    jenkins_home: "/var/lib/jenkins"
-    jenkins_checkbox: checkboxJob
-    jenkins_iTrust: iTrustJob
-    jenkins_iTrust_fuzz: iTrust-Fuzz-Job
+#   vars:
+#     jenkins_ip: localhost
+#     jenkins_port: 9090
+#     jenkins_user: "jenkins"
+#     jenkins_home: "/var/lib/jenkins"
+#     jenkins_checkbox: checkboxJob
+#     jenkins_iTrust: iTrustJob
+#     jenkins_iTrust_fuzz: iTrust-Fuzz-Job
 
-  roles: 
-    # - dependencies
-    # - mysql
-    # - ansible
-    # - jenkins
-    - checkbox_build
-    # - iTrust_build
-    # - iTrust-fuzzing
-    #
+#   roles: 
+#     # - dependencies
+#     # - mysql
+#     # - ansible
+#     # - jenkins
+#     # - checkbox_build
+#     # - iTrust_build
+#     # - iTrust-fuzzing
+#     #
    
