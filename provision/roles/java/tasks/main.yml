@@ -1,0 +1,17 @@
+---
+
+# Java Role: /roles/java/tasks/main.yml
+- name: Installing java repo
+  apt_repository:
+    repo: 'ppa:webupd8team/java' 
+    update_cache: yes
+
+- name: Autoaccepting license for Java
+  shell: echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections      
+
+- name: Installing java package
+  apt:
+    name: oracle-java8-installer
+    update_cache: yes
+    install_recommends: yes
+    
