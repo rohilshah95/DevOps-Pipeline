@@ -43,7 +43,9 @@
 
 
 - name: Fethching Public IP for existing jenkins instance
-  set_fact: jenkins_ec2_ip="{{ec2_jenkins.instances[0].public_ip}}"
+  set_fact: 
+    jenkins_ec2_ipadd: "{{ec2_jenkins.instances[0].public_ip}}" 
+    cacheable: true
   when: ec2_jenkins.instances|length>0
 
 # - name: Add new ec2 to inventory

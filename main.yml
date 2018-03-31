@@ -21,6 +21,9 @@
     - createVM
   tasks:
     - include_vars: secrets.yml
+    - debug: var=jenkins_ec2_ipadd
+
+  
     ### DIGITAL OCEAN ###
     # - debug: var=ansible_user_id
     # - name: ensure ssh key exists
@@ -146,6 +149,7 @@
     jenkins_checkbox: checkboxJob
     jenkins_iTrust: iTrustJob
     jenkins_iTrust_fuzz: iTrust-Fuzz-Job
+    jenkins_ec2_ip: "{{ hostvars['localhost']['jenkins_ec2_ipadd']}}"
   remote_user: "ubuntu"
   connection: ssh
 
@@ -163,8 +167,8 @@
     - mysql
     - ansible
     - jenkins
-#     # - checkbox_build
-#     # - iTrust_build
-#     # - iTrust-fuzzing
-#     #
+    # - checkbox_build
+    - iTrust_build
+  # tasks:
+  #   - debug: var=jenkins_ec2_ip
    

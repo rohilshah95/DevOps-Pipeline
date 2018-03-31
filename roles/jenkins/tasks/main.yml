@@ -20,8 +20,8 @@
 
 - name: Updating nodejs
   shell: |
-    sudo npm install n -g
-    sudo n stable
+    npm install n -g
+    n stable
 
 - name: ensure required packages are installed for Java 8
   apt: name=python-software-properties
@@ -97,7 +97,7 @@
     state: absent
 
 - wait_for:
-    timeout: 100
+    timeout: 15
    
 - name: Install Jenkin Plugins
   jenkins_plugin:

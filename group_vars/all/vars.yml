@@ -1,0 +1,1 @@
+jenkins_ec2_ip: "{{ hostvars['localhost']['jenkins_ec2_ipadd']}}"

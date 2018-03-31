@@ -33,6 +33,17 @@
     src: templates/itrust-job.yaml
     dest: jobs/
 
+- name: Copy pre-push
+  template: 
+    src: pre-push.j2 
+    dest: /tmp/pre-push
+
+- name: Add git config
+  shell: git config --global user.email "rshah8@ncsu.edu"
+
+- name: Add git config
+  shell: git config --global user.name "Rohil Shah"
+
 - name: Copy db.properties
   template: 
     src: db.properties.j2 

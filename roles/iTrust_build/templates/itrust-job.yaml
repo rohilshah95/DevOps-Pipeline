@@ -3,16 +3,31 @@
     description: "built by job builder"
     builders:
       - shell: |
-            git clone https://{{ git_token | urlencode }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2 
+            git clone https://{{ git_token | urlencode }}@github.ncsu.edu/rshah8/iTrust2-v2 
+            sudo cp /tmp/pre-push iTrust2-v2/.git/hooks/pre-push
             sudo cp /tmp/db.properties iTrust2-v2/iTrust2/src/main/java/db.properties 
             sudo cp /tmp/hibernate.properties iTrust2-v2/iTrust2/src/main/resources/hibernate.properties 
             sudo cp /tmp/email.properties iTrust2-v2/iTrust2/src/main/java/email.properties 
             sudo cp /tmp/pom-data.xml iTrust2-v2/iTrust2/pom-data.xml 
             cd iTrust2-v2/iTrust2 
             sudo mvn process-test-classes -f pom-data.xml 
-            sudo mvn clean test verify checkstyle:checkstyle
+            sudo mvn compile
     publishers:
       - jacoco
+      - post-tasks:
+        - matches:
+          - log-text: 
+            operator: AND
+          escalate-status: false
+          run-if-job-successful: false
+          script: |
+              cd iTrust2-v2
+              sudo git remote add production https://{{ git_token | urlencode }}@github.ncsu.edu/rshah8/iTrust2-v2
+              sudo git add -f iTrust2/src/main/resources/hibernate.properties
+              sudo git add -f iTrust2/src/main/java/db.properties
+              sudo git add -f iTrust2/src/main/java/email.properties
+              sudo git commit -m "push to production"
+              sudo git push production master
     wrappers:
     - workspace-cleanup
     # - timeout:
