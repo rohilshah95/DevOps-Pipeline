@@ -17,11 +17,11 @@
   pip:
     name: boto
     state: latest
-	
+
 - name: Updating nodejs
   shell: |
-    sudo npm install n
-	sudo n stable
+    sudo npm install n -g
+    sudo n stable
 
 - name: ensure required packages are installed for Java 8
   apt: name=python-software-properties
@@ -55,6 +55,11 @@
     name: jenkins
     state: present
     install_recommends: yes
+
+- name: Copy the demo-config.xml file
+  template: 
+    src: config.xml.j2 
+    dest: /var/lib/jenkins/config.xml
 
 # - name: Copy aws key to jenkins 
 #   shell: cp /home/vagrant/deploy/rohilshah.pem /var/lib/jenkins && chmod 600 /var/lib/jenkins/rohilshah.pem && chown jenkins /var/lib/jenkins/rohilshah.pem && chgrp jenkins /var/lib/jenkins/rohilshah.pem
@@ -106,9 +111,7 @@
     - postbuild-task
     - ws-cleanup
     - postbuildscript
-    - jacoco
     - github
-    - random-string-parameter
     - build-timeout
 
 - name: Update Sudoers file for Jenkins User

@@ -9,6 +9,14 @@
     keypair: ec2main 
     region: us-west-2 
     count: 1
+    jenkins_ip: localhost
+    jenkins_port: 9090
+    jenkins_user: "jenkins"
+    jenkins_home: "/var/lib/jenkins"
+    jenkins_checkbox: checkboxJob
+    jenkins_iTrust: iTrustJob
+    jenkins_iTrust_fuzz: iTrust-Fuzz-Job
+
   roles:
     - createVM
   tasks:
@@ -108,17 +116,38 @@
   vars:
     ansible_ssh_private_key_file: "~/aws-private3.pem"
     host_key_checking: False
-    ansible_python_interpreter: "/usr/bin/python3"
+    # ansible_python_interpreter: "/usr/bin/python3"
   remote_user: "ubuntu"
   connection: ssh
 
+  # roles: 
+  #   - dependencies
+  #   - mysql
+  #   - ansible
+  #   - jenkins
+    # - checkbox_build
+    # - iTrust_build
+    # - iTrust-fuzzing
   tasks: 
     - name: install python 2
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
 
     
-# - hosts: localhost
-#   become: yes
+- hosts: iTrust-checkbox-jenkins-mysql
+  become: yes
+  vars:
+    ansible_ssh_private_key_file: "~/aws-private3.pem"
+    host_key_checking: False
+    # ansible_python_interpreter: "/usr/bin/python3"
+    jenkins_ip: localhost
+    jenkins_port: 9090
+    jenkins_user: "jenkins"
+    jenkins_home: "/var/lib/jenkins"
+    jenkins_checkbox: checkboxJob
+    jenkins_iTrust: iTrustJob
+    jenkins_iTrust_fuzz: iTrust-Fuzz-Job
+  remote_user: "ubuntu"
+  connection: ssh
 
 #   vars:
 #     jenkins_ip: localhost
@@ -129,11 +158,11 @@
 #     jenkins_iTrust: iTrustJob
 #     jenkins_iTrust_fuzz: iTrust-Fuzz-Job
 
-#   roles: 
-#     # - dependencies
-#     # - mysql
-#     # - ansible
-#     # - jenkins
+  roles: 
+    - dependencies
+    - mysql
+    - ansible
+    - jenkins
 #     # - checkbox_build
 #     # - iTrust_build
 #     # - iTrust-fuzzing
