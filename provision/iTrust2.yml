@@ -2,64 +2,61 @@
 - hosts: localhost
   become: false
   vars:
-    instance_type: t2.micro
-    security_group: ansible-webserver 
-    image: ami-79873901 
-    keypair: ec2itrust 
-    region: us-west-2 
-    count: 1
+    image1: "{{ lookup('env', 'image1') }}"
+    image2: "{{ lookup('env', 'image2') }}"
+    image3: "{{ lookup('env', 'image3') }}"
+    image4: "{{ lookup('env', 'image4') }}"
+    image5: "{{ lookup('env', 'image5') }}"
 
   tasks:
     - include_vars: secrets.yml
-    - name: Create key
-      ec2_key:
-        aws_access_key: '{{aws_access_key}}'
-        aws_secret_key: '{{aws_secret_key}}'
-        name: "{{keypair}}"
-        region: us-west-2
-      register: ec2_key
-
-    # - debug: var=ec2_key 
-    - name: Save private key
-      copy: content="{{ ec2_key.key.private_key }}" dest="/var/lib/jenkins/aws-private2.pem" mode=0600 owner="jenkins" group="jenkins"
-      when: ec2_key.changed
-
-
-    - name: Launch the new EC2 Instance
-      local_action: ec2 
-                    aws_access_key={{aws_access_key}}
-                    aws_secret_key={{aws_secret_key}}
-                    group={{ security_group }} 
-                    instance_type={{ instance_type}} 
-                    image={{ image }} 
-                    wait=true 
-                    region={{ region }} 
-                    keypair={{ keypair }}
-                    count={{count}}
-      register: ec2
-    # - debug: var=item
-    # - debug: var=ec2
-    - debug: var=ec2.instances[0].public_ip
-
-    - name: Wait for SSH to come up
-      local_action: wait_for 
-                    host={{ ec2.instances[0].public_ip }} 
-                    port=22 
-                    state=started
 
     - name: Add new ec2 to inventory
       add_host: >
-        name=ec2itrust
-        groups=ec2itrust
-        ansible_ssh_host="{{ ec2.instances[0].public_ip }}"
-        ansible_ssh_user=ubuntu
-        ansible_ssh_private_key_file="~/aws-private2.pem" 
+        name=do_itrust1
+        groups=itrust
+        ansible_ssh_host="{{ image1 }}"
+        ansible_ssh_user=root
+        ansible_ssh_private_key_file="~/privatekey" 
         ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
 
-    - pause: 
-        minutes: 1
+    - name: Add new ec2 to inventory
+      add_host: >
+        name=do_itrust2
+        groups=itrust
+        ansible_ssh_host="{{ image2 }}"
+        ansible_ssh_user=root
+        ansible_ssh_private_key_file="~/privatekey" 
+        ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
 
-- hosts: ec2itrust
+    - name: Add new ec2 to inventory
+      add_host: >
+        name=do_itrust3
+        groups=itrust
+        ansible_ssh_host="{{ image3 }}"
+        ansible_ssh_user=root
+        ansible_ssh_private_key_file="~/privatekey" 
+        ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+    - name: Add new ec2 to inventory
+      add_host: >
+        name=do_itrust4
+        groups=itrust
+        ansible_ssh_host="{{ image4 }}"
+        ansible_ssh_user=root
+        ansible_ssh_private_key_file="~/privatekey" 
+        ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+    - name: Add new ec2 to inventory
+      add_host: >
+        name=do_itrust5
+        groups=itrust
+        ansible_ssh_host="{{ image5 }}"
+        ansible_ssh_user=root
+        ansible_ssh_private_key_file="~/privatekey" 
+        ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+- hosts: itrust
   become: yes
   gather_facts: false
   tasks: 
@@ -71,7 +68,7 @@
       with_items:
         - npm
 
-- hosts: ec2itrust
+- hosts: itrust
   become: yes
   roles:
     - env
@@ -84,23 +81,23 @@
   - include_vars: secrets.yml
   - name: Cloning iTrust2 repo
     git: 
-      repo: https://{{ git_token }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2
-      dest: /home/vagrant/code
+      repo: https://{{ git_token }}@github.ncsu.edu/rshah8/iTrust2-v2
+      dest: /code
 
-  - name: Configuring Hibernate for DB
-    template:
-      src: ./templates/db.properties.template
-      dest: /home/vagrant/code/iTrust2/src/main/java/db.properties
+  # - name: Configuring Hibernate for DB
+  #   template:
+  #     src: ./templates/db.properties.template
+  #     dest: /home/vagrant/code/iTrust2/src/main/java/db.properties
 
-  - name: Configuring Hibernate properties
-    template:
-      src: ./templates/hibernate.properties.template
-      dest: /home/vagrant/code/iTrust2/src/main/resources/hibernate.properties
+  # - name: Configuring Hibernate properties
+  #   template:
+  #     src: ./templates/hibernate.properties.template
+  #     dest: /home/vagrant/code/iTrust2/src/main/resources/hibernate.properties
 
-  - name: Configuring Hibernate for Email
-    template:
-      src: ./templates/email.properties.template
-      dest: /home/vagrant/code/iTrust2/src/main/java/email.properties
+  # - name: Configuring Hibernate for Email
+  #   template:
+  #     src: ./templates/email.properties.template
+  #     dest: /home/vagrant/code/iTrust2/src/main/java/email.properties
 
   - name: Configuring mysqld.conf
     lineinfile:
@@ -114,7 +111,7 @@
       state: restarted
 
   - name: Build iTrust2 Database
-    shell: cd /home/vagrant/code/iTrust2/ && mvn process-test-classes
+    shell: cd ~/code/iTrust2/ && mvn process-test-classes
 
   - name: Run iTrust application
-    shell: cd /home/vagrant/code/iTrust2/ && ( (nohup mvn jetty:run) & )
+    shell: cd ~/code/iTrust2/ && ( (nohup mvn jetty:run) & )
