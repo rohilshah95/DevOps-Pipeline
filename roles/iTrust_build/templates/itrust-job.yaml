@@ -26,6 +26,8 @@
               sudo git add -f iTrust2/src/main/resources/hibernate.properties
               sudo git add -f iTrust2/src/main/java/db.properties
               sudo git add -f iTrust2/src/main/java/email.properties
+              sudo git config --global user.email "rshah8@ncsu.edu"
+              sudo git config --global user.name "Rohil Shah"
               sudo git commit -m "push to production"
               sudo git push production master
     wrappers:

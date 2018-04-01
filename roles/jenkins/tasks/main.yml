@@ -56,11 +56,6 @@
     state: present
     install_recommends: yes
 
-- name: Copy the demo-config.xml file
-  template: 
-    src: config.xml.j2 
-    dest: /var/lib/jenkins/config.xml
-
 # - name: Copy aws key to jenkins 
 #   shell: cp /home/vagrant/deploy/rohilshah.pem /var/lib/jenkins && chmod 600 /var/lib/jenkins/rohilshah.pem && chown jenkins /var/lib/jenkins/rohilshah.pem && chgrp jenkins /var/lib/jenkins/rohilshah.pem
 
@@ -118,6 +113,11 @@
   lineinfile:
     dest: /etc/sudoers
     line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
+
+- name: Copy the config.xml file to skip crumb issue
+  template: 
+    src: config.xml.j2 
+    dest: /var/lib/jenkins/config.xml
    
 - name: Restart Jenkins 
   service:
