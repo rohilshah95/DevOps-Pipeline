@@ -101,21 +101,21 @@
     image_id=ubuntu-16-04-x64
     ssh_key_ids=18160865
     api_token={{ do_token }}
-  register: droplet_one
+  register: jenkins_droplet
 
-- debug: msg="IP is {{ droplet_one.droplet.ip_address }}"
-- debug: msg="Droplet id is {{ droplet_one.droplet.id }}"
+- debug: msg="IP is {{ jenkins_droplet.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ jenkins_droplet.droplet.id }}"
 
 - name: Fethching Public IP for existing jenkins instance
   set_fact: 
-    jenkins_ec2_ipadd: "{{droplet_one.droplet.ip_address}}" 
+    jenkins_ec2_ipadd: "{{jenkins_droplet.droplet.ip_address}}" 
     cacheable: true
 
 - name: Add new droplet to inventory
   add_host: >
-    name=droplet_one
+    name=jenkins_droplet
     groups=iTrust-checkbox-jenkins-mysql
-    ansible_ssh_host="{{ droplet_one.droplet.ip_address }}"
+    ansible_ssh_host="{{ jenkins_droplet.droplet.ip_address }}"
     ansible_ssh_user=root
     ansible_ssh_private_key_file="~/privatekey"
     ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
