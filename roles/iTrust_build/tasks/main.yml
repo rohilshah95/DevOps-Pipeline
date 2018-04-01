@@ -6,6 +6,9 @@
     line: 'skip-grant-tables'
     insertafter: '[mysqld]' 
 
+- name: Restart mysql service
+  service: name=mysql state=restarted
+
 # - include_vars: ../../../secrets.yml
 - name: Download Jenkins CLI
   get_url:
