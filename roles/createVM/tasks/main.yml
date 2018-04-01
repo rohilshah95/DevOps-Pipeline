@@ -54,6 +54,106 @@
     ansible_ssh_private_key_file="~/privatekey"
     ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
 
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=image1
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: image1
+
+- debug: msg="IP is {{ image1.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ image1.droplet.id }}"
+
+- name: Fethching Public IP for existing jenkins instance
+  set_fact: 
+    image1_ipadd: "{{image1.droplet.ip_address}}" 
+    cacheable: true
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=image2
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: image2
+
+- debug: msg="IP is {{ image2.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ image2.droplet.id }}"
+
+- name: Fethching Public IP for existing jenkins instance
+  set_fact: 
+    image2_ipadd: "{{image2.droplet.ip_address}}" 
+    cacheable: true
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=image3
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: image3
+
+- debug: msg="IP is {{ image3.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ image3.droplet.id }}"
+
+- name: Fethching Public IP for existing jenkins instance
+  set_fact: 
+    image3_ipadd: "{{image3.droplet.ip_address}}" 
+    cacheable: true
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=image4
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: image4
+
+- debug: msg="IP is {{ image4.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ image4.droplet.id }}"
+
+- name: Fethching Public IP for existing jenkins instance
+  set_fact: 
+    image4_ipadd: "{{image4.droplet.ip_address}}" 
+    cacheable: true
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=image5
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: image5
+
+- debug: msg="IP is {{ image5.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ image5.droplet.id }}"
+
+- name: Fethching Public IP for existing jenkins instance
+  set_fact: 
+    image5_ipadd: "{{image5.droplet.ip_address}}" 
+    cacheable: true
+
 - pause: 
     minutes: 1
 

@@ -1,2 +1,3 @@
 #!/bin/bash
-echo "hello"
+cd ~/deploy
+ansible-playbook iTtust2.yml --vault-password-file ./password.txt
