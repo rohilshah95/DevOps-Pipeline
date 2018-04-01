@@ -1,5 +1,11 @@
 ---
 
+- name: Upload directory to Deployment host
+  synchronize: src=./provision/ dest=~/deploy rsync_opts="--chmod=F666"
+
+- name: Copy jenkins IP to env variable
+  shell: 'EXPORT jenkinsip="{{jenkins_ec2_ip}}"'
+  
 - name: Configuring mysqld.conf
   lineinfile:
     path: /etc/mysql/mysql.conf.d/mysqld.cnf
