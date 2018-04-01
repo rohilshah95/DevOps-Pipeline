@@ -5,6 +5,7 @@
       - shell: |
             git clone https://{{ git_token | urlencode }}@github.ncsu.edu/rshah8/iTrust2-v2 
             sudo cp /tmp/pre-push iTrust2-v2/.git/hooks/pre-push
+            sudo chmod 777 iTrust2-v2/.git/hooks/pre-push
             sudo cp /tmp/db.properties iTrust2-v2/iTrust2/src/main/java/db.properties 
             sudo cp /tmp/hibernate.properties iTrust2-v2/iTrust2/src/main/resources/hibernate.properties 
             sudo cp /tmp/email.properties iTrust2-v2/iTrust2/src/main/java/email.properties 
