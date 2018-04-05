@@ -23,6 +23,7 @@
 
   tasks:
   - include_vars: secrets.yml
+
   - name: Cloning iTrust2 repo
     git: 
       repo: https://{{ git_token }}@github.ncsu.edu/rshah8/iTrust2-v2
@@ -53,6 +54,11 @@
   #   service: 
   #     name: mysql
   #     state: restarted
+
+  - name: make sure jetty is not running
+    shell: mvn jetty:stop
+    args:
+      chdir: "~/code/iTrust2"
 
   - name: Build iTrust2 Database
     shell: mvn process-test-classes -f pom-data.xml

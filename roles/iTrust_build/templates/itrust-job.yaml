@@ -6,7 +6,7 @@
             git clone https://{{ git_token | urlencode }}@github.ncsu.edu/rshah8/iTrust2-v2 
             sudo cp /tmp/post-receive iTrust2-v2/.git/hooks/post-receive
             sudo chmod 777 iTrust2-v2/.git/hooks/post-receive
-            sudo cp /tmp/db.properties iTrust2-v2/iTrust2/src/main/java/db.properties 
+            sudo cp /tmp/db.properties iTrust2-v2/iTrust2/src/main/java/db.properties
             sudo cp /tmp/hibernate.properties iTrust2-v2/iTrust2/src/main/resources/hibernate.properties 
             sudo cp /tmp/email.properties iTrust2-v2/iTrust2/src/main/java/email.properties 
             sudo cp /tmp/pom-data.xml iTrust2-v2/iTrust2/pom-data.xml 
@@ -40,7 +40,7 @@
               sudo chmod +x hooks/post-receive
               cd ../..
               sudo git remote add production file:///var/lib/jenkins/workspace/iTrustJob/iTrust2-v2/deploy/production.git
-              git add .
+              sudo git add .
               sudo git config --global user.email "rshah8@ncsu.edu"
               sudo git config --global user.name "Rohil Shah"
               sudo git commit -m "push to production"
