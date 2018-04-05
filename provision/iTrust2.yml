@@ -55,7 +55,7 @@
       state: restarted
 
   - name: Build iTrust2 Database
-    shell: mvn process-test-classes
+    shell: mvn process-test-classes -f pom-data.xml
     args:
       chdir: "~/code/iTrust2"
 
