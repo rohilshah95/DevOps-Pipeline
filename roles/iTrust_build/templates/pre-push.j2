@@ -1,4 +1,5 @@
 #!/bin/bash
-echo "After pushing: "
-cd ~/deploy
-ansible-playbook iTrust2.yml -i ~/inventoryiTrust --vault-password-file ./password.txt
+GIT_WORK_TREE=/var/lib/jenkins/workspace/iTrustJob/iTrust2-v2/deploy/production-www/ git checkout -f
+cd ~
+ansible-playbook /root/deploy/iTrust2.yml -i /root/inventoryiTrust --vault-password-file /root/deploy/password.txt
+echo "Pushed to production"

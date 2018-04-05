@@ -65,7 +65,7 @@
     - mysql
     - ansible
     - jenkins
-    # - checkbox_build
+    - checkbox_build
     - iTrust_build
   # tasks:
   #   - debug: var=jenkins_ec2_ip
