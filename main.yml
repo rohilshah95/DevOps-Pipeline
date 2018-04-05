@@ -21,115 +21,15 @@
     - createVM
   tasks:
     - include_vars: secrets.yml
-    - debug: var=do_token
+    # - debug: var=do_token
   
-    ### DIGITAL OCEAN ###
-    # - debug: var=ansible_user_id
-    # - name: ensure ssh key exists
-    #   user: >
-    #     name={{ ansible_user_id }}
-    #     generate_ssh_key=yes
-    #     ssh_key_file=.ssh/id_rsa
-    # - name: ensure key exists at DigitalOcean
-    #   digital_ocean: >
-    #     state=present
-    #     command=ssh
-    #     name=my_ssh_key
-    #     ssh_pub_key={{ lookup('file', '~/.ssh/id_rsa.pub') }}
-    #     api_token={{ do_token }}
-    #   register: my_ssh_key
-
-    # - name: ensure droplet one exists
-    #   digital_ocean: >
-    #     state=present
-    #     command=droplet
-    #     name=droplet-one
-    #     size_id=2gb
-    #     region_id=nyc1
-    #     image_id=ubuntu-16-04-x64
-    #     ssh_key_ids={{ my_ssh_key.ssh_key.id }}
-    #     api_token={{ do_token }}
-    #   register: droplet_one
-
-    # - debug: msg="IP is {{ droplet_one.droplet.ip_address }}"
-    # - debug: msg="Droplet id is {{ droplet_one.droplet.id }}"
-
-    # - name: Add new droplet to inventory
-    #   add_host: >
-    #     name=droplet_one
-    #     groups=dohosts
-    #     ansible_ssh_host="{{ droplet_one.droplet.ip_address }}"
-    #     ansible_ssh_user=root
-    #     ansible_ssh_private_key_file="~/.ssh/id_rsa"
-
-
-    ### AMAZON EC2 ###
-    # - name: Create key
-    #   ec2_key:
-    #     aws_access_key: '{{aws_access_key}}'
-    #     aws_secret_key: '{{aws_secret_key}}'
-    #     name: "{{keypair}}"
-    #     region: us-west-2
-    #   register: ec2_key
-
-    # # - debug: var=ec2_key 
-    # - name: Save private key
-    #   copy: content="{{ ec2_key.key.private_key }}" dest="~/aws-private3.pem" mode=0600
-    #   when: ec2_key.changed
-
-
-    # - name: Launch the new EC2 Instance
-    #   local_action: ec2 
-    #                 aws_access_key={{aws_access_key}}
-    #                 aws_secret_key={{aws_secret_key}}
-    #                 group={{ security_group }} 
-    #                 instance_type={{ instance_type}} 
-    #                 image={{ image }} 
-    #                 wait=true 
-    #                 region={{ region }} 
-    #                 keypair={{ keypair }}
-    #                 count={{count}}
-    #   register: ec2
-    # # - debug: var=item
-    # # - debug: var=ec2
-    # - debug: var=ec2.instances[0].public_ip
-
-    # - name: Wait for SSH to come up
-    #   local_action: wait_for 
-    #                 host={{ ec2.instances[0].public_ip }} 
-    #                 port=22 
-    #                 state=started
-
-    # - name: Add new ec2 to inventory
-    #   add_host: >
-    #     name=ec2main
-    #     groups=ec2main
-    #     ansible_ssh_host="{{ ec2.instances[0].public_ip }}"
-    #     ansible_ssh_user=ubuntu
-    #     ansible_ssh_private_key_file="~/aws-private3.pem" 
-    #     ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
-
-    # - pause: 
-    #     minutes: 1
-
 - hosts: iTrust-checkbox-jenkins-mysql
   become: yes
   gather_facts: false
   vars:
-    # ansible_ssh_private_key_file: "~/aws-private3.pem"
     host_key_checking: False
-    # ansible_python_interpreter: "/usr/bin/python3"
   remote_user: "root"
   connection: ssh
-
-  # roles: 
-  #   - dependencies
-  #   - mysql
-  #   - ansible
-  #   - jenkins
-    # - checkbox_build
-    # - iTrust_build
-    # - iTrust-fuzzing
   tasks: 
     - name: install python 2
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
@@ -138,9 +38,7 @@
 - hosts: iTrust-checkbox-jenkins-mysql
   become: yes
   vars:
-    # ansible_ssh_private_key_file: "~/aws-private3.pem"
     host_key_checking: False
-    # ansible_python_interpreter: "/usr/bin/python3"
     jenkins_ip: localhost
     jenkins_port: 9090
     jenkins_user: "jenkins"
