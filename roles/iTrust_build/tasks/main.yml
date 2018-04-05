@@ -6,7 +6,7 @@
 - name: Copy inventory of all 5 nodes
   template:
     src: inventory.j2
-    dest: ~/inventory
+    dest: ~/inventoryiTrust
 
 - name: Configuring mysqld.conf
   lineinfile:

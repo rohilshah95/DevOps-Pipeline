@@ -6,14 +6,25 @@
     url: http://{{ jenkins_ip }}:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar
     dest: '/var/lib/jenkins/'
 
+- name: Copy inventory of all 5 nodes
+  template:
+    src: inventory.j2
+    dest: ~/inventoryCheckbox
+
 - name: Make tmp directory
   file:
     path: /tmp/coverage
     state: directory
     mode: 0777
 
-- name: Checkbox build config
-  template: src=checkbox_config.j2 dest=/tmp/coverage/checkbox_config.xml
+- name: Copy post-receive
+  template: 
+    src: pre-push.j2 
+    dest: /tmp/post-receive
+
+
+# - name: Checkbox build config
+  # template: src=checkbox_config.j2 dest=/tmp/coverage/checkbox_config.xml
 
 - name: Add jenkins user to Sudoers
   lineinfile:
@@ -40,48 +51,6 @@
   template:
     src: templates/checkbox.yaml
     dest: jobs/
-
-
-
-- name: Copy template files
-  template: 
-    src: package.json 
-    dest: /tmp/coverage/package.json
-
-- name: Copy template files
-  template: 
-    src: cov_server.js 
-    dest: /tmp/coverage/cov_server.js
-
-- name: Copy template files
-  template: 
-    src: main.js 
-    dest: /tmp/coverage/main.js
-
-- name: Copy template files
-  template: 
-    src: mocker.js 
-    dest: /tmp/coverage/mocker.js
-
-- name: Copy template files
-  template: 
-    src: server.js 
-    dest: /tmp/coverage/server.js
-
-- name: Copy template files
-  template: 
-    src: constraint.js
-    dest: /tmp/coverage/constraint.js
-
-- name: Copy template files
-  template: 
-    src: testgenerator.js 
-    dest: /tmp/coverage/testgenerator.js
-
-- name: Copy template files
-  template: 
-    src: format-polyfill.js 
-    dest: /tmp/coverage/format-polyfill.js
 
 - name: Add the jobs
   shell: jenkins-jobs update jobs

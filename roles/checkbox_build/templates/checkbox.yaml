@@ -3,12 +3,9 @@
     description: "build checkbox and install dependencies using new package.json"
     builders:
       - shell: |
-          sudo git clone https://github.com/chrisparnin/checkbox.io
+          sudo git clone https://github.com/rohilshah95/checkbox.io
           cd checkbox.io/server-side/site
-          sudo cp -a /tmp/coverage/. ./
           sudo npm install
-          sudo node main.js server.js
-          sudo node test.js &
     publishers:
       - post-tasks:
         - matches:
@@ -17,18 +14,14 @@
           escalate-status: false
           run-if-job-successful: false
           script: |
-              sudo sleep 10s
-              sudo wget http://localhost:4004/coverage/download
-              sudo unzip download -d /var/lib/jenkins/workspace/{{jenkins_checkbox}}/
-      - html-publisher:
-          name: "Coverage Report"
-          dir: "lcov-report"
-          files: "index.html"
-          keep-all: false
-          allow-missing: false
-          link-to-last-build: false
-      # - html-publisher:
-      #     name: "Coverage report"
-      #     dir: "lcov-report"
+              sudo git remote add production https://{{ git_token_com | urlencode }}@github.com/rohilshah95/checkbox.io
+              sudo cp /tmp/post-receive checkbox.io/.git/hooks/post-receive
+              sudo chmod 777 checkbox.io/.git/hooks/post-receive
+              sudo touch test
+              sudo git add . 
+              sudo git config --global user.email "rgshah3@gmail.com"
+              sudo git config --global user.name "Rohil Shah"
+              sudo git commit -m "push to production"
+              sudo git push production master
     wrappers:
       - workspace-cleanup

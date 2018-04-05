@@ -58,6 +58,35 @@
   digital_ocean: >
     state=present
     command=droplet
+    name=checkbox
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: checkbox_droplet
+
+- debug: msg="IP is {{ checkbox_droplet.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ checkbox_droplet.droplet.id }}"
+
+- name: Fethching Public IP for existing checkbox instance
+  set_fact: 
+    checkbox_ec2_ipadd: "{{checkbox_droplet.droplet.ip_address}}" 
+    cacheable: true
+
+- name: Add new droplet to inventory
+  add_host: >
+    name=checkbox_droplet
+    groups=checkbox
+    ansible_ssh_host="{{ checkbox_droplet.droplet.ip_address }}"
+    ansible_ssh_user=root
+    ansible_ssh_private_key_file="~/privatekey"
+    ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
     name=image1
     size_id=2gb
     region_id=nyc1
