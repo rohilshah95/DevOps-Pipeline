@@ -14,14 +14,23 @@
           escalate-status: false
           run-if-job-successful: false
           script: |
-              sudo git remote add production https://{{ git_token_com | urlencode }}@github.com/rohilshah95/checkbox.io
-              sudo cp /tmp/post-receive checkbox.io/.git/hooks/post-receive
-              sudo chmod 777 checkbox.io/.git/hooks/post-receive
-              sudo touch test
+              cd checkbox.io
+              sudo mkdir deploy
+              cd deploy
+              sudo mkdir production.git
+              sudo mkdir production-www
+              cd production.git
+              sudo git init --bare 
+              sudo cp /tmp/post-receive hooks/post-receive
+              sudo chmod +x hooks/post-receive
+              cd ../..
+              sudo git remote add production file:///var/lib/jenkins/workspace/checkboxJob/checkbox.io/deploy/production.git
+              sudo touch test2
               sudo git add . 
               sudo git config --global user.email "rgshah3@gmail.com"
               sudo git config --global user.name "Rohil Shah"
               sudo git commit -m "push to production"
               sudo git push production master
+
     wrappers:
       - workspace-cleanup

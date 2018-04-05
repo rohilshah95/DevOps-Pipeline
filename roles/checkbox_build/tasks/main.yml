@@ -6,6 +6,9 @@
     url: http://{{ jenkins_ip }}:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar
     dest: '/var/lib/jenkins/'
 
+- name: Upload directory to Deployment host
+  synchronize: src=./provision/ dest=~/deploy rsync_opts="--chmod=F666"
+
 - name: Copy inventory of all 5 nodes
   template:
     src: inventory.j2

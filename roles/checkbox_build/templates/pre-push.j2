@@ -1,4 +1,5 @@
 #!/bin/bash
-echo "After pushing: "
-cd ~/deploy
-ansible-playbook checkbox.yml -i ~/inventoryCheckbox --vault-password-file ./password.txt
+GIT_WORK_TREE=/var/lib/jenkins/workspace/checkboxJob/checkbox.io/deploy/production-www/ git checkout -f
+cd ~
+ansible-playbook /root/deploy/checkbox.yml -i /root/inventoryCheckbox --vault-password-file /root/deploy/password.txt
+echo "Pushed to production"

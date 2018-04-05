@@ -1,7 +1,7 @@
 ---
   - name: Clone Checkbox IO application
     git: 
-      repo: https://github.com/vjhebbar/checkbox.io.git
+      repo: https://github.com/rohilshah95/checkbox.io.git
       dest: '{{cb_path}}'
       
   - name: Install nodejs dependencies
