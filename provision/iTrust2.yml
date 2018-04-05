@@ -26,7 +26,7 @@
   - name: Cloning iTrust2 repo
     git: 
       repo: https://{{ git_token }}@github.ncsu.edu/rshah8/iTrust2-v2
-      dest: /code
+      dest: ~/code
 
   # - name: Configuring Hibernate for DB
   #   template:
@@ -55,7 +55,11 @@
       state: restarted
 
   - name: Build iTrust2 Database
-    shell: cd ~/code/iTrust2/ && mvn process-test-classes
+    shell: mvn process-test-classes
+    args:
+      chdir: "~/code/iTrust2"
 
   - name: Run iTrust application
-    shell: cd ~/code/iTrust2/ && ( (nohup mvn jetty:run) & )
+    shell: ( (nohup mvn jetty:run) & )
+    args:
+      chdir: "~/code/iTrust2"

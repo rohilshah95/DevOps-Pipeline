@@ -1,3 +1,4 @@
 #!/bin/bash
+echo "After pushing: "
 cd ~/deploy
 ansible-playbook iTrust2.yml -i ~/inventory --vault-password-file ./password.txt
