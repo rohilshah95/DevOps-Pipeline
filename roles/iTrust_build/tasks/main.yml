@@ -11,8 +11,8 @@
 - name: Configuring mysqld.conf
   lineinfile:
     path: /etc/mysql/mysql.conf.d/mysqld.cnf
-    line: 'skip-grant-tables'
-    insertafter: '[mysqld]' 
+    line: '#bind-address           = 127.0.0.1'
+    regexp: '^bind-address' 
 
 - name: Restart mysql service
   service: name=mysql state=restarted

@@ -19,7 +19,7 @@
     - java
     - maven
     - git
-    - mysql
+    # - mysql
 
   tasks:
   - include_vars: secrets.yml
@@ -43,16 +43,16 @@
   #     src: ./templates/email.properties.template
   #     dest: /home/vagrant/code/iTrust2/src/main/java/email.properties
 
-  - name: Configuring mysqld.conf
-    lineinfile:
-      path: /etc/mysql/mysql.conf.d/mysqld.cnf
-      line: 'skip-grant-tables'
-      insertafter: '[mysqld]' 
+  # - name: Configuring mysqld.conf
+  #   lineinfile:
+  #     path: /etc/mysql/mysql.conf.d/mysqld.cnf
+  #     line: 'skip-grant-tables'
+  #     insertafter: '[mysqld]' 
 
-  - name: Restarting mysql server
-    service: 
-      name: mysql
-      state: restarted
+  # - name: Restarting mysql server
+  #   service: 
+  #     name: mysql
+  #     state: restarted
 
   - name: Build iTrust2 Database
     shell: mvn process-test-classes -f pom-data.xml
