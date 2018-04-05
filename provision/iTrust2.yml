@@ -1,62 +1,5 @@
 ---
-- hosts: localhost
-  become: false
-  vars:
-    image1: "{{ lookup('env', 'image1') }}"
-    image2: "{{ lookup('env', 'image2') }}"
-    image3: "{{ lookup('env', 'image3') }}"
-    image4: "{{ lookup('env', 'image4') }}"
-    image5: "{{ lookup('env', 'image5') }}"
-
-  tasks:
-    - include_vars: secrets.yml
-
-    - name: Add new ec2 to inventory
-      add_host: >
-        name=do_itrust1
-        groups=itrust
-        ansible_ssh_host="{{ image1 }}"
-        ansible_ssh_user=root
-        ansible_ssh_private_key_file="~/privatekey" 
-        ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
-
-    - name: Add new ec2 to inventory
-      add_host: >
-        name=do_itrust2
-        groups=itrust
-        ansible_ssh_host="{{ image2 }}"
-        ansible_ssh_user=root
-        ansible_ssh_private_key_file="~/privatekey" 
-        ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
-
-    - name: Add new ec2 to inventory
-      add_host: >
-        name=do_itrust3
-        groups=itrust
-        ansible_ssh_host="{{ image3 }}"
-        ansible_ssh_user=root
-        ansible_ssh_private_key_file="~/privatekey" 
-        ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
-
-    - name: Add new ec2 to inventory
-      add_host: >
-        name=do_itrust4
-        groups=itrust
-        ansible_ssh_host="{{ image4 }}"
-        ansible_ssh_user=root
-        ansible_ssh_private_key_file="~/privatekey" 
-        ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
-
-    - name: Add new ec2 to inventory
-      add_host: >
-        name=do_itrust5
-        groups=itrust
-        ansible_ssh_host="{{ image5 }}"
-        ansible_ssh_user=root
-        ansible_ssh_private_key_file="~/privatekey" 
-        ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
-
-- hosts: itrust
+- hosts: all
   become: yes
   gather_facts: false
   tasks: 
@@ -68,7 +11,8 @@
       with_items:
         - npm
 
-- hosts: itrust
+- hosts: all
+  serial: 1
   become: yes
   roles:
     - env

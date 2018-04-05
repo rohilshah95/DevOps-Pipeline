@@ -1,0 +1,14 @@
+[iTrust-deploy-node-1]
+{{ hostvars['localhost']['image1_ipadd']}} ansible_user=root ansible_ssh_private_key_file=~/privatekey ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[iTrust-deploy-node-2]
+{{ hostvars['localhost']['image2_ipadd']}} ansible_user=root ansible_ssh_private_key_file=~/privatekey ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[iTrust-deploy-node-3]
+{{ hostvars['localhost']['image3_ipadd']}} ansible_user=root ansible_ssh_private_key_file=~/privatekey ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[iTrust-deploy-node-4]
+{{ hostvars['localhost']['image4_ipadd']}} ansible_user=root ansible_ssh_private_key_file=~/privatekey ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[iTrust-deploy-node-5]
+{{ hostvars['localhost']['image4_ipadd']}} ansible_user=root ansible_ssh_private_key_file=~/privatekey ansible_ssh_common_args='-o StrictHostKeyChecking=no'

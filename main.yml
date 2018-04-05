@@ -149,12 +149,7 @@
     jenkins_iTrust: iTrustJob
     jenkins_iTrust_fuzz: iTrust-Fuzz-Job
     jenkins_ec2_ip: "{{ hostvars['localhost']['jenkins_ec2_ipadd']}}"
-    image1_ip: "{{ hostvars['localhost']['image1_ipadd']}}"
-    image2_ip: "{{ hostvars['localhost']['image2_ipadd']}}"
-    image3_ip: "{{ hostvars['localhost']['image3_ipadd']}}"
-    image4_ip: "{{ hostvars['localhost']['image4_ipadd']}}"
-    image5_ip: "{{ hostvars['localhost']['image5_ipadd']}}"
-
+    
   remote_user: "ubuntu"
   connection: ssh
 

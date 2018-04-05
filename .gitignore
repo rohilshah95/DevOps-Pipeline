@@ -7,3 +7,4 @@ roles/iTrust-fuzzing/files/package-lock.json
 roles/createVM/files/id_rsa
 *.ppk
 roles/jenkins/templates/id_rsa
+roles/jenkins/files/id_rsa

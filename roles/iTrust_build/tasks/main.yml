@@ -3,23 +3,10 @@
 - name: Upload directory to Deployment host
   synchronize: src=./provision/ dest=~/deploy rsync_opts="--chmod=F666"
 
-- name: Copy jenkins IP to env variable
-  shell: 'EXPORT jenkinsip="{{jenkins_ec2_ip}}"'
-
-- name: Copy itrust1 IP to env variable
-  shell: 'EXPORT image1="{{image1_ip}}"'
-
-- name: Copy itrust2 IP to env variable
-  shell: 'EXPORT image2="{{image2_ip}}"'
-
-- name: Copy itrust3 IP to env variable
-  shell: 'EXPORT image3="{{image3_ip}}"'
-
-- name: Copy itrust4 IP to env variable
-  shell: 'EXPORT image4="{{image4_ip}}"'
-
-- name: Copy itrust5 IP to env variable
-  shell: 'EXPORT image5="{{image5_ip}}"'
+- name: Copy inventory of all 5 nodes
+  template:
+    src: inventory.j2
+    dest: ~/inventory
 
 - name: Configuring mysqld.conf
   lineinfile:
@@ -60,7 +47,7 @@
 - name: Copy pre-push
   template: 
     src: pre-push.j2 
-    dest: /tmp/pre-push
+    dest: /tmp/post-receive
 
 - name: Add git config
   shell: git config --global user.email "rshah8@ncsu.edu"
