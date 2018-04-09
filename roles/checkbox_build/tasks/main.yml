@@ -9,6 +9,11 @@
 - name: Upload directory to Deployment host
   synchronize: src=./provision/ dest=~/deploy rsync_opts="--chmod=F666"
 
+- name: Fix MongoIP for single mongodb instance
+  template:
+    src: main.yml.j2
+    dest: ~/deploy/roles/env/tasks/main.yml
+
 - name: Copy inventory of all 5 nodes
   template:
     src: inventory.j2
