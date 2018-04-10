@@ -9,13 +9,13 @@ var server=http.createServer( function (req, res){
 	{
 		if(loadCounter%3==0)
 		{
-			proxy.web(req, res, {target: 'http://{{canary_ip}}'}, function (e){
-				proxy.web(req, res, {target: 'http://{checkbox_ip}'});
+			proxy.web(req, res, {target: "http://{{ hostvars['localhost']['canary_ec2_ipadd']}}"}, function (e){
+				proxy.web(req, res, {target: "http://{{ hostvars['localhost']['checkbox_ec2_ipadd']}}"});
 			});
 		}
 		else
 		{
-			proxy.web(req, res, {target: 'http://{{checkbox_ip}}'}, function (e){
+			proxy.web(req, res, {target: "http://{{ hostvars['localhost']['checkbox_ec2_ipadd']}}"}, function (e){
 				console.log(e);
 			});
 		}
@@ -23,7 +23,7 @@ var server=http.createServer( function (req, res){
 	}
 	else
 	{
-		proxy.web(req, res, {target: 'http://{{checkbox_ip}}'}, function (e){
+		proxy.web(req, res, {target: "http://{{ hostvars['localhost']['checkbox_ec2_ipadd']}}"}, function (e){
 			console.log(e);
 		});
 	}
@@ -31,7 +31,7 @@ var server=http.createServer( function (req, res){
 
 var checkStatus = setInterval(function () {
 	try {
-		http.get('http://{{canary_ip}}', function (res) {
+		http.get("http://{{ hostvars['localhost']['canary_ec2_ipadd']}}", function (res) {
 			//Working fine
 		}).on('error', function (e) {
 			alert = true;

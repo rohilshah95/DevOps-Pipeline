@@ -19,6 +19,27 @@
     src: inventory.j2
     dest: ~/inventoryCheckbox
 
+- name: Copy Load Balancer JS file
+  template: 
+    src: loadBalancer.js
+    dest: ~/loadBalancer.js
+
+- name: Copy Load Balancer JS file
+  template: 
+    src: package.json
+    dest: ~/package.json
+
+- name: NPM install 
+  npm:
+    path: "~/"
+    state: present
+
+- name: "Install forever"
+  npm: 
+    name: forever 
+    global: yes 
+    state: present
+
 - name: Make tmp directory
   file:
     path: /tmp/coverage
@@ -70,6 +91,9 @@
 # - name: Create Job
 #   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ create-job {{jenkins_checkbox}} < /tmp/coverage/checkbox_config.xml --username {{jenkins_username}} --password {{jenkins_password}}"
 #   when: jenkins_check.stdout.find(jenkins_checkbox)==-1
+
+- name: Start load balancer
+  shell: "forever start loadBalancer.js"
 
 - name: Build checkbox job
   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{jenkins_checkbox}} --username {{jenkins_username}} --password {{jenkins_password}} -s"
