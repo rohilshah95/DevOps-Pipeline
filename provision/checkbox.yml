@@ -13,7 +13,7 @@
     - env
     - git
     - python
-    - mongodb
+    # - mongodb
     - nginx
     - nodejs
     - checkbox_conf
@@ -24,7 +24,7 @@
     - env
     - git
     - python
-    - mongodb
+    # - mongodb
     - nginx
     - nodejs
     - canary_conf

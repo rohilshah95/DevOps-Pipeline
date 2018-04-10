@@ -10,17 +10,17 @@
       path: '{{cb_path}}/server-side/site'
       state: present
 
-  - name: Start mongodb service
-    service:
-      name: mongod
-      state: started
+  # - name: Start mongodb service
+  #   service:
+  #     name: mongod
+  #     state: started
 
-  - name: Add mongodb users
-    mongodb_user:
-      database: admin
-      name: '{{mongo_user}}'
-      password: '{{mongo_pwd}}'
-      state: present 
+  # - name: Add mongodb users
+  #   mongodb_user:
+  #     database: admin
+  #     name: '{{mongo_user}}'
+  #     password: '{{mongo_pwd}}'
+  #     state: present 
 
   - name: Copy the nginx configuration file
     copy: 
