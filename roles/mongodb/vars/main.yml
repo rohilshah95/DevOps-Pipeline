@@ -1,0 +1,4 @@
+---
+cb_path: "/home/ubuntu/checkbox"
+mongo_user: "admin"
+smtp_user: "onepluscarrental"

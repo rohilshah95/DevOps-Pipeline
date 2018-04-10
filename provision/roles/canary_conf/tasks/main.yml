@@ -1,0 +1,53 @@
+---
+  - name: Clone Checkbox IO application
+    git: 
+      repo: https://github.com/rohilshah95/checkbox.io.git
+      dest: '{{cb_path}}'
+      version: canary
+      
+  - name: Install nodejs dependencies
+    npm:
+      path: '{{cb_path}}/server-side/site'
+      state: present
+
+  - name: Start mongodb service
+    service:
+      name: mongod
+      state: started
+
+  - name: Add mongodb users
+    mongodb_user:
+      database: admin
+      name: '{{mongo_user}}'
+      password: '{{mongo_pwd}}'
+      state: present 
+
+  - name: Copy the nginx configuration file
+    copy: 
+      src: '{{cb_path}}/local-conf/nginx.conf'
+      dest: '/etc/nginx/nginx.conf'
+      remote_src: yes  
+      force: yes
+
+  - name: Fetch nginx default file for templating
+    run_once: true
+    fetch:
+      src: '{{cb_path}}/local-conf/default'
+      dest: '/tmp/'
+      flat: yes
+
+  - name: Copy the nginx default files
+    template: 
+      src: '/tmp/default'
+      dest: '/etc/nginx/sites-available/default'  
+      force: yes
+
+  - name: reload nginx
+    command: nginx -s reload
+
+  - name: Start NodeJS Server
+    command: 'forever start server.js'
+    args:
+      chdir: '{{cb_path}}/server-side/site'
+ 
+

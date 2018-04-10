@@ -65,6 +65,7 @@
     - mysql
     - ansible
     - jenkins
+    - mongodb
     # - checkbox_build
     - iTrust_build
   # tasks:

@@ -7,7 +7,7 @@
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
     - include_vars: secrets.yml
 
-- hosts: all
+- hosts: checkbox
   become: yes
   roles:
     - env
@@ -17,3 +17,14 @@
     - nginx
     - nodejs
     - checkbox_conf
+
+- hosts: canary
+  become: yes
+  roles:
+    - env
+    - git
+    - python
+    - mongodb
+    - nginx
+    - nodejs
+    - canary_conf
