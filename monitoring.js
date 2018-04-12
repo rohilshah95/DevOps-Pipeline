@@ -51,17 +51,6 @@ function cpuTicksAcrossCores()
 
 var startMeasure = cpuTicksAcrossCores();
 
-function cpuAverage()
-{
-	var endMeasure = cpuTicksAcrossCores(); 
- 
-	//Calculate the difference in idle and total time between the measures
-	var idleDifference = endMeasure.idle - startMeasure.idle;
-	var totalDifference = endMeasure.total - startMeasure.total;
- 
-	//Calculate the average percentage CPU usage
-	return 0;
-}
 
 function measureLatenancy(server)
 {
