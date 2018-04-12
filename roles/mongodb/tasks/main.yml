@@ -16,13 +16,24 @@
     update_cache: yes
 
 - name: Start mongodb service
-    service:
-      name: mongod
-      state: started
+  service:
+    name: mongod
+    state: started
 
-  - name: Add mongodb users
-    mongodb_user:
-      database: admin
-      name: '{{mongo_user}}'
-      password: '{{mongo_pwd}}'
-      state: present 
+- name: Add mongodb users
+  mongodb_user:
+    database: admin
+    name: '{{mongo_user}}'
+    password: '{{mongo_pwd}}'
+    state: present 
+
+- name: Configuring mysqld.conf
+  lineinfile:
+    path: /etc/mongod.conf
+    line: '  bindIp: 0.0.0.0'
+    regexp: '^  bindIp'
+
+- name: Start mongodb service
+  service:
+    name: mongod
+    state: restarted

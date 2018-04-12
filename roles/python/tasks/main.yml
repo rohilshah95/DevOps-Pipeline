@@ -1,0 +1,10 @@
+---
+  - name: install pip
+    apt:
+     name: python-pip
+     state: installed
+
+  - name: install pymongo
+    pip:
+     name: pymongo
+     state: latest

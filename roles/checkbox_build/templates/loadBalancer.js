@@ -32,10 +32,9 @@ var server=http.createServer( function (req, res){
 var checkStatus = setInterval(function () {
 	try {
 		http.get("http://{{ hostvars['localhost']['canary_ec2_ipadd']}}", function (res) {
-			//Working fine
+			alert=false;
 		}).on('error', function (e) {
 			alert = true;
-			clearInterval(checkStatus);
 		});
 	} catch (e) {
 		alert = true;
