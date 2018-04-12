@@ -10,7 +10,11 @@ var io = require('socket.io')(3000);
 /// CHILDREN nodes
 var nodeServers = 
 [
-	{url:"http://localhost:8080", latency: 0},
+	{url:"http://{{image1.droplet.ip_address}}:8080", latency: 0},
+	{url:"http://{{image2.droplet.ip_address}}:8080", latency: 0},
+	{url:"http://{{image3.droplet.ip_address}}:8080", latency: 0},
+	{url:"http://{{image4.droplet.ip_address}}:8080", latency: 0},
+	{url:"http://{{image5.droplet.ip_address}}:8080", latency: 0},
 ];
 
 // Launch servers.
