@@ -29,11 +29,14 @@ function measureLatenancy(server)
 	{
 		url: server.url
 	};
+	var startTime = Date.now();
 	console.log("request to url");
 	request(options, function (error, res, body) 
 	{
+
 		console.log( error || res.statusCode, server.url);
-		server.latency = 500;
+		server.latency = Date.now()-startTime;
+		console.log(server.latency);
 	});
 	return server.latency;
 }
