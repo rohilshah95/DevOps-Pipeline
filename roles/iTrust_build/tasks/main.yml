@@ -3,6 +3,35 @@
 - name: Upload directory to Deployment host
   synchronize: src=./provision/ dest=~/deploy rsync_opts="--chmod=F666"
 
+- name: Upload Monitoring to Deployment host
+  synchronize: src=files/monitoring/ dest=~/monitoring rsync_opts="--chmod=F666"
+
+- name: copy main.js of mnitoring with IP addresses.
+  template:
+    src: main.js
+    dest: ~/monitoring/main.js
+
+- name: NPM install 
+  npm:
+    path: "~/monitoring"
+    state: present
+
+- name: Start HTTP-Server on port 5000 for monitoring
+  shell: ( (http-server -p 5000) & )
+  args:
+    chdir: ~/monitoring/www
+
+- name: "Install forever"
+  npm: 
+    name: forever 
+    global: yes 
+    state: present
+
+- name: Start monitoring
+  shell: "forever start main.js"
+  args:
+    chdir: ~/monitoring
+
 - name: Copy inventory of all 5 nodes
   template:
     src: inventory.j2

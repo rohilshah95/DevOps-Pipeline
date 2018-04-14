@@ -69,3 +69,6 @@
     shell: ( (nohup mvn jetty:run) & )
     args:
       chdir: "~/code/iTrust2"
+  
+  - pause: 
+      minutes: 2
