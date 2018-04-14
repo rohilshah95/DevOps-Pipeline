@@ -4,7 +4,6 @@ var os = require('os');
 
 var exec = require('child_process').exec;
 
-// websocket server that website connects to.
 var io = require('socket.io')(3000);
 
 
@@ -18,7 +17,6 @@ var nodeServers =
 ];
 
 
-// Launch servers.
 exec("node fastService.js");
 exec("node mediumService.js");
 exec("node slowService.js");
@@ -38,9 +36,7 @@ function measureLatenancy(server)
 			server.latency = 1001;
 		}
 		else{
-		console.log( error || res.statusCode, server.url);
 		server.latency = Date.now()-startTime;
-		console.log(server.latency);
 	}
 	});
 
@@ -63,10 +59,8 @@ function calculateColor()
 		{
 			color = "#00ff00";
 		}
-		console.log( latency );
 		return {color: color};
 	});
-	//console.log( nodes );
 	return nodes;
 }
 
@@ -74,9 +68,7 @@ function calculateColor()
 io.on('connection', function (socket) {
 	console.log("Received connection");
 
-	///////////////
-	//// Broadcast heartbeat over websockets
-	//////////////
+
 	var heartbeatTimer = setInterval( function () 
 	{
 		var data = { 
