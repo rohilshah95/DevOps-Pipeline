@@ -35,7 +35,7 @@
   lineinfile:
     path: /etc/environment
     state: present
-    line: 'MAIL_USER=onepluscarrental@gmail.com'
+    line: 'MAIL_USER=falcondevops@gmail.com'
 
 - name: Set SMTP password
   lineinfile:
