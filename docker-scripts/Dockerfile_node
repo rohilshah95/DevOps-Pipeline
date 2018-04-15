@@ -1,0 +1,16 @@
+FROM node:alpine
+
+ENV MONGO_IP=127.0.0.1
+ENV MONGO_PORT=3002
+ENV MONGO_PASSWORD=
+ENV MONGO_USER=admin
+ENV MAIL_USER=falcondevops@gmail.com
+ENV MAIL_PASSWORD=
+ENV MAIL_SMTP=smtp.gmail.com
+
+WORKDIR /usr/src/app
+COPY ./checkbox.io ./
+WORKDIR server-side/site
+RUN  npm install
+CMD ["node","server.js"]
+EXPOSE 3002

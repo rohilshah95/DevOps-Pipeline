@@ -1,0 +1,20 @@
+version: '3'
+services:
+  back:
+    image: gcr.io/vj04142018/cb-back:v1
+    build: 
+      context: .
+      dockerfile: Dockerfile_node
+    #network_mode: "host"
+  front:
+    image: gcr.io/vj04142018/cb-front:v1
+    build:
+      context: .
+      dockerfile: Dockerfile_nginx
+    #network_mode: "host"
+  redis:
+    image: gcr.io/vj04142018/cb-redis:v1
+    build:
+      context: .
+      dockerfile: Dockerfile_redis
+
