@@ -3,16 +3,48 @@
     description: "built by job builder"
     builders:
       - shell: |
-            git clone https://{{ git_token | urlencode }}@github.ncsu.edu/engr-csc326-staff/iTrust2-v2 
-            sudo cp /tmp/db.properties iTrust2-v2/iTrust2/src/main/java/db.properties 
+            git clone https://{{ git_token | urlencode }}@github.ncsu.edu/rshah8/iTrust2-v2 
+            sudo cp /tmp/post-receive iTrust2-v2/.git/hooks/post-receive
+            sudo chmod 777 iTrust2-v2/.git/hooks/post-receive
+            sudo cp /tmp/db.properties iTrust2-v2/iTrust2/src/main/java/db.properties
             sudo cp /tmp/hibernate.properties iTrust2-v2/iTrust2/src/main/resources/hibernate.properties 
             sudo cp /tmp/email.properties iTrust2-v2/iTrust2/src/main/java/email.properties 
             sudo cp /tmp/pom-data.xml iTrust2-v2/iTrust2/pom-data.xml 
             cd iTrust2-v2/iTrust2 
             sudo mvn process-test-classes -f pom-data.xml 
-            sudo mvn clean test verify checkstyle:checkstyle
+            sudo mvn compile
+            cd ..
+            sudo git add -f iTrust2/src/main/java/db.properties
+            sudo git add -f iTrust2/src/main/resources/hibernate.properties
+            sudo git config --global user.email "rshah8@ncsu.edu"
+            sudo git config --global user.name "Rohil Shah"
+            sudo git commit -m "push mysql ipaddress"
+            sudo git push origin master
+
     publishers:
-      - jacoco
+      - post-tasks:
+        - matches:
+          - log-text: 
+            operator: AND
+          escalate-status: false
+          run-if-job-successful: false
+          script: |
+              cd iTrust2-v2
+              sudo mkdir deploy
+              cd deploy
+              sudo mkdir production.git
+              sudo mkdir production-www
+              cd production.git
+              sudo git init --bare 
+              sudo cp /tmp/post-receive hooks/post-receive
+              sudo chmod +x hooks/post-receive
+              cd ../..
+              sudo git remote add production file:///var/lib/jenkins/workspace/iTrustJob/iTrust2-v2/deploy/production.git
+              sudo git add .
+              sudo git config --global user.email "rshah8@ncsu.edu"
+              sudo git config --global user.name "Rohil Shah"
+              sudo git commit -m "push to production"
+              sudo git push production master
     wrappers:
     - workspace-cleanup
     # - timeout:

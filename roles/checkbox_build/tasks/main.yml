@@ -6,14 +6,54 @@
     url: http://{{ jenkins_ip }}:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar
     dest: '/var/lib/jenkins/'
 
+- name: Upload directory to Deployment host
+  synchronize: src=./provision/ dest=~/deploy rsync_opts="--chmod=F666"
+
+- name: Fix MongoIP for single mongodb instance
+  template:
+    src: main.yml.j2
+    dest: ~/deploy/roles/env/tasks/main.yml
+
+- name: Copy inventory of all 5 nodes
+  template:
+    src: inventory.j2
+    dest: ~/inventoryCheckbox
+
+- name: Copy Load Balancer JS file
+  template: 
+    src: loadBalancer.js
+    dest: ~/loadBalancer.js
+
+- name: Copy Load Balancer JS file
+  template: 
+    src: package.json
+    dest: ~/package.json
+
+- name: NPM install 
+  npm:
+    path: "~/"
+    state: present
+
+- name: "Install forever"
+  npm: 
+    name: forever 
+    global: yes 
+    state: present
+
 - name: Make tmp directory
   file:
     path: /tmp/coverage
     state: directory
     mode: 0777
 
-- name: Checkbox build config
-  template: src=checkbox_config.j2 dest=/tmp/coverage/checkbox_config.xml
+- name: Copy post-receive
+  template: 
+    src: pre-push.j2 
+    dest: /tmp/post-receive
+
+
+# - name: Checkbox build config
+  # template: src=checkbox_config.j2 dest=/tmp/coverage/checkbox_config.xml
 
 - name: Add jenkins user to Sudoers
   lineinfile:
@@ -41,48 +81,6 @@
     src: templates/checkbox.yaml
     dest: jobs/
 
-
-
-- name: Copy template files
-  template: 
-    src: package.json 
-    dest: /tmp/coverage/package.json
-
-- name: Copy template files
-  template: 
-    src: cov_server.js 
-    dest: /tmp/coverage/cov_server.js
-
-- name: Copy template files
-  template: 
-    src: main.js 
-    dest: /tmp/coverage/main.js
-
-- name: Copy template files
-  template: 
-    src: mocker.js 
-    dest: /tmp/coverage/mocker.js
-
-- name: Copy template files
-  template: 
-    src: server.js 
-    dest: /tmp/coverage/server.js
-
-- name: Copy template files
-  template: 
-    src: constraint.js
-    dest: /tmp/coverage/constraint.js
-
-- name: Copy template files
-  template: 
-    src: testgenerator.js 
-    dest: /tmp/coverage/testgenerator.js
-
-- name: Copy template files
-  template: 
-    src: format-polyfill.js 
-    dest: /tmp/coverage/format-polyfill.js
-
 - name: Add the jobs
   shell: jenkins-jobs update jobs
 
@@ -93,6 +91,9 @@
 # - name: Create Job
 #   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ create-job {{jenkins_checkbox}} < /tmp/coverage/checkbox_config.xml --username {{jenkins_username}} --password {{jenkins_password}}"
 #   when: jenkins_check.stdout.find(jenkins_checkbox)==-1
+
+- name: Start load balancer
+  shell: "forever start loadBalancer.js"
 
 - name: Build checkbox job
   shell: "java -jar /var/lib/jenkins/jenkins-cli.jar -s http://{{ jenkins_ip }}:{{ jenkins_port }}/ build {{jenkins_checkbox}} --username {{jenkins_username}} --password {{jenkins_password}} -s"

@@ -1,0 +1,74 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: false
+  tasks: 
+    - name: install python 2
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+
+    - name: Install Packages
+      apt: name= {{ item }} update_cache=yes state=latest
+      with_items:
+        - npm
+
+- hosts: all
+  serial: 1
+  become: yes
+  roles:
+    - env
+    - java
+    - maven
+    - git
+    # - mysql
+
+  tasks:
+  - include_vars: secrets.yml
+
+  - name: Cloning iTrust2 repo
+    git: 
+      repo: https://{{ git_token }}@github.ncsu.edu/rshah8/iTrust2-v2
+      dest: ~/code
+
+  # - name: Configuring Hibernate for DB
+  #   template:
+  #     src: ./templates/db.properties.template
+  #     dest: /home/vagrant/code/iTrust2/src/main/java/db.properties
+
+  # - name: Configuring Hibernate properties
+  #   template:
+  #     src: ./templates/hibernate.properties.template
+  #     dest: /home/vagrant/code/iTrust2/src/main/resources/hibernate.properties
+
+  # - name: Configuring Hibernate for Email
+  #   template:
+  #     src: ./templates/email.properties.template
+  #     dest: /home/vagrant/code/iTrust2/src/main/java/email.properties
+
+  # - name: Configuring mysqld.conf
+  #   lineinfile:
+  #     path: /etc/mysql/mysql.conf.d/mysqld.cnf
+  #     line: 'skip-grant-tables'
+  #     insertafter: '[mysqld]' 
+
+  # - name: Restarting mysql server
+  #   service: 
+  #     name: mysql
+  #     state: restarted
+
+  - name: make sure jetty is not running
+    shell: mvn jetty:stop
+    args:
+      chdir: "~/code/iTrust2"
+
+  - name: Build iTrust2 Database
+    shell: mvn process-test-classes -f pom-data.xml
+    args:
+      chdir: "~/code/iTrust2"
+
+  - name: Run iTrust application
+    shell: ( (nohup mvn jetty:run) & )
+    args:
+      chdir: "~/code/iTrust2"
+  
+  - pause: 
+      minutes: 2

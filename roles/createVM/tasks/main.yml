@@ -1,0 +1,289 @@
+---
+- include_vars: ../../secrets.yml
+
+- name: Exporting necessary environment variable
+  shell: export ANSIBLE_HOST_KEY_CHECKING=False
+
+
+# - name: ensure ssh key exists
+#   user: >
+#     name={{ ansible_user_id }}
+#     generate_ssh_key=yes
+#     ssh_key_file=.ssh/id_rsa
+# - name: ensure key exists at DigitalOcean
+#   digital_ocean: >
+#     state=present
+#     command=ssh
+#     name=my_ssh_key
+#     ssh_pub_key={{ lookup('file', '~/.ssh/id_rsa.pub') }}
+#     api_token={{ do_token }}
+#   register: my_ssh_key
+
+- name: copy private key to machines
+  copy:
+    src: id_rsa
+    dest: ~/privatekey
+    mode: 0600
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=jenkins-mysql
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: jenkins_droplet
+
+- debug: msg="IP is {{ jenkins_droplet.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ jenkins_droplet.droplet.id }}"
+
+- name: Fethching Public IP for existing jenkins instance
+  set_fact: 
+    jenkins_ec2_ipadd: "{{jenkins_droplet.droplet.ip_address}}" 
+    cacheable: true
+
+- name: Add new droplet to inventory
+  add_host: >
+    name=jenkins_droplet
+    groups=iTrust-checkbox-jenkins-mysql
+    ansible_ssh_host="{{ jenkins_droplet.droplet.ip_address }}"
+    ansible_ssh_user=root
+    ansible_ssh_private_key_file="~/privatekey"
+    ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=checkbox
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: checkbox_droplet
+
+- debug: msg="IP is {{ checkbox_droplet.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ checkbox_droplet.droplet.id }}"
+
+- name: Fethching Public IP for existing checkbox instance
+  set_fact: 
+    checkbox_ec2_ipadd: "{{checkbox_droplet.droplet.ip_address}}" 
+    cacheable: true
+
+- name: Add new droplet to inventory
+  add_host: >
+    name=checkbox_droplet
+    groups=checkbox
+    ansible_ssh_host="{{ checkbox_droplet.droplet.ip_address }}"
+    ansible_ssh_user=root
+    ansible_ssh_private_key_file="~/privatekey"
+    ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=canary
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: canary_droplet
+
+- debug: msg="IP is {{ canary_droplet.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ canary_droplet.droplet.id }}"
+
+- name: Fethching Public IP for existing checkbox instance
+  set_fact: 
+    canary_ec2_ipadd: "{{canary_droplet.droplet.ip_address}}" 
+    cacheable: true
+
+- name: Add new droplet to inventory
+  add_host: >
+    name=canary_droplet
+    groups=checkbox
+    ansible_ssh_host="{{ canary_droplet.droplet.ip_address }}"
+    ansible_ssh_user=root
+    ansible_ssh_private_key_file="~/privatekey"
+    ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=image1
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: image1
+
+- debug: msg="IP is {{ image1.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ image1.droplet.id }}"
+
+- name: Fethching Public IP for existing jenkins instance
+  set_fact: 
+    image1_ipadd: "{{image1.droplet.ip_address}}" 
+    cacheable: true
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=image2
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: image2
+
+- debug: msg="IP is {{ image2.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ image2.droplet.id }}"
+
+- name: Fethching Public IP for existing jenkins instance
+  set_fact: 
+    image2_ipadd: "{{image2.droplet.ip_address}}" 
+    cacheable: true
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=image3
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: image3
+
+- debug: msg="IP is {{ image3.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ image3.droplet.id }}"
+
+- name: Fethching Public IP for existing jenkins instance
+  set_fact: 
+    image3_ipadd: "{{image3.droplet.ip_address}}" 
+    cacheable: true
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=image4
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: image4
+
+- debug: msg="IP is {{ image4.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ image4.droplet.id }}"
+
+- name: Fethching Public IP for existing jenkins instance
+  set_fact: 
+    image4_ipadd: "{{image4.droplet.ip_address}}" 
+    cacheable: true
+
+- name: ensure droplet one exists
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=image5
+    size_id=2gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=18160865
+    api_token={{ do_token }}
+  register: image5
+
+- debug: msg="IP is {{ image5.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ image5.droplet.id }}"
+
+- name: Fethching Public IP for existing jenkins instance
+  set_fact: 
+    image5_ipadd: "{{image5.droplet.ip_address}}" 
+    cacheable: true
+
+- pause: 
+    minutes: 1
+
+
+
+
+
+
+
+# - name: Create key
+#   ec2_key:
+#     aws_access_key: '{{aws_access_key}}'
+#     aws_secret_key: '{{aws_secret_key}}'
+#     name: "{{keypair}}"
+#     region: us-west-2
+#   register: ec2_key
+
+# # - debug: var=ec2_key 
+# - name: Save private key
+#   copy: content="{{ ec2_key.key.private_key }}" dest="~/aws-private3.pem" mode=0600
+#   when: ec2_key.changed
+
+
+# - name: Launch the new Jenkins and MySQL EC2 Instance
+#   local_action: ec2 
+#                 aws_access_key={{aws_access_key}}
+#                 aws_secret_key={{aws_secret_key}}
+#                 group={{ security_group }} 
+#                 instance_type={{ instance_type}} 
+#                 image={{ image }} 
+#                 wait=true 
+#                 region={{ region }} 
+#                 instance_tags=Name=jenkins-mysql
+#                 keypair={{ keypair }}
+#                 count={{count}}
+#   register: ec2_jenkins
+# # - debug: var=item
+# # - debug: var=ec2
+# - debug: var=ec2_jenkins.instances[0].public_ip
+
+# - name: Wait for SSH to come up
+#   local_action: wait_for 
+#                 host={{ ec2_jenkins.instances[0].public_ip }} 
+#                 port=22 
+#                 state=started
+
+
+# - name: Fethching Public IP for existing jenkins instance
+#   set_fact: 
+#     jenkins_ec2_ipadd: "{{ec2_jenkins.instances[0].public_ip}}" 
+#     cacheable: true
+#   when: ec2_jenkins.instances|length>0
+
+# # - name: Add new ec2 to inventory
+# #   add_host: >
+# #     name="{{ jenkins_ec2_ip }}"
+# #     groups=iTrust-checkbox-jenkins-mysql
+# #     ansible_ssh_host="{{ ec2_jenkins.instances[0].public_ip }}"
+# #     ansible_ssh_user=ubuntu
+# #     ansible_ssh_private_key_file="~/aws-private3.pem" 
+# #     ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+# - name: Add the instance to group for installing Jenkins
+#   add_host:
+#     hostname: "{{ jenkins_ec2_ip }}"
+#     groupname: iTrust-checkbox-jenkins-mysql
+
+# - name: Add SSH fingerprints                                         
+#   shell: ssh-keyscan -H {{ item }} >> ~/.ssh/known_hosts          
+#   with_items: 
+#     - "{{ jenkins_ec2_ip }}"
+
+
+
+

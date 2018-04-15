@@ -4,3 +4,11 @@ inventory
 *.retry
 roles/.DS_Store
 roles/iTrust-fuzzing/files/package-lock.json
+roles/createVM/files/id_rsa
+*.ppk
+roles/jenkins/templates/id_rsa
+roles/jenkins/files/id_rsa
+roles/iTrust_build/.DS_Store
+.DS_Store
+roles/iTrust_build/files/Monitoring/README.md
+test.yml

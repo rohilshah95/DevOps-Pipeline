@@ -4,6 +4,12 @@
 # - name: Upload directory to Deployment host
 #   synchronize: src=./provision/ dest=~/deploy rsync_opts="--chmod=F666"
 
+- name: copy private key to machines
+  copy:
+    src: id_rsa
+    dest: ~/privatekey
+    mode: 0600
+
 - name: install packages
   apt: pkg={{ item }} state=latest update_cache=yes 
   with_items:
@@ -17,11 +23,11 @@
   pip:
     name: boto
     state: latest
-	
+
 - name: Updating nodejs
   shell: |
-    sudo npm install n
-	sudo n stable
+    npm install n -g
+    n stable
 
 - name: ensure required packages are installed for Java 8
   apt: name=python-software-properties
@@ -92,7 +98,7 @@
     state: absent
 
 - wait_for:
-    timeout: 100
+    timeout: 15
    
 - name: Install Jenkin Plugins
   jenkins_plugin:
@@ -106,15 +112,18 @@
     - postbuild-task
     - ws-cleanup
     - postbuildscript
-    - jacoco
     - github
-    - random-string-parameter
     - build-timeout
 
 - name: Update Sudoers file for Jenkins User
   lineinfile:
     dest: /etc/sudoers
     line: 'jenkins ALL=(ALL) NOPASSWD: ALL'
+
+- name: Copy the config.xml file to skip crumb issue
+  template: 
+    src: config.xml.j2 
+    dest: /var/lib/jenkins/config.xml
    
 - name: Restart Jenkins 
   service:
