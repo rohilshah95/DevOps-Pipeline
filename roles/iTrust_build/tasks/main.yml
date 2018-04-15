@@ -6,14 +6,25 @@
 - name: Upload Monitoring to Deployment host
   synchronize: src=files/monitoring/ dest=~/monitoring rsync_opts="--chmod=F666"
 
-- name: copy main.js of mnitoring with IP addresses.
+- name: copy main.js of monitoring with IP addresses.
   template:
     src: main.js
     dest: ~/monitoring/main.js
 
+- name: copy main.js of monitoring with IP addresses.
+  template:
+    src: statusModel.js
+    dest: ~/monitoring/www/statusModel.js
+
 - name: NPM install 
   npm:
     path: "~/monitoring"
+    state: present
+
+- name: "Install forever"
+  npm: 
+    name: http-server 
+    global: yes 
     state: present
 
 - name: Start HTTP-Server on port 5000 for monitoring
