@@ -45,7 +45,7 @@
     command: nginx -s reload
 
   - name: Start NodeJS Server
-    command: 'forever start server.js'
+    shell: 'forever start server.js'
     args:
       chdir: '{{cb_path}}/server-side/site'
  
