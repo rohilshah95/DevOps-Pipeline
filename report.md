@@ -1,7 +1,12 @@
 ## Milestone: DEPLOYMENT
 As part of this milestone, our production infrastructure and deployment pipeline supports the following properties.
 ### Deployment
+As part of the deployment scheme, we created a git hook (post-receive) on our jenkins server which triggers a deployment of 5 instances of iTrust and two instances of checkbox on a git push to production. We commit the iTrust properties with the IP Address of our jenkins server so that all iTrust instances use the same mysql server. All these servers are hosted on DigitalOcean. The ansible script to create all these DigitalOcean VMs is here[]. 
+
+
+
 ### Infrastructure Upgrade
+
 #### Kubernetes Cluster
 
 #### Redis Feature Flagserver
