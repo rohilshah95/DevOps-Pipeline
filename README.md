@@ -23,9 +23,10 @@ ansible-playbook main.yml --vault-password-file ./password.txt
 where password.txt contains the [vault](secrets.yml) password.
 
 [Deployment and Rolling Update](/roles/iTrust_build/tasks/main.yml)  
-[checkbox.io Provisioning and Test Generation](/roles/checkbox_build/tasks/main.yml) + [iTrust](/roles/iTrust_build/tasks/main.yml) build jobs  
-[iTrust post-build provisioning and configuration](/provision/iTrust2.yml)  
-[iTrust Test Prioritization Report](testPrioritizationReport.md)
+[Canary Release](/roles/checkbox_build/tasks/main.yml)  
+[Deployment of redis-master-server and mongodb](/infrastructure/deploy_secondary.yml)  
+[Deployment of pods containing dockerized version of server.js and redis-slaves](infrastructure/deploy_primary.yml)  
+[Redis feature flag server changes in checkbox](https://github.com/rcoutin/checkbox.io)
 
 #### Checkbox.io Forked Repository
 https://github.com/rcoutin/checkbox.io

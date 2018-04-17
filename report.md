@@ -7,13 +7,13 @@ As part of the deployment scheme, we created a git hook ([post-receive](https://
 
 #### Dockerised Version of Checkbox.io
 
-The containerization of Checkbox.io was acheieved using Docker. The Checkbox.io Nodejs server, Nginx, and Redis slave containers are stored together in a Pod. We also have another Pod with the Mongodb Server and Redis Master containers. We used docker-compose to build these docker images and push them to the Google Cloud Registry. Specific authentication configurations were made to push these images and later pull them during deployment in the Kubernetes Cluster
+The containerization of Checkbox.io was acheieved using Docker. The Checkbox.io Nodejs server, Nginx, and Redis slave containers are stored together in a Pod. We also have another Pod with the Mongodb Server and Redis Master containers. We used docker-compose to configure and build these docker images, and pushed them to the Google Cloud Registry. The specific Dockerfiles used to create these images are also available in the source. Authentication configurations were made in Google Cloud to provide appropriate permissions for access. 
 
 #### Kubernetes Cluster
 As a part of creating Kubernetes cluster from scratch, we first provisioned 4 machines on Digital Ocean, initialised one of them to be the master node of the cluster, and made the 3 other nodes to join the cluster. 
 The master then deploys pods:
 1. A pod containing Redis Server and MongoDB server on one of the nodes
-2. A pod containing dockerised version of checkbox.io (containing nginx and server.js) on all three nodes.
+2. A pod containing dockerised version of checkbox.io (containing nginx server.js and Redis slave servers) on all three nodes.
 
 As pods are on internal DO network, they can communicate with each other using internal IPs. Also, the cluster IP is the single entry-point for all services. The services running on the pods are thus load-balanced through the cluster IP and come in through the master. This is why when one of the node goes down, the service is still up and running as the master reroutes the requests to the working nodes.
 
