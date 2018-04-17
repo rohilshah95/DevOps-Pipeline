@@ -24,7 +24,7 @@ where password.txt contains the [vault](secrets.yml) password.
 
 [Deployment and Rolling Update](/roles/iTrust_build/tasks/main.yml)  
 [Canary Release](/roles/checkbox_build/tasks/main.yml)  
-[Deployment of redis-master-server and mongodb](/infrastructure/deploy_secondary.yml)
+[Deployment of redis-master-server and mongodb](/infrastructure/deploy_secondary.yml)  
 [Deployment of pods containing dockerized version of server.js and redis-slaves](infrastructure/deploy_primary.yml)  
 [Redis feature flag server changes in checkbox](https://github.com/rcoutin/checkbox.io)
 
