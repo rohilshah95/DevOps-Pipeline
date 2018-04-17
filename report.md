@@ -8,6 +8,12 @@ As part of the deployment scheme, we created a git hook ([post-receive](https://
 ### Infrastructure Upgrade
 
 #### Kubernetes Cluster
+As a part of creating Kubernetes cluster from scratch, we first provisioned 4 machines on Digital Ocean, initialised one of them to be the master node of the cluster, and made the 3 other nodes to join the cluster. 
+The master then deploys pods:
+1. A pod containing Redis Server and MongoDB server on one of the nodes
+2. A pod containing dockerised version of checkbox.io (containing nginx and server.js) on all three nodes.
+
+As pods are on internal DO network, they can communicate with each other using internal IPs. Also, the cluster IP is the single entry-point for all services. The services running on the pods are thus load-balanced through the cluster IP and come in through the master. This is why when one of the node goes down, the service is still up and running as the master reroutes the requests to the working nodes.
 
 #### Redis Feature Flagserver
 As a part of the creation of a redis feature flagserver that can be used to turn off/on features on checkbox.io we made a small change in checkbox.io code [available here](https://github.com/rcoutin/checkbox.io). We deployed a redis master server pod on one of the nodes and created slaves pods on the other two nodes which mirrored the master node. In checkbox code, we created another end-point in server.js that takes in 'featureflag' variable value from the redis server. We called this end-point from index.html using GET REST API and changed the text of checkbox.io to 'feature.io' when redis has featureflag set to "true" (which can be any feature in the future through code). This change on master redis server is reflected on all slave nodes, thus activating the feature on all services using the redis feature flag server.
