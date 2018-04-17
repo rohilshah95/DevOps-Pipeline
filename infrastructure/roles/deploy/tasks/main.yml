@@ -21,3 +21,12 @@
 
 - name: Execute primary deployment scripts
   command: kubectl create -f deploy_primary.yml
+  
+- name: Copy the nginx configuration file
+  copy: 
+    src: 'default'
+    dest: '/etc/nginx/sites-available/default'
+       
+- name: reload nginx
+    command: nginx -s reload 
+   
