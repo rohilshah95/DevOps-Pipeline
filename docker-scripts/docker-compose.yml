@@ -1,20 +1,23 @@
 version: '3'
 services:
   back:
-    image: gcr.io/vj04142018/cb-back:v1
+    image: gcr.io/vj04142018/cb-back:v3
     build: 
       context: .
       dockerfile: Dockerfile_node
-    #network_mode: "host"
+    ports:
+     - "3002"
   front:
-    image: gcr.io/vj04142018/cb-front:v1
+    image: gcr.io/vj04142018/cb-front:v3
     build:
       context: .
       dockerfile: Dockerfile_nginx
-    #network_mode: "host"
-  redis:
-    image: gcr.io/vj04142018/cb-redis:v1
+  mongodb:
+    image: gcr.io/vj04142018/cbmongodb:v1
     build:
       context: .
-      dockerfile: Dockerfile_redis
+      dockerfile: Dockerfile_mongo
+    ports:
+     - "27017"
+
 
