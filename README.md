@@ -22,7 +22,7 @@ ansible-playbook main.yml --vault-password-file ./password.txt
 ```
 where password.txt contains the [vault](secrets.yml) password.
 
-[Jenkins automation](/roles/jenkins/tasks/main.yml)  
+[Deployment and Rolling Update](/roles/iTrust_build/tasks/main.yml)  
 [checkbox.io Provisioning and Test Generation](/roles/checkbox_build/tasks/main.yml) + [iTrust](/roles/iTrust_build/tasks/main.yml) build jobs  
 [iTrust post-build provisioning and configuration](/provision/iTrust2.yml)  
 [iTrust Test Prioritization Report](testPrioritizationReport.md)
