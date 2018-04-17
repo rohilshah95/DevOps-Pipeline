@@ -7,7 +7,11 @@ As part of the deployment scheme, we created a git hook ([post-receive](https://
 
 #### Dockerised Version of Checkbox.io
 
-The containerization of Checkbox.io was acheieved using Docker. The Checkbox.io Nodejs server, Nginx, and Redis slave containers are stored together in a Pod. We also have another Pod with the Mongodb Server and Redis Master containers. We used docker-compose to configure and build these docker images, and pushed them to the Google Cloud Registry. The specific Dockerfiles used to create these images are also available in the source. Authentication configurations were made in Google Cloud to provide appropriate permissions for access. 
+The containerization of Checkbox.io was acheieved using Docker. The Checkbox.io Nodejs server, Nginx, and Redis slave containers are stored together in a Pod. We also have another Pod with the Mongodb Server and Redis Master containers. We used docker-compose to configure and build these docker images with compatible naming tags and pushed them to the Google Cloud Registry using the below command. 
+
+```gcloud docker --push <image_name>:<version>```
+
+The specific Dockerfiles used to create these images are also available in the source. Authentication configurations were made in Google Cloud to provide appropriate permissions for access. 
 
 #### Kubernetes Cluster
 ![Kubernetes Cluster](/content/Kubernetes.jpg)  
