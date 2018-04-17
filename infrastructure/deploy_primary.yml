@@ -12,6 +12,9 @@ spec:
     - port: 3002
       nodePort: 30002
       name: nodejs
+    - port: 6379
+      nodePort: 30079
+      name: rs
   type: NodePort
 ---
 apiVersion: apps/v1         
@@ -30,18 +33,18 @@ spec:
     spec:    
       containers:           
       - name: cb-back         
-        image: gcr.io/vj04142018/cb-back:v2    
+        image: gcr.io/vj04142018/cb-back:v3    
         env:
          - name: MONGO_IP
            value: "{{sec_ip_output.stdout}}"
       - name: cb-front
-        image: gcr.io/vj04142018/cb-front:v2
+        image: gcr.io/vj04142018/cb-front:v3
         ports:
         - containerPort: 80 
       - name: redis-slave
-        image: gcr.io/vj04142018/redis-slave:v1
-        env:
-         - name: MASTER_IP
-           value: "{{sec_ip_output.stdout}}"
+        image: redis:latest
+        command: ["redis-server"]
+        args: ["--slaveof", "10.42.0.1", "6379"]
+        # image: gcr.io/vj04142018/redis-slave:v1
         ports:
         - containerPort: 6379

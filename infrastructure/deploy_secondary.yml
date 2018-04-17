@@ -31,9 +31,9 @@ spec:
         #image: gcr.io/vj04142018/redis_master:v1    
         image: redis
         ports:              
-        - containerPort: 6380
+        - containerPort: 6379
       - name: cb-mongodb
-        image: gcr.io/vj04142018/cb-mongodb:v1
+        image: gcr.io/vj04142018/cbmongodb:v1
         ports:
         - containerPort: 27017 
     
