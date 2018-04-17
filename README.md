@@ -15,11 +15,18 @@ Vijay Hebbar    (vhhebbar)
 
 #### Ansible Scripts
 
-[main.yml](main.yml), the only script to be run to trigger the build of the application and perform the necessary fuzzing the generation of the prioritization report. It also provisions checkbox and executes the test generations procedures create a test script that utilizes mocked resources to generate a coverage report.
+[main.yml](main.yml), the only script to be run to trigger the build of the application and perform the deployment of 5 iTrust images and 2 checkbox images and performs load balancing for checkbox and rolling updates support for iTrust.
 
 ``` 
 ansible-playbook main.yml --vault-password-file ./password.txt
 ```
+  
+
+[setup_cluster.yml](https://github.ncsu.edu/rshah8/DevOps-Project/blob/m3/infrastructure/setup_cluster.yml), for Kubernetes and Redis Feature Flag, we run the script: 
+``` 
+ansible-playbook infrastructure/setup_cluster.yml --vault-password-file ./password.txt
+```
+
 where password.txt contains the [vault](secrets.yml) password.
 
 [Deployment and Rolling Update](/roles/iTrust_build/tasks/main.yml)  
@@ -36,4 +43,4 @@ Report can be found [here](report.md)
 
 #### Screencast
 
-Screencast can be found here. [Screencast Video](https://youtu.be/o48Zpq0xLiU)
+Screencast can be [found here](https://youtu.be/klThbyALL2U).
