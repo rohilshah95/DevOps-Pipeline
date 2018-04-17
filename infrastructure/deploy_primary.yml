@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: checkbox-service
+spec:
+  selector:
+      group: one  
+  ports:
+    - port: 80
+      nodePort: 30080
+      name: http
+    - port: 3002
+      nodePort: 30002
+      name: nodejs
+  type: NodePort
+---
+apiVersion: apps/v1         
+kind: Deployment            
+metadata:                   
+  name: deploy-primary
+spec:                       
+  replicas: 3               
+  selector:                             
+    matchLabels:    
+      group : one         
+  template:                 
+    metadata:               
+     labels:
+        group: one    
+    spec:    
+      containers:           
+      - name: cb-back         
+        image: gcr.io/vj04142018/cb-back:v2    
+        env:
+         - name: MONGO_IP
+           value: "{{sec_ip_output.stdout}}"
+      - name: cb-front
+        image: gcr.io/vj04142018/cb-front:v2
+        ports:
+        - containerPort: 80 
+      - name: redis-slave
+        image: gcr.io/vj04142018/redis-slave:v1
+        env:
+         - name: MASTER_IP
+           value: "{{sec_ip_output.stdout}}"
+        ports:
+        - containerPort: 6379

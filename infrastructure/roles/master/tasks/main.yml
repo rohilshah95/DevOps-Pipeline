@@ -1,0 +1,46 @@
+---
+# - name: Set environment variable for current session
+#   environment:
+#     KUBECONFIG: '/root/admin.conf'
+      
+- name: Set Environment Variable permanently
+  lineinfile: 
+    path: /etc/environment 
+    state: present
+    line: 'KUBECONFIG=/root/admin.conf'
+    
+- name: Initialize KubeAdm
+  command: kubeadm init 
+
+# - pause: 
+#     minutes: 3
+  
+- name: Get master key
+  command: kubeadm token create
+  register: create_token_output
+  
+- debug: var=create_token_output.stdout 
+
+- name: copt admin.conf file
+  command: cp /etc/kubernetes/admin.conf .
+  
+- name: Store token 
+  set_fact:
+    join_token: "{{ create_token_output.stdout }}"
+
+- name: run kubeversion 
+  shell: kubectl version | base64 | tr -d '\n'
+  register: output 
+- debug: var=output 
+  
+- name: Set up Weave network-cidr
+  shell: kubectl apply -f 'https://cloud.weave.works/k8s/net?k8s-version={{output.stdout}}'
+
+# - name: Setup deployment script - 1
+#   copy:
+#     src: ./deploy_service.yml
+#     dest: /root/deploy_service.yml
+    
+# - name: Execute deployment scripts
+#   command: kubeadm create -f deploy_service.yml
+

@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: data-service
+spec:
+  selector:
+      group: two  
+  ports:
+    - port: 27017
+      name: mongodb
+    - port: 6379
+      name: redis
+  type: NodePort
+---
+apiVersion: apps/v1         
+kind: Deployment            
+metadata:                   
+  name: deploy-secondary
+spec:                       
+  replicas: 1              
+  selector:                 
+    matchLabels:            
+      group: two            
+  template:                 
+    metadata:              
+      labels:
+        group: two   
+    spec:      
+      containers:           
+      - name: redis-master         
+        #image: gcr.io/vj04142018/redis_master:v1    
+        image: redis
+        ports:              
+        - containerPort: 6380
+      - name: cb-mongodb
+        image: gcr.io/vj04142018/cb-mongodb:v1
+        ports:
+        - containerPort: 27017 
+    

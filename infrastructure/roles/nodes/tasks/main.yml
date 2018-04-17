@@ -1,0 +1,3 @@
+---
+- name: Join the cluster
+  command: kubeadm join --token "{{hostvars['master']['join_token']}}" --discovery-token-unsafe-skip-ca-verification "{{ hostvars['localhost']['master_ip'] }}":6443

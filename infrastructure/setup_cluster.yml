@@ -1,0 +1,42 @@
+---
+- hosts: localhost
+  roles:
+    - createVM
+
+- hosts: master:nodes
+  become: yes
+  gather_facts: false
+  vars:
+    host_key_checking: False
+  remote_user: "root"
+  connection: ssh
+  tasks: 
+    - name: install python 2
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+
+- hosts: master:nodes
+  become: yes
+  roles:
+    - common
+
+- hosts: master
+  become: yes
+  roles: 
+    # - common
+    - master
+  environment: 
+    KUBECONFIG: '/root/admin.conf'
+
+    
+- hosts: nodes
+  become: yes
+  roles: 
+    # - common
+    - nodes
+
+- hosts: master
+  become: yes
+  roles: 
+    - deploy
+  environment: 
+    KUBECONFIG: '/root/admin.conf'

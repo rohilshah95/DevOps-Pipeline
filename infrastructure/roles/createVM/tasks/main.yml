@@ -1,0 +1,133 @@
+---
+- include_vars: ../../secrets.yml
+
+- name: Exporting necessary environment variable
+  shell: export ANSIBLE_HOST_KEY_CHECKING=False
+
+- name: copy private key to machines
+  copy:
+    src: ./keys/do_key
+    dest: ~/privatekey
+    mode: 0600
+
+- name: Provision Master
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=master
+    size_id=1gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=19925514
+    api_token={{ do_token }}
+  register: master_prov_output
+
+- debug: msg="IP is {{ master_prov_output.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ master_prov_output.droplet.id }}"
+
+- name: Fetching Public IP for Master
+  set_fact: 
+    master_ip: "{{master_prov_output.droplet.ip_address}}" 
+    cacheable: true
+
+- name: Add new droplet to inventory
+  add_host: >
+    name=master
+    groups=master
+    ansible_ssh_host="{{ master_prov_output.droplet.ip_address }}"
+    ansible_ssh_user=root
+    ansible_ssh_private_key_file="~/privatekey"
+    ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+- name: Provision Node 1
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=node1
+    size_id=1gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=19925514
+    api_token={{ do_token }}
+  register: node1_prov_output
+
+- debug: msg="IP is {{ node1_prov_output.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ node1_prov_output.droplet.id }}"
+
+- name: Fetching Public IP for existing checkbox instance
+  set_fact: 
+    node1_ip: "{{node1_prov_output.droplet.ip_address}}" 
+    cacheable: true
+
+- name: Add new droplet to inventory
+  add_host: >
+    name=node1
+    groups=nodes
+    ansible_ssh_host="{{ node1_prov_output.droplet.ip_address }}"
+    ansible_ssh_user=root
+    ansible_ssh_private_key_file="~/privatekey"
+    ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+- name: Provision Node 2
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=node2
+    size_id=1gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=19925514
+    api_token={{ do_token }}
+  register: node2_prov_output
+
+- debug: msg="IP is {{ node2_prov_output.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ node2_prov_output.droplet.id }}"
+
+- name: Fetching Public IP for Node 2
+  set_fact: 
+    node2_ip: "{{node2_prov_output.droplet.ip_address}}" 
+    cacheable: true
+
+- name: Add new droplet to inventory
+  add_host: >
+    name=node2
+    groups=nodes
+    ansible_ssh_host="{{ node2_prov_output.droplet.ip_address }}"
+    ansible_ssh_user=root
+    ansible_ssh_private_key_file="~/privatekey"
+    ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+- name: Provision Node 3
+  digital_ocean: >
+    state=present
+    command=droplet
+    name=node3
+    size_id=1gb
+    region_id=nyc1
+    image_id=ubuntu-16-04-x64
+    ssh_key_ids=19925514
+    api_token={{ do_token }}
+  register: node3_prov_output
+
+- debug: msg="IP is {{ node3_prov_output.droplet.ip_address }}"
+- debug: msg="Droplet id is {{ node3_prov_output.droplet.id }}"
+
+- name: Fetching Public IP for Node 3
+  set_fact: 
+    node3_ip: "{{node3_prov_output.droplet.ip_address}}" 
+    cacheable: true
+    
+- name: Add new droplet to inventory
+  add_host: >
+    name=node3
+    groups=nodes
+    ansible_ssh_host="{{ node3_prov_output.droplet.ip_address }}"
+    ansible_ssh_user=root
+    ansible_ssh_private_key_file="~/privatekey"
+    ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+- pause: 
+    minutes: 1
+
+
+

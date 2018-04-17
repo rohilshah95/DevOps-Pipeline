@@ -1,0 +1,32 @@
+---
+- name: Install Docker
+  apt:
+    name: docker.io
+    update_cache: yes
+    
+- name: Install HTTPS Transport
+  apt:
+    name: apt-transport-https
+    
+- name: Add
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+    
+- name:
+  apt_repository:
+    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+    
+- name: Update cache
+  apt:
+    update_cache: yes
+
+- name: Install KubeAdm
+  apt:
+    name: kubeadm
+    
+- name: Install Kube CNI
+  apt:
+    name: kubernetes-cni
+      
