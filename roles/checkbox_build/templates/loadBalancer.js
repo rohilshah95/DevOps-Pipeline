@@ -1,10 +1,29 @@
 var httpProxy = require("http-proxy");
 var http = require('http');
+var where=require('node-where');
+var redis = require("redis")
+var client = redis.createClient(6379, "{{ hostvars['localhost']['jenkins_ec2_ipadd']}}", {})
+
 
 var proxy = httpProxy.createProxyServer({});
 var alert=false;
 var loadCounter=1;
 var server=http.createServer( function (req, res){
+	// console.log(req.headers['x-forwarded-for'] || req.connection.remoteAddress);
+	
+	var country,state
+	where.is(req.connection.remoteAddress, function (err, result) {
+		console.log(result);
+		country=result.get('countryCode');
+		state=result.get('regionCode');
+	});
+	if(country=='US' && state!='NC')
+		client.set("featureflag", "US");
+	else if(country=='US' && state=='NC')
+		client.set("featureflag", "NC");
+	else
+		client.set("featureflag", "Rest");
+
 	if(!alert)
 	{
 		if(loadCounter%3==0)
