@@ -1,4 +1,4 @@
-# DevOps-Project Milestone 3
+# DevOps-Project Milestone : Special (Location-based Canary Release)
 
 ## Team Information
 
