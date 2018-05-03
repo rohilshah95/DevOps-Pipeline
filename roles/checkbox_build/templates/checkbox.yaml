@@ -3,7 +3,7 @@
     description: "build checkbox and install dependencies using new package.json"
     builders:
       - shell: |
-          sudo git clone https://github.com/rohilshah95/checkbox.io
+          sudo git clone https://github.com/rcoutin/checkbox.io
           cd checkbox.io/server-side/site
           sudo npm install
     publishers:

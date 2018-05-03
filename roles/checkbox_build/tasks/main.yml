@@ -14,7 +14,7 @@
     src: main.yml.j2
     dest: ~/deploy/roles/env/tasks/main.yml
 
-- name: Copy inventory of all 5 nodes
+- name: Copy inventory of both nodes
   template:
     src: inventory.j2
     dest: ~/inventoryCheckbox

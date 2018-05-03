@@ -63,11 +63,13 @@
   roles: 
     - dependencies
     - mysql
+    - redis
     - ansible
     - jenkins
+    - python
     - mongodb
     - checkbox_build
-    - iTrust_build
+    # - iTrust_build
   # tasks:
   #   - debug: var=jenkins_ec2_ip
    
