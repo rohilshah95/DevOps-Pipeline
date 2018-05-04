@@ -16,13 +16,13 @@ var server=http.createServer( function (req, res){
 		console.log(result);
 		country=result.get('countryCode');
 		state=result.get('regionCode');
+		if (country == 'US' && state != 'NC')
+			client.set("featureflag", "US");
+		else if (country == 'US' && state == 'NC')
+			client.set("featureflag", "NC");
+		else
+			client.set("featureflag", "Rest");
 	});
-	if(country=='US' && state!='NC')
-		client.set("featureflag", "US");
-	else if(country=='US' && state=='NC')
-		client.set("featureflag", "NC");
-	else
-		client.set("featureflag", "Rest");
 
 	if(!alert)
 	{
