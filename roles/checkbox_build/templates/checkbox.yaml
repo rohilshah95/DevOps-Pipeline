@@ -3,9 +3,16 @@
     description: "build checkbox and install dependencies using new package.json"
     builders:
       - shell: |
-          sudo git clone https://github.com/rcoutin/checkbox.io
+          sudo git clone https://{{ git_token_com | urlencode }}@github.com/rcoutin/checkbox.io
+          sudo cp /tmp/server.js  checkbox.io/server-side/site/server.js
           cd checkbox.io/server-side/site
           sudo npm install
+          cd ../..
+          sudo git add -f server-side/site/server.js
+          sudo git config --global user.email "rgshah3@gmail.com"
+          sudo git config --global user.name "Rohil Shah"
+          sudo git commit -m "push redis server ipaddress"
+          sudo git push origin master
     publishers:
       - post-tasks:
         - matches:

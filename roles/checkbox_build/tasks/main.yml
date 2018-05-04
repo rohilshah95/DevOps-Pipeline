@@ -14,6 +14,11 @@
     src: main.yml.j2
     dest: ~/deploy/roles/env/tasks/main.yml
 
+- name: Copy db.properties
+  template: 
+    src: server.js 
+    dest: /tmp/server.js
+
 - name: Copy inventory of both nodes
   template:
     src: inventory.j2
