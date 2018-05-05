@@ -21,7 +21,6 @@ var server=http.createServer( function (req, res){
 			client.set("featureflag", "NC");
 		else
 			client.set("featureflag", "Rest");
-	});
 
 	if(!alert)
 	{
@@ -44,6 +43,10 @@ var server=http.createServer( function (req, res){
 			console.log(e);
 		});
 	}
+	
+	});
+
+	
 });
 
 var checkStatus = setInterval(function () {
