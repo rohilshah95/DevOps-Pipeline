@@ -22,13 +22,20 @@ var server=http.createServer( function (req, res){
 		else
 			client.set("featureflag", "Rest");
 
-	if(!alert)
-	{
-		if(country!='US')
+		if(!alert)
 		{
-			proxy.web(req, res, {target: "http://{{ hostvars['localhost']['canary_ec2_ipadd']}}"}, function (e){
-				proxy.web(req, res, {target: "http://{{ hostvars['localhost']['checkbox_ec2_ipadd']}}"});
-			});
+			if(country!='US')
+			{
+				proxy.web(req, res, {target: "http://{{ hostvars['localhost']['canary_ec2_ipadd']}}"}, function (e){
+					proxy.web(req, res, {target: "http://{{ hostvars['localhost']['checkbox_ec2_ipadd']}}"});
+				});
+			}
+			else
+			{
+				proxy.web(req, res, {target: "http://{{ hostvars['localhost']['checkbox_ec2_ipadd']}}"}, function (e){
+					console.log(e);
+				});
+			}
 		}
 		else
 		{
@@ -36,17 +43,8 @@ var server=http.createServer( function (req, res){
 				console.log(e);
 			});
 		}
-	}
-	else
-	{
-		proxy.web(req, res, {target: "http://{{ hostvars['localhost']['checkbox_ec2_ipadd']}}"}, function (e){
-			console.log(e);
-		});
-	}
-	
+		
 	});
-
-	
 });
 
 var checkStatus = setInterval(function () {
