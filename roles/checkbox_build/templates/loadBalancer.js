@@ -7,7 +7,6 @@ var client = redis.createClient(6379, "{{ hostvars['localhost']['jenkins_ec2_ipa
 
 var proxy = httpProxy.createProxyServer({});
 var alert=false;
-var loadCounter=1;
 var server=http.createServer( function (req, res){
 	// console.log(req.headers['x-forwarded-for'] || req.connection.remoteAddress);
 	
@@ -26,7 +25,7 @@ var server=http.createServer( function (req, res){
 
 	if(!alert)
 	{
-		if(loadCounter%3==0)
+		if(country!='US')
 		{
 			proxy.web(req, res, {target: "http://{{ hostvars['localhost']['canary_ec2_ipadd']}}"}, function (e){
 				proxy.web(req, res, {target: "http://{{ hostvars['localhost']['checkbox_ec2_ipadd']}}"});
@@ -38,7 +37,6 @@ var server=http.createServer( function (req, res){
 				console.log(e);
 			});
 		}
-		loadCounter++;
 	}
 	else
 	{
