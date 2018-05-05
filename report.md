@@ -6,4 +6,6 @@ Based on the location of the client, which is obtained from the client's ISP, we
 2. Outside the state of North Carolina (NC) and inside The United States of America,
 3. Outside The United States of America.
 
-As an additional component, we host two servers for checkbox.io, one which will be located in The United States of America and one which will be located in London. Based on the location of the client, the requests will be routed to the respective servers. A client's request from within The United States of America will be routed to the former server, whereas a client's request from anywhere outside The United States of America will be routed to the latter server. This reduces latency and performs load balancing.
+As an additional component, we host two servers for checkbox.io, one which will be located in The United States of America and one which will be located in London. Based on the location of the client, the requests will be routed to the respective servers. A client's request from within The United States of America will be routed to the former server, whereas a client's request from anywhere outside The United States of America will be routed to the latter server. This reduces latency and performs load balancing.   
+
+![img](/content/load-balancer.png)
