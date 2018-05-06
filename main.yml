@@ -21,7 +21,6 @@
     - createVM
   tasks:
     - include_vars: secrets.yml
-    # - debug: var=do_token
   
 - hosts: iTrust-checkbox-jenkins-mysql
   become: yes
@@ -51,15 +50,6 @@
   remote_user: "ubuntu"
   connection: ssh
 
-#   vars:
-#     jenkins_ip: localhost
-#     jenkins_port: 9090
-#     jenkins_user: "jenkins"
-#     jenkins_home: "/var/lib/jenkins"
-#     jenkins_checkbox: checkboxJob
-#     jenkins_iTrust: iTrustJob
-#     jenkins_iTrust_fuzz: iTrust-Fuzz-Job
-
   roles: 
     - dependencies
     - mysql
@@ -69,7 +59,5 @@
     - python
     - mongodb
     - checkbox_build
-    # - iTrust_build
-  # tasks:
-  #   - debug: var=jenkins_ec2_ip
+    - iTrust_build
    
