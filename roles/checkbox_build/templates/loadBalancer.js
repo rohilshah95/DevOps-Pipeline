@@ -33,14 +33,14 @@ var server=http.createServer( function (req, res){
 			else
 			{
 				proxy.web(req, res, {target: "http://{{ hostvars['localhost']['checkbox_ec2_ipadd']}}"}, function (e){
-					console.log(e);
+					proxy.web(req, res, {target: "http://{{ hostvars['localhost']['canary_ec2_ipadd']}}"});
 				});
 			}
 		}
 		else
 		{
 			proxy.web(req, res, {target: "http://{{ hostvars['localhost']['checkbox_ec2_ipadd']}}"}, function (e){
-				console.log(e);
+				proxy.web(req, res, {target: "http://{{ hostvars['localhost']['canary_ec2_ipadd']}}"});
 			});
 		}
 		
