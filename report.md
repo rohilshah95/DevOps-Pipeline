@@ -1,7 +1,7 @@
 ## Milestone: SPECIAL (Location-based Canary Release)
 As part of this milestone, we extended the canary release component for checkbox.io to include a location-based canary release.
 
-Based on the location of the client, which is obtained from the client's public IP Address, we assign features on checkbox.io.
+Based on the location of the client, which is obtained from the client's public IP Address, we can assign features on checkbox.io.
 For demonstration purposes, the title bar of checkbox.io's index page is modified based on the location of the client. We consider three categories for the client's location. 
 1. Inside the state of North Carolina (NC),
 2. Outside the state of North Carolina (NC) and inside The United States of America,
@@ -13,4 +13,4 @@ The implementation design is shown below. The demonstration of this component is
 
 ### High Level Design
 
-![img](/content/load-balancer.png)
+![img](/content/m4_design.png)
