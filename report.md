@@ -9,4 +9,8 @@ For demonstration purposes, the title bar of checkbox.io's index page is modifie
 
 For demonstration, we host checkbox.io on two servers, one is located in The United States of America and the other is located in London. Based on the location of the client, the requests are routed to the respective servers. A client's request from within The United States of America will be routed to the former server, whereas a client's request from anywhere outside The United States of America will be routed to the latter server. Load balancing in this manner reduces latency. Moreover, these servers are a mirror of each other; in an event one of them becomes unavailable, all the requests will be routed to the other server and the clients will have no perception about which server is actually responding to them. 
 
+The implementation design is shown below. The demonstration of this component is included in the milestone presentation.
+
+### High Level Design
+
 ![img](/content/load-balancer.png)
