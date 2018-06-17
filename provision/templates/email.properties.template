@@ -1,4 +1,0 @@
-from 
-username onepluscarrental
-password {{smtp_pwd}}
-host smtp.gmail.com

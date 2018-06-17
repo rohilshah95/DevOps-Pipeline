@@ -1,8 +1,0 @@
----
-
-# Java Role: /roles/git/tasks/main.yml
-- name: Installing git
-  apt:
-    name: git
-    update_cache: yes
-    install_recommends: yes
