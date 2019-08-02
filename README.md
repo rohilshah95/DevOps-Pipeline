@@ -22,7 +22,7 @@ ansible-playbook main.yml --vault-password-file ./password.txt
 ```
   
 
-[setup_cluster.yml](https://github.ncsu.edu/rshah8/DevOps-Project/blob/m3/infrastructure/setup_cluster.yml), for Kubernetes and Redis Feature Flag, we run the script: 
+[setup_cluster.yml](/infrastructure/setup_cluster.yml), for Kubernetes and Redis Feature Flag, we run the script: 
 ``` 
 ansible-playbook infrastructure/setup_cluster.yml --vault-password-file ./password.txt
 ```
